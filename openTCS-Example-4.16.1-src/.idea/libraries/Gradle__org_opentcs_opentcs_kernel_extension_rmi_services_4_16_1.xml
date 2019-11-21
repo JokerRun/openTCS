@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.opentcs:opentcs-kernel-extension-rmi-services:4.16.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.opentcs/opentcs-kernel-extension-rmi-services/4.16.1/e5b9080c8827749043d23edaa4370b44450f1c59/opentcs-kernel-extension-rmi-services-4.16.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.opentcs/opentcs-kernel-extension-rmi-services/4.16.1/c40de9e796a352ef28338f017d7438f7dab0134/opentcs-kernel-extension-rmi-services-4.16.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

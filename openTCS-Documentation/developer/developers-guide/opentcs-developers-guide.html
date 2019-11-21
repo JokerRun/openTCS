@@ -1,0 +1,2422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.4">
+<meta name="author" content="The openTCS developers">
+<title>openTCS: Developer&#8217;s Guide</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<style>
+/* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
+/* Remove comment around @import statement below when using as a custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
+audio,canvas,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+[hidden],template{display:none}
+script{display:none!important}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+body{margin:0}
+a{background:transparent}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}
+input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,*:before,*:after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+body{-webkit-font-smoothing:antialiased}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.spread{width:100%}
+p.lead,.paragraph.lead>p,#preamble>.sectionbody>.paragraph:first-of-type p{font-size:1.21875em;line-height:1.6}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:none}
+p{font-family:inherit;font-weight:400;font-size:1em;line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #ddddd8;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em;height:0}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol,ul.no-bullet,ol.no-bullet{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ul.no-bullet{list-style:none}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
+abbr{text-transform:none}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite:before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media only screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table thead,table tfoot{background:#f7f8f7;font-weight:bold}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt,table tr:nth-of-type(even){background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+body{tab-size:4}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.clearfix:before,.clearfix:after,.float-group:before,.float-group:after{content:" ";display:table}
+.clearfix:after,.float-group:after{clear:both}
+*:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
+pre,pre>code{line-height:1.45;color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;text-rendering:optimizeSpeed}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menu{color:rgba(0,0,0,.8)}
+b.button:before,b.button:after{position:relative;top:-1px;font-weight:400}
+b.button:before{content:"[";padding:0 3px 0 2px}
+b.button:after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header:before,#header:after,#content:before,#content:after,#footnotes:before,#footnotes:after,#footer:before,#footer:after{content:" ";display:table}
+#header:after,#content:after,#footnotes:after,#footer:after{clear:both}
+#content{margin-top:1.25em}
+#content:before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #ddddd8}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #ddddd8;padding-bottom:8px}
+#header .details{border-bottom:1px solid #ddddd8;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span:before{content:"\00a0\2013\00a0"}
+#header .details br+span.author:before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark:before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber:after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #ddddd8;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #efefed;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media only screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background-color:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #efefed;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #efefed;left:auto;right:0}}
+@media only screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:100%;background-color:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:rgba(255,255,255,.8);line-height:1.44}
+.sect1{padding-bottom:.625em}
+@media only screen and (min-width:768px){.sect1{padding-bottom:1.25em}}
+.sect1+.sect1{border-top:1px solid #efefed}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor:before,h2>a.anchor:before,h3>a.anchor:before,#toctitle>a.anchor:before,.sidebarblock>.content>.title>a.anchor:before,h4>a.anchor:before,h5>a.anchor:before,h6>a.anchor:before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock>caption.title{white-space:nowrap;overflow:visible;max-width:0}
+.paragraph.lead>p,#preamble>.sectionbody>.paragraph:first-of-type p{color:rgba(0,0,0,.85)}
+table.tableblock #preamble>.sectionbody>.paragraph:first-of-type p{font-size:inherit}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #ddddd8;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock pre:not(.highlight),.listingblock pre[class="highlight"],.listingblock pre[class^="highlight "],.listingblock pre.CodeRay,.listingblock pre.prettyprint{background:#f7f7f8}
+.sidebarblock .literalblock pre,.sidebarblock .listingblock pre:not(.highlight),.sidebarblock .listingblock pre[class="highlight"],.sidebarblock .listingblock pre[class^="highlight "],.sidebarblock .listingblock pre.CodeRay,.sidebarblock .listingblock pre.prettyprint{background:#f2f1f1}
+.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;padding:1em;font-size:.8125em}
+.literalblock pre.nowrap,.literalblock pre[class].nowrap,.listingblock pre.nowrap,.listingblock pre[class].nowrap{overflow-x:auto;white-space:pre;word-wrap:normal}
+@media only screen and (min-width:768px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:.90625em}}
+@media only screen and (min-width:1280px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:1em}}
+.literalblock.output pre{color:#f7f7f8;background-color:rgba(0,0,0,.9)}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]:before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:#999}
+.listingblock:hover code[data-lang]:before{display:block}
+.listingblock.terminal pre .command:before{content:attr(data-prompt);padding-right:.5em;color:#999}
+.listingblock.terminal pre .command:not([data-prompt]):before{content:"$"}
+table.pyhltable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.pyhltable td{vertical-align:top;padding-top:0;padding-bottom:0;line-height:1.45}
+table.pyhltable td.code{padding-left:.75em;padding-right:0}
+pre.pygments .lineno,table.pyhltable td:not(.code){color:#999;padding-left:0;padding-right:.5em;border-right:1px solid #ddddd8}
+pre.pygments .lineno{display:inline-block;margin-right:.25em}
+table.pyhltable .linenodiv{background:none!important;padding-right:0!important}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock blockquote p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote:before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.5em;margin-right:.5ex;text-align:right}
+.quoteblock .quoteblock{margin-left:0;margin-right:0;padding:.5em 0;border-left:3px solid rgba(0,0,0,.6)}
+.quoteblock .quoteblock blockquote{padding:0 0 0 .75em}
+.quoteblock .quoteblock blockquote:before{display:none}
+.verseblock{margin:0 1em 1.25em 1em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract{margin:0 0 1.25em 0;display:block}
+.quoteblock.abstract blockquote,.quoteblock.abstract blockquote p{text-align:left;word-spacing:0}
+.quoteblock.abstract blockquote:before,.quoteblock.abstract blockquote p:first-of-type:before{display:none}
+table.tableblock{max-width:100%;border-collapse:separate}
+table.tableblock td>.paragraph:last-child p>p:last-child,table.tableblock th>p:last-child,table.tableblock td>p:last-child{margin-bottom:0}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all th.tableblock,table.grid-all td.tableblock{border-width:0 1px 1px 0}
+table.grid-all tfoot>tr>th.tableblock,table.grid-all tfoot>tr>td.tableblock{border-width:1px 1px 0 0}
+table.grid-cols th.tableblock,table.grid-cols td.tableblock{border-width:0 1px 0 0}
+table.grid-all *>tr>.tableblock:last-child,table.grid-cols *>tr>.tableblock:last-child{border-right-width:0}
+table.grid-rows th.tableblock,table.grid-rows td.tableblock{border-width:0 0 1px 0}
+table.grid-all tbody>tr:last-child>th.tableblock,table.grid-all tbody>tr:last-child>td.tableblock,table.grid-all thead:last-child>tr>th.tableblock,table.grid-rows tbody>tr:last-child>th.tableblock,table.grid-rows tbody>tr:last-child>td.tableblock,table.grid-rows thead:last-child>tr>th.tableblock{border-bottom-width:0}
+table.grid-rows tfoot>tr>th.tableblock,table.grid-rows tfoot>tr>td.tableblock{border-width:1px 0 0 0}
+table.frame-all{border-width:1px}
+table.frame-sides{border-width:0 1px}
+table.frame-topbot{border-width:1px 0}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+td>div.verse{white-space:pre}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.unstyled,ol.unnumbered,ul.checklist,ul.none{list-style-type:none}
+ul.unstyled,ol.unnumbered,ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1em;font-size:.85em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{width:1em;position:relative;top:1px}
+ul.inline{margin:0 auto .625em auto;margin-left:-1.375em;margin-right:0;padding:0;list-style:none;overflow:hidden}
+ul.inline>li{list-style:none;float:left;margin-left:1.375em;display:block}
+ul.inline>li>*{display:block}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist>table tr>td:first-of-type{padding:0 .75em;line-height:1}
+.colist>table tr>td:last-of-type{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
+.imageblock.left,.imageblock[style*="float: left"]{margin:.25em .625em 1.25em 0}
+.imageblock.right,.imageblock[style*="float: right"]{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em 0;border-width:1px 0 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;text-indent:-1.05em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background-color:#00fafa}
+.black{color:#000}
+.black-background{background-color:#000}
+.blue{color:#0000bf}
+.blue-background{background-color:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background-color:#fa00fa}
+.gray{color:#606060}
+.gray-background{background-color:#7d7d7d}
+.green{color:#006000}
+.green-background{background-color:#007d00}
+.lime{color:#00bf00}
+.lime-background{background-color:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background-color:#7d0000}
+.navy{color:#000060}
+.navy-background{background-color:#00007d}
+.olive{color:#606000}
+.olive-background{background-color:#7d7d00}
+.purple{color:#600060}
+.purple-background{background-color:#7d007d}
+.red{color:#bf0000}
+.red-background{background-color:#fa0000}
+.silver{color:#909090}
+.silver-background{background-color:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background-color:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background-color:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background-color:#fafa00}
+span.icon>.fa{cursor:default}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note:before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip:before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning:before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution:before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important:before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background-color:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]:after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background-color:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@media print{@page{margin:1.25cm .75cm}
+*{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare):after,a[href^="https:"]:not(.bare):after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]:after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #ddddd8!important;padding-bottom:0!important}
+.sect1{padding-bottom:0!important}
+.sect1+.sect1{border:0!important}
+#header>h1:first-child{margin-top:1.25rem}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em 0}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span:before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]:before{display:block}
+#footer{background:none!important;padding:0 .9375em}
+#footer-text{color:rgba(0,0,0,.6)!important;font-size:.9em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<style>
+/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
+/*pre.CodeRay {background-color:#f7f7f8;}*/
+.CodeRay .line-numbers{border-right:1px solid #d8d8d8;padding:0 0.5em 0 .25em}
+.CodeRay span.line-numbers{display:inline-block;margin-right:.5em;color:rgba(0,0,0,.3)}
+.CodeRay .line-numbers strong{color:rgba(0,0,0,.4)}
+table.CodeRay{border-collapse:separate;border-spacing:0;margin-bottom:0;border:0;background:none}
+table.CodeRay td{vertical-align: top;line-height:1.45}
+table.CodeRay td.line-numbers{text-align:right}
+table.CodeRay td.line-numbers>pre{padding:0;color:rgba(0,0,0,.3)}
+table.CodeRay td.code{padding:0 0 0 .5em}
+table.CodeRay td.code>pre{padding:0}
+.CodeRay .debug{color:#fff !important;background:#000080 !important}
+.CodeRay .annotation{color:#007}
+.CodeRay .attribute-name{color:#000080}
+.CodeRay .attribute-value{color:#700}
+.CodeRay .binary{color:#509}
+.CodeRay .comment{color:#998;font-style:italic}
+.CodeRay .char{color:#04d}
+.CodeRay .char .content{color:#04d}
+.CodeRay .char .delimiter{color:#039}
+.CodeRay .class{color:#458;font-weight:bold}
+.CodeRay .complex{color:#a08}
+.CodeRay .constant,.CodeRay .predefined-constant{color:#008080}
+.CodeRay .color{color:#099}
+.CodeRay .class-variable{color:#369}
+.CodeRay .decorator{color:#b0b}
+.CodeRay .definition{color:#099}
+.CodeRay .delimiter{color:#000}
+.CodeRay .doc{color:#970}
+.CodeRay .doctype{color:#34b}
+.CodeRay .doc-string{color:#d42}
+.CodeRay .escape{color:#666}
+.CodeRay .entity{color:#800}
+.CodeRay .error{color:#808}
+.CodeRay .exception{color:inherit}
+.CodeRay .filename{color:#099}
+.CodeRay .function{color:#900;font-weight:bold}
+.CodeRay .global-variable{color:#008080}
+.CodeRay .hex{color:#058}
+.CodeRay .integer,.CodeRay .float{color:#099}
+.CodeRay .include{color:#555}
+.CodeRay .inline{color:#000}
+.CodeRay .inline .inline{background:#ccc}
+.CodeRay .inline .inline .inline{background:#bbb}
+.CodeRay .inline .inline-delimiter{color:#d14}
+.CodeRay .inline-delimiter{color:#d14}
+.CodeRay .important{color:#555;font-weight:bold}
+.CodeRay .interpreted{color:#b2b}
+.CodeRay .instance-variable{color:#008080}
+.CodeRay .label{color:#970}
+.CodeRay .local-variable{color:#963}
+.CodeRay .octal{color:#40e}
+.CodeRay .predefined{color:#369}
+.CodeRay .preprocessor{color:#579}
+.CodeRay .pseudo-class{color:#555}
+.CodeRay .directive{font-weight:bold}
+.CodeRay .type{font-weight:bold}
+.CodeRay .predefined-type{color:inherit}
+.CodeRay .reserved,.CodeRay .keyword {color:#000;font-weight:bold}
+.CodeRay .key{color:#808}
+.CodeRay .key .delimiter{color:#606}
+.CodeRay .key .char{color:#80f}
+.CodeRay .value{color:#088}
+.CodeRay .regexp .delimiter{color:#808}
+.CodeRay .regexp .content{color:#808}
+.CodeRay .regexp .modifier{color:#808}
+.CodeRay .regexp .char{color:#d14}
+.CodeRay .regexp .function{color:#404;font-weight:bold}
+.CodeRay .string{color:#d20}
+.CodeRay .string .string .string{background:#ffd0d0}
+.CodeRay .string .content{color:#d14}
+.CodeRay .string .char{color:#d14}
+.CodeRay .string .delimiter{color:#d14}
+.CodeRay .shell{color:#d14}
+.CodeRay .shell .delimiter{color:#d14}
+.CodeRay .symbol{color:#990073}
+.CodeRay .symbol .content{color:#a60}
+.CodeRay .symbol .delimiter{color:#630}
+.CodeRay .tag{color:#008080}
+.CodeRay .tag-special{color:#d70}
+.CodeRay .variable{color:#036}
+.CodeRay .insert{background:#afa}
+.CodeRay .delete{background:#faa}
+.CodeRay .change{color:#aaf;background:#007}
+.CodeRay .head{color:#f8f;background:#505}
+.CodeRay .insert .insert{color:#080}
+.CodeRay .delete .delete{color:#800}
+.CodeRay .change .change{color:#66f}
+.CodeRay .head .head{color:#f4f}
+</style>
+</head>
+<body class="book toc2 toc-left">
+<div id="header">
+<h1>openTCS: Developer&#8217;s Guide</h1>
+<div class="details">
+<span id="author" class="author">The openTCS developers</span><br>
+<span id="revdate">openTCS 4.16.1</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_development_with_opentcs_in_general">1. Development with openTCS in general</a>
+<ul class="sectlevel2">
+<li><a href="#_system_requirements">1.1. System requirements</a></li>
+<li><a href="#_available_artifacts_and_api_compatibility">1.2. Available artifacts and API compatibility</a></li>
+<li><a href="#_third_party_dependencies">1.3. Third-party dependencies</a></li>
+<li><a href="#_modularity_and_extensibility">1.4. Modularity and extensibility</a></li>
+<li><a href="#_logging">1.5. Logging</a></li>
+<li><a href="#_working_with_the_opentcs_source_code">1.6. Working with the openTCS source code</a></li>
+<li><a href="#_opentcs_kernel_apis">1.7. openTCS kernel APIs</a></li>
+</ul>
+</li>
+<li><a href="#section-kernel-api">2. The kernel&#8217;s Java API</a>
+<ul class="sectlevel2">
+<li><a href="#_acquiring_service_objects">2.1. Acquiring service objects</a></li>
+<li><a href="#_working_with_transport_orders">2.2. Working with transport orders</a>
+<ul class="sectlevel3">
+<li><a href="#_a_transport_order_s_life_cycle">2.2.1. A transport order&#8217;s life cycle</a></li>
+<li><a href="#_structure_and_processing_of_transport_orders">2.2.2. Structure and processing of transport orders</a></li>
+<li><a href="#_how_to_create_a_new_transport_order">2.2.3. How to create a new transport order</a></li>
+<li><a href="#_how_to_create_a_transport_order_that_sends_a_vehicle_to_a_point_instead_of_a_location">2.2.4. How to create a transport order that sends a vehicle to a point instead of a location</a></li>
+<li><a href="#_using_order_sequences">2.2.5. Using order sequences</a></li>
+<li><a href="#_how_to_withdraw_a_transport_order_that_is_currently_being_processed">2.2.6. How to withdraw a transport order that is currently being processed</a></li>
+<li><a href="#_how_to_withdraw_a_transport_order_via_a_reference_on_the_vehicle_processing_it">2.2.7. How to withdraw a transport order via a reference on the vehicle processing it</a></li>
+</ul>
+</li>
+<li><a href="#_using_the_event_bus">2.3. Using the event bus</a></li>
+</ul>
+</li>
+<li><a href="#section-tcp-host-interfaces">3. TCP/IP-based interfaces to other systems</a>
+<ul class="sectlevel2">
+<li><a href="#_creating_orders_via_tcp_ip">3.1. Creating orders via TCP/IP</a>
+<ul class="sectlevel3">
+<li><a href="#_xml_telegrams_for_creating_orders">3.1.1. XML telegrams for creating orders</a></li>
+<li><a href="#_xml_telegrams_referencing_order_batches">3.1.2. XML telegrams referencing order batches</a></li>
+<li><a href="#_receipts_for_created_orders">3.1.3. Receipts for created orders</a></li>
+<li><a href="#_receipts_for_order_batches">3.1.4. Receipts for order batches</a></li>
+</ul>
+</li>
+<li><a href="#_status_messages_via_tcp_ip">3.2. Status messages via TCP/IP</a></li>
+<li><a href="#_xml_schema_definitions_for_telegrams_and_scripts">3.3. XML Schema definitions for telegrams and scripts</a></li>
+</ul>
+</li>
+<li><a href="#_generating_an_integration_project">4. Generating an integration project</a></li>
+<li><a href="#_customizing_and_extending_the_kernel_application">5. Customizing and extending the kernel application</a>
+<ul class="sectlevel2">
+<li><a href="#_guice_modules">5.1. Guice modules</a></li>
+<li><a href="#_replacing_default_kernel_components">5.2. Replacing default kernel components</a></li>
+<li><a href="#_developing_vehicle_drivers">5.3. Developing vehicle drivers</a>
+<ul class="sectlevel3">
+<li><a href="#_classes_and_interfaces_for_the_kernel">5.3.1. Classes and interfaces for the kernel</a></li>
+<li><a href="#_classes_and_interfaces_for_the_control_center">5.3.2. Classes and interfaces for the control center</a></li>
+<li><a href="#_steps_to_create_a_new_vehicle_driver">5.3.3. Steps to create a new vehicle driver</a></li>
+<li><a href="#_registering_a_vehicle_driver_with_the_kernel">5.3.4. Registering a vehicle driver with the kernel</a></li>
+</ul>
+</li>
+<li><a href="#_sending_messages_to_communication_adapters">5.4. Sending messages to communication adapters</a></li>
+<li><a href="#_acquiring_data_from_communication_adapters">5.5. Acquiring data from communication adapters</a></li>
+<li><a href="#section-kernel-executor">5.6. Executing code in kernel context</a></li>
+</ul>
+</li>
+<li><a href="#_customizing_and_extending_the_control_center_application">6. Customizing and extending the control center application</a>
+<ul class="sectlevel2">
+<li><a href="#_guice_modules_2">6.1. Guice modules</a></li>
+<li><a href="#_registering_driver_panels_with_the_control_center">6.2. Registering driver panels with the control center</a></li>
+</ul>
+</li>
+<li><a href="#_customizing_and_extending_the_plant_overview_application">7. Customizing and extending the plant overview application</a>
+<ul class="sectlevel2">
+<li><a href="#_guice_modules_3">7.1. Guice modules</a></li>
+<li><a href="#_how_to_create_a_plugin_panel_for_the_plant_overview_client">7.2. How to create a plugin panel for the plant overview client</a></li>
+<li><a href="#_how_to_create_a_location_vehicle_theme_for_opentcs">7.3. How to create a location/vehicle theme for openTCS</a></li>
+</ul>
+</li>
+<li><a href="#_translating_the_user_interfaces">8. Translating the user interfaces</a>
+<ul class="sectlevel2">
+<li><a href="#_extracting_default_language_files">8.1. Extracting default language files</a></li>
+<li><a href="#_creating_a_translation">8.2. Creating a translation</a></li>
+<li><a href="#_integrating_a_translation">8.3. Integrating a translation</a></li>
+<li><a href="#_updating_a_translation">8.4. Updating a translation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_development_with_opentcs_in_general">1. Development with openTCS in general</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_system_requirements">1.1. System requirements</h3>
+<div class="paragraph">
+<p>The openTCS source code is written in Java.
+To compile it, you need a Java Development Kit (JDK) 1.8.
+To run the resulting binaries, you need a Java Runtime Environment (JRE) 1.8.
+All other required libraries are included in the openTCS distribution or will be downloaded automatically when building it from source code.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_available_artifacts_and_api_compatibility">1.2. Available artifacts and API compatibility</h3>
+<div class="paragraph">
+<p>The openTCS project publishes artifacts for releases via <a href="https://bintray.com/bintray/jcenter">JCenter</a>, so you can easily integrate them with build systems such as Gradle or Maven.
+In Gradle build scripts, for example, use something like the following to integrate an openTCS library:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="groovy">repositories {
+  jcenter()
+}
+
+dependencies {
+  compile group: 'org.opentcs', name: '${ARTIFACT}', version: '4.16.1'
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Set the version number of the openTCS release you actually want to work with, and select the appropriate <code>${ARTIFACT}</code> name from the following table:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. Artifacts published by the openTCS project</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Artifact name</th>
+<th class="tableblock halign-left valign-top">API compatibility between minor releases</th>
+<th class="tableblock halign-left valign-top">Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>opentcs-api-base</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The base API for clients and extensions.
+This is what most developers probably want to use.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>opentcs-api-injection</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Yes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API interfaces and classes used for dependency injection within the kernel and plant overview applications.
+This is required in integration projects customizing these applications, e.g. adding components like vehicle driver implementations.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>opentcs-common</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A collection of utility classes used by openTCS components.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>opentcs-impl-configuration-cfg4j</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An implementation of the base API&#8217;s configuration interfaces based on cfg4j.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>opentcs-kernel-extension-http-services</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A kernel extension providing the web API implementation.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>opentcs-kernel-extension-rmi-services</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A kernel extension providing the RMI interface implementation.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>opentcs-kernel-extension-statistics</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A kernel extension providing the statistics collection implementation.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>opentcs-kernel-extension-tcp-host-interface</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A kernel extension providing the (deprecated) TCP/IP host interface implementation.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>opentcs-plantoverview-panel-loadgenerator</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The load generator panel implementation for the plant overview.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>opentcs-plantoverview-panel-resourceallocation</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The resource allocation panel implemenation for the plant overview.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>opentcs-plantoverview-panel-statistics</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The statistics panel implementation for the plant overview.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>opentcs-plantoverview-themes-default</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The default themes implementation for the plant overview.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>opentcs-commadapter-loopback</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A very basic vehicle driver simulating a virtual vehicle.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>opentcs-strategies-default</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The default implementations of strategies that are used by the kernel application.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>opentcs-kernel</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The kernel application.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>opentcs-kernelcontrolcenter</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The kernel control center application.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>opentcs-plantoverview</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The plant overview application.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Note that only the basic API libraries provide a documented API that the openTCS developers try to keep compatible between minor releases.
+(For these libraries, the rules of <a href="https://semver.org/">semantic versioning</a> are applied.)
+All other artifacts' contents can and will change regardless of any compatibility concerns, so if you use these and switch to a different version of openTCS, you may have to adjust and recompile your code.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_third_party_dependencies">1.3. Third-party dependencies</h3>
+<div class="paragraph">
+<p>The kernel and the client applications depend on the following external frameworks and libraries:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>SLF4J (<a href="https://www.slf4j.org/" class="bare">https://www.slf4j.org/</a>):
+A simple logging facade to keep the actual logging implementation replaceable.</p>
+</li>
+<li>
+<p>Google Guice (<a href="https://github.com/google/guice" class="bare">https://github.com/google/guice</a>):
+A light-weight dependency injection framework.</p>
+</li>
+<li>
+<p>Cfg4j (<a href="http://www.cfg4j.org/" class="bare">http://www.cfg4j.org/</a>):
+A configuration library supporting binding interfaces.</p>
+</li>
+<li>
+<p>Google Guava (<a href="https://github.com/google/guava" class="bare">https://github.com/google/guava</a>):
+A collection of small helper classes and methods.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The kernel application also depends on the following libraries:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>JGraphT (<a href="http://jgrapht.org/" class="bare">http://jgrapht.org/</a>):
+A library for working with graphs and using algorithms on them.</p>
+</li>
+<li>
+<p>Spark (<a href="http://sparkjava.com/" class="bare">http://sparkjava.com/</a>):
+A framework for creating web applications.</p>
+</li>
+<li>
+<p>Jackson (<a href="https://github.com/FasterXML/jackson" class="bare">https://github.com/FasterXML/jackson</a>):
+Provides JSON bindings for Java objects.</p>
+</li>
+<li>
+<p>JDOM (<a href="http://www.jdom.org/" class="bare">http://www.jdom.org/</a>):
+A library for reading and writing XML data.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The plant overview application has the following additional dependencies:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>JHotDraw (<a href="http://www.jhotdraw.org/" class="bare">http://www.jhotdraw.org/</a>):
+A framework for drawing graph structures (like driving course models).</p>
+</li>
+<li>
+<p>Docking Frames (<a href="http://www.docking-frames.org/" class="bare">http://www.docking-frames.org/</a>):
+A framework for docking and undocking of GUI panels</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For automatic tests, the following dependencies are used:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>JUnit (<a href="https://junit.org/" class="bare">https://junit.org/</a>):
+A simple unit-testing framework.</p>
+</li>
+<li>
+<p>Mockito (<a href="http://mockito.org/" class="bare">http://mockito.org/</a>):
+A framework for creating mock objects.</p>
+</li>
+<li>
+<p>Hamcrest (<a href="http://hamcrest.org/" class="bare">http://hamcrest.org/</a>):
+A framework for assertion matchers that can be used in tests.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The artifacts for these dependencies are downloaded automatically when building the applications.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_modularity_and_extensibility">1.4. Modularity and extensibility</h3>
+<div class="paragraph">
+<p>The openTCS project heavily relies on <a href="https://github.com/google/guice">Guice</a> for dependency injection and wiring of components as well as for providing plugin-like extension mechanisms.
+In the injection API, relevant classes can be found in the package <code>org.opentcs.customizations</code>.
+For examples, see <a href="#_customizing_and_extending_the_kernel_application">Customizing and extending the kernel application</a>, <a href="#_customizing_and_extending_the_plant_overview_application">Customizing and extending the plant overview application</a> and <a href="#_customizing_and_extending_the_control_center_application">Customizing and extending the control center application</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_logging">1.5. Logging</h3>
+<div class="paragraph">
+<p>The code in the official openTCS distribution uses <a href="http://www.slf4j.org/">SLF4J</a> for logging.
+Thus, the actual logging implementation is easily interchangeable by replacing the SLF4J binding in the respective application&#8217;s classpath.
+The kernel and plant overview client applications come with SLF4J&#8217;s bindings for <code>java.util.logging</code> by default.
+For more information on how to change the actual logging implementation, e.g. to use log4j, please see the SLF4J documentation.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_working_with_the_opentcs_source_code">1.6. Working with the openTCS source code</h3>
+<div class="paragraph">
+<p>The openTCS project itself uses <a href="https://gradle.org/">Gradle</a> as its build management tool.
+To build openTCS from source code, just run <code>gradlew build</code> from the source distribution&#8217;s main directory.
+For details on how to work with Gradle, please see <a href="https://docs.gradle.org/">its documentation</a>.</p>
+</div>
+<div class="paragraph">
+<p>These are the main Gradle tasks of the root project you need to know to get started:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>build</code>: Compiles the source code of all subprojects.</p>
+</li>
+<li>
+<p><code>release</code>: Builds and packages all system components to a distribution in <code>build/</code>.</p>
+</li>
+<li>
+<p><code>clean</code>: Cleans up everything produced by the other tasks.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To work with the source code in your IDE, see the IDE&#8217;s documentation for Gradle integration.
+There is no general recommendation for any specific IDE.
+Note, however, that the openTCS source code contains GUI components that have been created with the NetBeans GUI builder.
+If you want to edit these, you may want to use the NetBeans IDE.</p>
+</div>
+<div class="paragraph">
+<p>In case you use NetBeans, install the <a href="http://plugins.netbeans.org/plugin/44510/gradle-support">Gradle Support</a> plugin from the NetBeans plugin portal.
+You should then be able to open the source distribution&#8217;s root directory as a Gradle project and compile and run the components from within NetBeans.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_opentcs_kernel_apis">1.7. openTCS kernel APIs</h3>
+<div class="paragraph">
+<p>openTCS provides the following APIs to interact with the kernel:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The kernel&#8217;s Java API for both extending the kernel application as well as interfacing with it via RMI.
+See <a href="#section-kernel-api">The kernel&#8217;s Java API</a> for details.</p>
+</li>
+<li>
+<p>A web API for interfacing with the kernel via HTTP calls.
+See the separate interface documentation that is part of the openTCS distribution for details.</p>
+</li>
+<li>
+<p>A legacy TCP/IP-based interface for creating transport orders and fetching status information.
+See <a href="#section-tcp-host-interfaces">TCP/IP-based interfaces to other systems</a> for details.<br>
+<em>Note that this interface is deprecated in favour of the web API and will be removed with the release of openTCS 5.0.</em></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-kernel-api">2. The kernel&#8217;s Java API</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The interfaces and classes required to use the kernel API are part of the <code>opentcs-api-base</code> JAR file, so you should add that to your classpath/declare a dependency on it.
+(See <a href="#_available_artifacts_and_api_compatibility">Available artifacts and API compatibility</a>.)
+The basic data structures for plant model components and transport orders you will encounter often are:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/tcsobject_classes.png" alt="tcsobject classes">
+</div>
+<div class="title">Figure 1. Basic data structures</div>
+</div>
+<div class="paragraph">
+<p>The service interfaces that are most often interacted with to fetch and manipulate such objects are:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/service_interfaces.png" alt="service interfaces">
+</div>
+<div class="title">Figure 2. Service interfaces</div>
+</div>
+<div class="sect2">
+<h3 id="_acquiring_service_objects">2.1. Acquiring service objects</h3>
+<div class="paragraph">
+<p>To use the services in code running inside the kernel JVM, e.g. a vehicle driver, simply request an instance of e.g. <code>PlantModelService</code> to be provided via dependency injection.
+You may also work with an instance of <code>InternalPlantModelService</code> here, which provides additional methods available only to kernel application components.</p>
+</div>
+<div class="paragraph">
+<p>To access the services from another JVM, e.g. in a client that is supposed to create transport orders or to receive status updates for transport orders or vehicles, you need to connect to them via Remote Method Invocation (RMI).
+The easiest way to do this is by creating an instance of the <code>KernelServicePortalBuilder</code> class and letting it build a <code>KernelServicePortal</code> instance for you.
+(For now, there isn&#8217;t much support for user management, so it is recommended to ignore the methods that require user credentials.)
+After creating the <code>KernelServicePortal</code> instance, you can use it to get service instances and fetch kernel events from it.
+See also the class documentation for <code>KernelServicePortalBuilder</code> in the base API&#8217;s JavaDoc documentation.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">KernelServicePortal servicePortal = <span class="keyword">new</span> KernelServicePortalBuilder().build();
+
+<span class="comment">// Connect and log in with a kernel somewhere.</span>
+servicePortal.login(<span class="string"><span class="delimiter">&quot;</span><span class="content">someHost</span><span class="delimiter">&quot;</span></span>, <span class="integer">1099</span>);
+
+<span class="comment">// Get a reference to the plant model service...</span>
+PlantModelService plantModelService = servicePortal.getPlantModelService();
+<span class="comment">// ...and find out the name of the currently loaded model.</span>
+<span class="predefined-type">String</span> modelName = plantModelService.getLoadedModelName();
+
+<span class="comment">// Poll events, waiting up to a second if none are currently there.</span>
+<span class="comment">// This should be done periodically, and probably in a separate thread.</span>
+<span class="predefined-type">List</span>&lt;<span class="predefined-type">Object</span>&gt; events = servicePortal.fetchEvents(<span class="integer">1000</span>);</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_working_with_transport_orders">2.2. Working with transport orders</h3>
+<div class="paragraph">
+<p>A transport order, represented by an instance of the class <code>TransportOrder</code>, describes a process to be executed by a vehicle.
+Usually, this process is an actual transport of goods from one location to another.
+A <code>TransportOrder</code> may, however, also just describe a vehicle&#8217;s movement to a destination position and an optional vehicle operation to be performed.</p>
+</div>
+<div class="paragraph">
+<p>All of the following are examples for "transport orders" in openTCS, even if nothing is actually being transported:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A classic order for transporting goods from somewhere to somewhere else:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Move to location "A" and perform operation "Load cargo" there.</p>
+</li>
+<li>
+<p>Move to location "B" and perform operation "Unload cargo" there.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Manipulation of transported or stationary goods:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Move to location "A" and perform operation "Drill" there.</p>
+</li>
+<li>
+<p>Move to location "B" and perform operation "Hammer" there.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>An order to move the vehicle to a parking position:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Move to point "Park 01" (without performing any specific operation).</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>An order to recharge the vehicle&#8217;s battery:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Move to location "Recharge station" and perform operation "Charge battery" there.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_a_transport_order_s_life_cycle">2.2.1. A transport order&#8217;s life cycle</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>When a transport order is created, its initial state is <code>RAW</code>.</p>
+</li>
+<li>
+<p>A user/client sets parameters for the transport order that are supposed to influence the transport process.
+These parameters may be e.g. the transport order&#8217;s deadline, the vehicle that is supposed to process the transport order or a set of generic, usually project-specific properties.</p>
+</li>
+<li>
+<p>The transport order is activated, i.e. parameter setup is finished.
+Its state is set to <code>ACTIVE</code>.</p>
+</li>
+<li>
+<p>The kernel&#8217;s router checks whether routing between the transport order&#8217;s destinations is possible at all.
+If yes, its state is changed to <code>DISPATCHABLE</code>.
+If routing is not possible, the transport order is marked as <code>UNROUTABLE</code> and not processed any further.</p>
+</li>
+<li>
+<p>The kernel&#8217;s dispatcher checks whether all requirements for executing the transport order are fulfilled and a vehicle is available for processing it.
+As long as there are any requirements not yet fulfilled or no vehicle can execute it, the transport order is left waiting.</p>
+</li>
+<li>
+<p>The kernel&#8217;s dispatcher assigns the transport order to a vehicle for processing.
+Its state is changed to <code>BEING_PROCESSED</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>If a transport order that is being processed is withdrawn (by a client/user), its state first changes to <code>WITHDRAWN</code> while the vehicle executes any orders that had already been sent to it.
+Then the transport order&#8217;s state changes to <code>FAILED</code>.
+It is not processed any further.</p>
+</li>
+<li>
+<p>If processing of the transport order fails for any reason, it is marked as <code>FAILED</code> and not processed any further.</p>
+</li>
+<li>
+<p>If the vehicle successfully processes the transport order as a whole, it is marked as <code>FINISHED</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Eventually&#8201;&#8212;&#8201;after a longer while or when too many transport orders in a final state have accumulated in the kernel&#8217;s order pool&#8201;&#8212;&#8201;the kernel removes the transport order.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The following state machine visualizes this life cycle:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/transportorder_states.png" alt="transportorder states">
+</div>
+<div class="title">Figure 3. Transport order states</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_structure_and_processing_of_transport_orders">2.2.2. Structure and processing of transport orders</h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/transportorder_classes.png" alt="transportorder classes">
+</div>
+<div class="title">Figure 4. Transport order classes</div>
+</div>
+<div class="paragraph">
+<p>A transport order is created by calling <code>TransportOrderService.createTransportOrder()</code>.
+As its parameter, it expects an instance of <code>TransportOrderCreationTO</code> containing the sequence of destinations to visit and the operations a vehicle is supposed to perform there.
+The kernel wraps each <code>Destination</code> in a newly-created <code>DriveOrder</code> instance.
+These <code>DriveOrder</code>s are themselves wrapped by the kernel in a single, newly-created <code>TransportOrder</code> instance in their given order.</p>
+</div>
+<div class="paragraph">
+<p>Once a <code>TransportOrder</code> is being assigned to a vehicle by the <code>Dispatcher</code>, a <code>Route</code> is computed for each of its <code>DriveOrder</code>s.
+These <code>Route</code>s are then stored in the corresponding <code>DriveOrder</code>s.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/transport_order_course.png" alt="transport order course">
+</div>
+</div>
+<div class="paragraph">
+<p>As soon as a vehicle (driver) is able to process a <code>DriveOrder</code>, the single <code>Step</code>s of its <code>Route</code> are mapped to <code>MovementCommand</code>s.
+These <code>MovementCommand</code>s contain all information the vehicle driver needs to reach the final destination and to perform the desired operation there.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/movementcommand_classes.png" alt="movementcommand classes">
+</div>
+<div class="title">Figure 5. MovementCommand-related classes</div>
+</div>
+<div class="paragraph">
+<p>The <code>MovementCommand</code>s for the partial routes to be travelled are sent to the vehicle driver bit by bit.
+The kernel only sends as many <code>MovementCommands</code>s in advance as is required for the vehicle driver to function properly.
+It does this to maintain fine-grained control over the paths/resources used by all vehicles.
+A vehicle driver may set the maximum number of <code>MovementCommand</code>s it gets in advance by adjusting its command queue capacity.</p>
+</div>
+<div class="paragraph">
+<p>As soon as a <code>DriveOrder</code> is finished, the <code>Route</code> of the next <code>DriveOrder</code> is mapped to <code>MovementCommand</code>s.
+Once the last <code>DriveOrder</code> of a <code>TransportOrder</code> is finished, the whole <code>TransportOrder</code> is finished, as well.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_how_to_create_a_new_transport_order">2.2.3. How to create a new transport order</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">    <span class="comment">// The transport order service instance we're working with</span>
+    TransportOrderService transportOrderService = getATransportOrderServiceReference();
+
+    <span class="comment">// The dispatcher service instance we're working with</span>
+    DispatcherService dispatcherService = getADispatcherServiceReference();
+
+    <span class="comment">// A list of destinations the transport order the vehicle is supposed</span>
+    <span class="comment">// to travel to:</span>
+    <span class="predefined-type">List</span>&lt;DestinationCreationTO&gt; destinations = <span class="keyword">new</span> <span class="predefined-type">LinkedList</span>&lt;&gt;();
+    <span class="comment">// Create a new destination description and add it to the list.</span>
+    <span class="comment">// Every destination is described by the name of the destination</span>
+    <span class="comment">// location in the plant model and an operation the vehicle is supposed</span>
+    <span class="comment">// to perform there:</span>
+    destinations.add(<span class="keyword">new</span> DestinationCreationTO(<span class="string"><span class="delimiter">&quot;</span><span class="content">Some location name</span><span class="delimiter">&quot;</span></span>,
+                                               <span class="string"><span class="delimiter">&quot;</span><span class="content">Some operation</span><span class="delimiter">&quot;</span></span>));
+    <span class="comment">// Add as many destinations to the list like this as necessary. Then</span>
+    <span class="comment">// create a transport order description with a name for the new transport</span>
+    <span class="comment">// order and the list of destinations.</span>
+    <span class="comment">// Note that the given name needs to be unique.</span>
+    TransportOrderCreationTO orderTO
+        = <span class="keyword">new</span> TransportOrderCreationTO(<span class="string"><span class="delimiter">&quot;</span><span class="content">MyTransportOrder</span><span class="delimiter">&quot;</span></span>,
+                                       destinations);
+    <span class="comment">// Optionally, express that the actual/full name of the order should be</span>
+    <span class="comment">// generated by the kernel.</span>
+    orderTO = orderTO.withIncompleteName(<span class="predefined-constant">true</span>);
+    <span class="comment">// Optionally, assign a specific vehicle to the transport order:</span>
+    orderTO = orderTO.withIntendedVehicleName(<span class="string"><span class="delimiter">&quot;</span><span class="content">Some vehicle name</span><span class="delimiter">&quot;</span></span>);
+    <span class="comment">// Optionally, set a deadline for the transport order:</span>
+    orderTO = orderTO.withDeadline(Instant.now().plus(<span class="integer">1</span>, ChronoUnit.HOURS));
+
+    <span class="comment">// Create a new transport order for the given description:</span>
+    TransportOrder newOrder = transportOrderService.createTransportOrder(orderTO);
+
+    <span class="comment">// Trigger the dispatch process for the created transport order.</span>
+    dispatcherService.dispatch();</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_how_to_create_a_transport_order_that_sends_a_vehicle_to_a_point_instead_of_a_location">2.2.4. How to create a transport order that sends a vehicle to a point instead of a location</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">    <span class="comment">// The transport order service instance we're working with</span>
+    TransportOrderService transportOrderService = getATransportOrderServiceReference();
+
+    <span class="comment">// The dispatcher service instance we're working with</span>
+    DispatcherService dispatcherService = getADispatcherServiceReference();
+
+    <span class="comment">// Create a list containing a single destination to a point.</span>
+    <span class="comment">// Use Destination.OP_MOVE as the operation to be executed:</span>
+    <span class="predefined-type">List</span>&lt;DestinationCreationTO&gt; destinations = <span class="keyword">new</span> <span class="predefined-type">LinkedList</span>&lt;&gt;();
+    destinations.add(<span class="keyword">new</span> DestinationCreationTO(<span class="string"><span class="delimiter">&quot;</span><span class="content">Some point name</span><span class="delimiter">&quot;</span></span>,
+                                               <span class="predefined-type">Destination</span>.OP_MOVE));
+    <span class="comment">// Create a transport order description with the destination and a</span>
+    <span class="comment">// unique name and assign it to a specific vehicle:</span>
+    TransportOrderCreationTO orderTO
+        = <span class="keyword">new</span> TransportOrderCreationTO(<span class="string"><span class="delimiter">&quot;</span><span class="content">MyTransportOrder</span><span class="delimiter">&quot;</span></span>,
+                                       destinations)
+            .withIntendedVehicleName(<span class="string"><span class="delimiter">&quot;</span><span class="content">Some vehicle name</span><span class="delimiter">&quot;</span></span>)
+            .withIncompleteName(<span class="predefined-constant">true</span>);
+
+    <span class="comment">// Create a transport order using the description:</span>
+    TransportOrder dummyOrder = transportOrderService.createTransportOrder(orderTO);
+
+    <span class="comment">// Trigger the dispatch process for the created transport order.</span>
+    dispatcherService.dispatch();</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_using_order_sequences">2.2.5. Using order sequences</h4>
+<div class="paragraph">
+<p>An order sequence can be used to force a single vehicle to process multiple transport orders in a given order.
+Some rules for using order sequences are described in the API documentation for <code>OrderSequence</code>, but here is what you would do in general:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">    <span class="comment">// The transport order service instance we're working with</span>
+    TransportOrderService transportOrderService = getATransportOrderServiceReference();
+
+    <span class="comment">// The dispatcher service instance we're working with</span>
+    DispatcherService dispatcherService = getADispatcherServiceReference();
+
+    <span class="comment">// Create an order sequence description with a unique name:</span>
+    OrderSequenceCreationTO sequenceTO
+        = <span class="keyword">new</span> OrderSequenceCreationTO(<span class="string"><span class="delimiter">&quot;</span><span class="content">MyOrderSequence</span><span class="delimiter">&quot;</span></span>);
+    <span class="comment">// Optionally, express that the actual/full name of the sequence should be</span>
+    <span class="comment">// generated by the kernel.</span>
+    sequenceTO = sequenceTO.withIncompleteName(<span class="predefined-constant">true</span>);
+    <span class="comment">// Optionally, set the sequence's failure-fatal flag:</span>
+    sequenceTO = sequenceTO.withFailureFatal(<span class="predefined-constant">true</span>);
+
+    <span class="comment">// Create the order sequence:</span>
+    OrderSequence orderSequence = transportOrderService.createOrderSequence(sequenceTO);
+
+    <span class="comment">// Set up the transport order as usual,</span>
+    <span class="comment">// but add the wrapping sequence's name:</span>
+    <span class="predefined-type">List</span>&lt;DestinationCreationTO&gt; destinations = <span class="keyword">new</span> <span class="predefined-type">ArrayList</span>&lt;&gt;();
+    destinations.add(<span class="keyword">new</span> DestinationCreationTO(<span class="string"><span class="delimiter">&quot;</span><span class="content">Some location name</span><span class="delimiter">&quot;</span></span>,
+                                               <span class="string"><span class="delimiter">&quot;</span><span class="content">Some operation</span><span class="delimiter">&quot;</span></span>));
+    TransportOrderCreationTO orderTO
+        = <span class="keyword">new</span> TransportOrderCreationTO(<span class="string"><span class="delimiter">&quot;</span><span class="content">MyOrder-</span><span class="delimiter">&quot;</span></span> + <span class="predefined-type">UUID</span>.randomUUID(),
+                                       destinations)
+            .withWrappingSequence(orderSequence.getName());
+
+    <span class="comment">// Create the transport order:</span>
+    TransportOrder order = transportOrderService.createTransportOrder(orderTO);
+
+    <span class="comment">// Create and add more orders as necessary.</span>
+    <span class="comment">// Eventually, set the order sequence's complete flag to indicate that more</span>
+    <span class="comment">// transport orders will not be added to it.</span>
+    transportOrderService.markOrderSequenceComplete(orderSequence.getReference());
+
+    <span class="comment">// Trigger the dispatch process for the created order sequence.</span>
+    dispatcherService.dispatch();</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As long as the sequence has not been marked as complete and finished completely, the vehicle selected for its first order will be tied to this sequence.
+It will not process any orders not belonging to the same sequence until the whole sequence has been finished.</p>
+</div>
+<div class="paragraph">
+<p>Once the <em>complete</em> flag of the sequence has been set and all transport orders belonging to it have been processed, its <em>finished</em> flag will be set by the kernel.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_how_to_withdraw_a_transport_order_that_is_currently_being_processed">2.2.6. How to withdraw a transport order that is currently being processed</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">    <span class="comment">// The dispatcher service instance we're working with</span>
+    DispatcherService dispatcherService = getDispatcherServiceFromSomewhere();
+
+    <span class="comment">// Get the transport order to be withdrawn.</span>
+    TransportOrder curOrder = getTransportOrderToWithdraw();
+    <span class="comment">// Withdraw the order.</span>
+    <span class="comment">// The second argument indicates if the vehicle should finish the movements</span>
+    <span class="comment">// it is already assigned to (false) or abort immediately (true).</span>
+    dispatcherService.withdrawByTransportOrder(curOrder.getReference(), <span class="predefined-constant">true</span>);</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_how_to_withdraw_a_transport_order_via_a_reference_on_the_vehicle_processing_it">2.2.7. How to withdraw a transport order via a reference on the vehicle processing it</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">    <span class="comment">// The object service instance we're working with</span>
+    TCSObjectService objectService = getTCSObjectServiceFromSomewhere();
+
+    <span class="comment">// Get the vehicle from which the transport order shall be withdrawn</span>
+    Vehicle curVehicle = objectService.fetchObject(Vehicle.class,
+                                                   getSampleVehicle());
+
+    <span class="comment">// The dispatcher service instance we're working with</span>
+    DispatcherService dispatcherService = getDispatcherServiceFromSomewhere();
+
+    <span class="comment">// Withdraw the order.</span>
+    <span class="comment">// The second argument indicates if the vehicle should finish the movements</span>
+    <span class="comment">// it is already assigned to (false) or abort immediately (true).</span>
+    dispatcherService.withdrawByVehicle(curVehicle.getReference(), <span class="predefined-constant">true</span>);</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_using_the_event_bus">2.3. Using the event bus</h3>
+<div class="paragraph">
+<p>Each of the main openTCS applications&#8201;&#8212;&#8201;Kernel, Kernel Control Center and Plant Overview&#8201;&#8212;&#8201;provides an event bus that can be used to receive or emit event objects application-wide.
+To acquire the respective application&#8217;s event bus instance, request it to be provided via dependency injection.
+Any of the following three variants of constructor parameters are equivalent:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> MyClass(<span class="annotation">@ApplicationEventBus</span> <span class="predefined-type">EventHandler</span> eventHandler) {
+  ...
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> MyClass(<span class="annotation">@ApplicationEventBus</span> EventSource eventSource) {
+  ...
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> MyClass(<span class="annotation">@ApplicationEventBus</span> EventBus eventBus) {
+  ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Having acquired the <code>EventHandler</code>, <code>EventSource</code> or <code>EventBus</code> instance that way, you can use it to emit event objects to it and/or subscribe to receive event objects.</p>
+</div>
+<div class="paragraph">
+<p>Note that, within the Kernel application, event objects should be emitted via the kernel executor to avoid concurrency issues&#8201;&#8212;&#8201;see <a href="#section-kernel-executor">Executing code in kernel context</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section-tcp-host-interfaces">3. TCP/IP-based interfaces to other systems</h2>
+<div class="sectionbody">
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+This interface is <strong>deprecated and scheduled for removal with openTCS 5.0</strong> in favour of the kernel&#8217;s web API.
+The web API specification is included in the openTCS distribution&#8217;s documentation.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In addition to the Java-specific kernel interface, openTCS offers the following interfaces for communication with other systems:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A bidirectional interface via a TCP/IP connection for the creation of transport orders</p>
+</li>
+<li>
+<p>An unidirectional interface via a TCP/IP connection for receiving status messages, e.g. about transport orders being processed</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The TCP/IP interfaces are described in the following sections.</p>
+</div>
+<div class="sect2">
+<h3 id="_creating_orders_via_tcp_ip">3.1. Creating orders via TCP/IP</h3>
+<div class="paragraph">
+<p>For creating transport orders, the openTCS kernel accepts connections to a TCP port (default: port 55555).
+The communication between openTCS and the host works as follows:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The host establishes a new TCP/IP connection to openTCS.</p>
+</li>
+<li>
+<p>The host sends a single XML telegram (described in detail in <a href="#_xml_telegrams_for_creating_orders">XML telegrams for creating orders</a> and <a href="#_xml_telegrams_referencing_order_batches">XML telegrams referencing order batches</a>) which either describes the transport orders to be created or identifies batch files that are available with the kernel and that contain the transport order descriptions.</p>
+</li>
+<li>
+<p>The host closes its output stream of the TCP/IP connection or sends two consecutive line breaks (i.e. "<code>\r\n\r\n</code>"), letting the kernel know that no further data will follow.</p>
+</li>
+<li>
+<p>openTCS interprets the telegram sent by the host, creates the corresponding transport orders and activates them.</p>
+</li>
+<li>
+<p>openTCS sends an XML telegram (described in detail in <a href="#_receipts_for_created_orders">Receipts for created orders</a>) to confirm processing of the telegram.</p>
+</li>
+<li>
+<p>openTCS closes the TCP/IP connection.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The following points should be respected:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Multiple sets of transport orders are not intended to be transferred via the same TCP connection.
+After processing a set and sending the response, openTCS closes the connection.
+To transfer further sets new TCP/IP connections need to be established by the peer system.</p>
+</li>
+<li>
+<p>openTCS only waits a limited amount of time (default: ten seconds) for incoming data.
+If there is no incoming data from the peer system over a longer period of time, the connection will be closed by openTCS without any transport orders being created.</p>
+</li>
+<li>
+<p>The maximum length of a single XML telegram is limited to 100 kilobytes by default.
+If more data is transferred, the connection will be closed without any transport orders being created.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_xml_telegrams_for_creating_orders">3.1.1. XML telegrams for creating orders</h4>
+<div class="paragraph">
+<p>Every XML telegram sent to openTCS via the interface described above can describe multiple transport orders to be created.
+Every order element must contain the following data:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A string identifying the order element.
+This string is required for unambiguous matching of receipts (see <a href="#_receipts_for_created_orders">Receipts for created orders</a>) and orders.</p>
+</li>
+<li>
+<p>A sequence of destinations and destination operations defining the actual order.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Furthermore, each order element may contain the following data:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A deadline/point of time at which the order should be finished.</p>
+</li>
+<li>
+<p>The name of a vehicle in the system that the order should be assigned to.
+If this information is omitted, any vehicle in the system may process the order.</p>
+</li>
+<li>
+<p>A set of names of existing transport orders that have to be finished before the new order may be assigned to a vehicle.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following example shows how an XML telegram for the creation of two transport orders could look like.</p>
+</div>
+<div id="example.xmlorders" class="listingblock">
+<div class="title">Example 1: XML telegram for the creation of two transport orders</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="preprocessor">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;</span>
+<span class="tag">&lt;tcsOrderSet&gt;</span>
+    <span class="tag">&lt;order</span> <span class="attribute-name">xsi:type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">transport</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">deadline</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">2019-10-30T08:36:39.262+01:00</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">intendedVehicle</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Vehicle-01</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">TransportOrder-01</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;destination</span> <span class="attribute-name">locationName</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Storage 01</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">operation</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Load cargo</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;destination</span> <span class="attribute-name">locationName</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Storage 02</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">operation</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Unload cargo</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;property</span> <span class="attribute-name">key</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">waitBefore</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Unload</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;/order&gt;</span>
+    <span class="tag">&lt;order</span> <span class="attribute-name">xsi:type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">transport</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">TransportOrder-02</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;destination</span> <span class="attribute-name">locationName</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Working station 01</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">operation</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Drill</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+            <span class="tag">&lt;property</span> <span class="attribute-name">key</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">drillSize</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">3</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;/destination&gt;</span>
+        <span class="tag">&lt;destination</span> <span class="attribute-name">locationName</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Working station 02</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">operation</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Drill</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+            <span class="tag">&lt;property</span> <span class="attribute-name">key</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">drillSize</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">8</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;/destination&gt;</span>
+        <span class="tag">&lt;destination</span> <span class="attribute-name">locationName</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Working station 03</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">operation</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Cut</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;/order&gt;</span>
+<span class="tag">&lt;/tcsOrderSet&gt;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_xml_telegrams_referencing_order_batches">3.1.2. XML telegrams referencing order batches</h4>
+<div class="paragraph">
+<p>Alternatively, an XML telegram may also reference order batches which are kept in files on the openTCS system.
+The (parameters of the) transport orders to be created will then be read from the referenced batch files.
+A batch file may contain/create an arbitrary number of transport orders and needs to be placed in the kernel application&#8217;s subdirectory <code>scripts</code>.
+In the openTCS distribution, this directory already contains a couple of templates for batch files (<code>template.tcs</code> and <code>test.tcs</code>).</p>
+</div>
+<div class="paragraph">
+<p>The following example shows how an XML telegram referencing a batch file could look like.</p>
+</div>
+<div id="example.xmlbatch" class="listingblock">
+<div class="title">Example 2: XML telegram referencing a batch file</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="preprocessor">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;</span>
+<span class="tag">&lt;tcsOrderSet&gt;</span>
+    <span class="tag">&lt;order</span> <span class="attribute-name">xsi:type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">transportScript</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">fileName</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">test.tcs</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">test.tcs</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/tcsOrderSet&gt;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_receipts_for_created_orders">3.1.3. Receipts for created orders</h4>
+<div class="paragraph">
+<p>In response to an XML telegram for the creation of transport orders, an XML telegram will be sent back to the peer, reporting the operation&#8217;s outcome.
+In the response telegram, every order element of the original telegram will be referenced by a response element with the same ID.
+Furthermore, every response element contains:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A flag reflecting the success of creating the respective order</p>
+</li>
+<li>
+<p>The name that openTCS internally assigned to the created order.
+(This name is relevant for interpreting the messages on the status channel - see <a href="#_status_messages_via_tcp_ip">Status messages via TCP/IP</a>.)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following example shows how a response to the telegram in <a href="#example.xmlorders">Example 1</a> could look like.</p>
+</div>
+<div id="example.xmlreceipts" class="listingblock">
+<div class="title">Example 3: XML telegram with receipts for created orders</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="preprocessor">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;</span>
+<span class="tag">&lt;tcsResponseSet&gt;</span>
+    <span class="tag">&lt;response</span> <span class="attribute-name">xsi:type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">transportResponse</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">executionSuccessful</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">orderName</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">TOrder-0001</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">TransportOrder-01</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;response</span> <span class="attribute-name">xsi:type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">transportResponse</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">executionSuccessful</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">orderName</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">TOrder-0002</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">TransportOrder-02</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+<span class="tag">&lt;/tcsResponseSet&gt;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_receipts_for_order_batches">3.1.4. Receipts for order batches</h4>
+<div class="paragraph">
+<p>For referenced order batches, receipts will be sent back to the peer, too.
+The response contains an element for every batch file referenced by the peer.
+If the batch file was successfully read and processed, a response for every single order definition it contains will be included.</p>
+</div>
+<div class="paragraph">
+<p>The following example shows a possible response to the batch file reference in <a href="#example.xmlbatch">Example 2</a>.
+In this case, the batch file contains two transport order definitions which have been processed successfully.</p>
+</div>
+<div id="example.xmlreceiptsbatch" class="listingblock">
+<div class="title">Example 4: XML telegram with receipts for orders in batch file</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="preprocessor">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;</span>
+<span class="tag">&lt;tcsResponseSet&gt;</span>
+    <span class="tag">&lt;response</span> <span class="attribute-name">xsi:type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">scriptResponse</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">parsingSuccessful</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">test.tcs</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;transport</span> <span class="attribute-name">executionSuccessful</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">orderName</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">TOrder-0003</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">test.tcs</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;transport</span> <span class="attribute-name">executionSuccessful</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">orderName</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">TOrder-0004</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">test.tcs</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;/response&gt;</span>
+<span class="tag">&lt;/tcsResponseSet&gt;</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_status_messages_via_tcp_ip">3.2. Status messages via TCP/IP</h3>
+<div class="paragraph">
+<p>To receive status messages for transport orders in the system, connections to another TCP port (default: port 44444) may be established.
+Whenever the state of a transport order changes, an XML telegram will be sent to each connnected client, describing the new state of the order.
+Each of these telegrams is followed by a string that does not appear in the telegrams themselves (by default, a single pipe symbol: "|"), marking the end of the respective telegram.
+Status messages will be sent until the peer closes the TCP connection.</p>
+</div>
+<div class="paragraph">
+<p>The following points should be respected:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>From the peer&#8217;s point of view, connections to this status channel are purely passive, i.e. openTCS does not expect any messages from the peer and will not process any data received via this connection.</p>
+</li>
+<li>
+<p>A peer needs to filter the received telegrams for relevant data itself.
+The openTCS kernel does not provide any filtering of status messages for clients.</p>
+</li>
+<li>
+<p>Due to concurrent processes within openTCS, it is possible that the creation and activation of a transport order and its assignment to a vehicle is reported via the status channel before the peer that created the order receives the corresponding receipt.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following example shows a status message as it would be sent via the status channel after the first of the two transport orders defined in <a href="#example.xmlorders">Example 1</a> has been created and activated.</p>
+</div>
+<div id="example.statusmessage" class="listingblock">
+<div class="title">Example 5: Status message for the generated order</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="preprocessor">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;</span>
+<span class="tag">&lt;tcsStatusMessageSet</span> <span class="attribute-name">timeStamp</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">2019-10-30T08:36:39.485+01:00</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;statusMessage</span> <span class="attribute-name">xsi:type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">orderStatusMessage</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">orderName</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">TOrder-0001</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">orderState</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">ACTIVE</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">processingVehicleName</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Vehicle-0001</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;destination</span> <span class="attribute-name">locationName</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Storage 01</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">operation</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Load cargo</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">state</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">PRISTINE</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;destination</span> <span class="attribute-name">locationName</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Storage 02</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">operation</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Unload cargo</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">state</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">PRISTINE</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+        <span class="tag">&lt;property</span> <span class="attribute-name">key</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">waitBefore</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Unload</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;/statusMessage&gt;</span>
+<span class="tag">&lt;/tcsStatusMessageSet&gt;</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following example shows a status message as it would be sent via the status channel for a vehicle state update.</p>
+</div>
+<div id="example.vehiclestatusmessage" class="listingblock">
+<div class="title">Example 6: Status message for vehicle update</div>
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="xml"><span class="preprocessor">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;</span>
+<span class="tag">&lt;tcsStatusMessageSet</span> <span class="attribute-name">timeStamp</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">2019-10-30T08:36:40.259+01:00</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;statusMessage</span> <span class="attribute-name">xsi:type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">vehicleStatusMessage</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">position</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Point-000</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">processingState</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">PROCESSING_ORDER</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">state</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">EXECUTING</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">transportOrderName</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">TransportOrder-001</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">vehicleName</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Vehicle-000</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">xmlns:xsi</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">http://www.w3.org/2001/XMLSchema-instance</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+        <span class="tag">&lt;precisePosition</span> <span class="attribute-name">x</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">100</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">y</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">110</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">z</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">120</span><span class="delimiter">&quot;</span></span><span class="tag">/&gt;</span>
+    <span class="tag">&lt;/statusMessage&gt;</span>
+<span class="tag">&lt;/tcsStatusMessageSet&gt;</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_xml_schema_definitions_for_telegrams_and_scripts">3.3. XML Schema definitions for telegrams and scripts</h3>
+<div class="paragraph">
+<p>XML schemas describing the expected structure of XML order telegrams and order batch files as well as the structure of receipt telegrams as
+sent by openTCS are part of the openTCS distribution and can be found in the directory containing the developer documentation.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_generating_an_integration_project">4. Generating an integration project</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>openTCS integration projects for customer- or plant-specific distributions often have a very similar structure.
+The openTCS distribution provides a way to easily generate such integration projects.
+This way, a developer can get started with customizing and extending openTCS components quickly.</p>
+</div>
+<div class="paragraph">
+<p>To generate a template/skeleton for a new integration project, do the following:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Download and unzip the integration project example from the openTCS homepage.</p>
+</li>
+<li>
+<p>Execute the following command from the example project&#8217;s root directory:
+<code>gradlew cloneProject</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The integration project will be generated in the <code>build/</code> directory.
+(Make sure you copy it somewhere else before running the example project&#8217;s <code>clean</code> task the next time.)</p>
+</div>
+<div class="paragraph">
+<p>The project and the included classes will have generic names.
+You can adjust their names by setting a couple of properties when running the above command.
+The following properties are looked at:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>integrationName</em>:
+Used for the names of the project itself and the subprojects within it.</p>
+</li>
+<li>
+<p><em>classPrefix</em>:
+Used for some classes within the subprojects.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For instance, your command line could look like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="shell">gradlew -PintegrationName=MyGreatProject -PclassPrefix=Great cloneProject</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This would include <em>MyGreatProject</em> in the integration project name, and <em>Great</em> in some class names.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Inserting your own source code into a copy of the baseline openTCS project instead of creating a proper integration project as described above is not recommended.
+This is because, when integrating openTCS by copying its source code, you lose the ability to easily upgrade your code to more recent openTCS versions (for bugfixes or new features).
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_customizing_and_extending_the_kernel_application">5. Customizing and extending the kernel application</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_guice_modules">5.1. Guice modules</h3>
+<div class="paragraph">
+<p>The openTCS kernel application uses Guice to configure its components.
+To modify the wiring of components within the application and to add your own components, you can register custom Guice modules.
+Modules are found and registered automatically via <code>java.util.ServiceLoader</code>.</p>
+</div>
+<div class="paragraph">
+<p>Basically, the following steps are required for customizing the application:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Build a JAR file for your custom injection module with the following content:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>A subclass of <code>org.opentcs.customizations.kernel.KernelInjectionModule</code>, which can be found in the base library, must be contained.
+Configure your custom components or adjust the application&#8217;s default wiring in this module.
+<code>KernelInjectionModule</code> provides a few supporting methods you can use.</p>
+</li>
+<li>
+<p>A plain text file named <code>META-INF/services/org.opentcs.customizations.kernel.KernelInjectionModule</code> must also be contained.
+This file should contain a single line of text with the fully qualified class name of your module.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Ensure that the JAR file(s) containing your Guice modules and the implementation of your custom component(s) are part of the class path when you start the kernel application.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>For more information on how the automatic registration works, see the documentation of <code>java.util.ServiceLoader</code> in the Java class library.
+For more information on how Guice works, see the Guice documentation.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_replacing_default_kernel_components">5.2. Replacing default kernel components</h3>
+<div class="paragraph">
+<p>The kernel application comes with default implementations for the dispatching, routing and scheduling components.
+These default implementations allow the kernel to fulfil all of its responsibilities, but specific use cases might make it necessary to replace them with custom ones.
+In such cases, they can be replaced with a custom Guice configuration.</p>
+</div>
+<div class="paragraph">
+<p>For each of these components, <code>KernelInjectionModule</code> provides a convenience method for (re)binding the implementation.
+To replace e.g. the default <code>Dispatcher</code> implementation, simply register a Guice module in which you call <code>bindDispatcher()</code>.
+The module&#8217;s implementation could look like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="annotation">@Override</span>
+<span class="directive">protected</span> <span class="type">void</span> configure() {
+  configureSomeDispatcherDependencies();
+  bindDispatcher(CustomDispatcher.class);
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Note that all component implementations are bound as singletons.
+This is important for the following reason:
+Components may be injected and used at multiple places within the kernel application; at the same time, every component may also have to keep an internal state to do its work.
+If they were not bound as singletons, a new instance would be created for every injection, each of them with their own, separate internal state.
+Build custom components with that in mind, and implement their <code>initialize()</code> and <code>terminate()</code> methods appropriately!
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_developing_vehicle_drivers">5.3. Developing vehicle drivers</h3>
+<div class="paragraph">
+<p>openTCS supports integration of custom vehicle drivers that implement vehicle-specific communication protocols and thus mediate between the kernel and the vehicle.
+Due to its function, a vehicle driver is also called a communication adapter.
+The following sections describe which requirements must be met by a driver and which steps are necessary to create and use it.</p>
+</div>
+<div class="sect3">
+<h4 id="_classes_and_interfaces_for_the_kernel">5.3.1. Classes and interfaces for the kernel</h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/commadapter_classes_kernel.png" alt="commadapter classes kernel">
+</div>
+<div class="title">Figure 6. Classes of a comm adapter implementation (kernel side)</div>
+</div>
+<div class="paragraph">
+<p>When developing a vehicle driver, the most important classes and interfaces in the base library are the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VehicleCommAdapter</code> declares methods that every comm adapter must implement.
+These methods are called by components within the kernel, for instance to tell a vehicle that it is supposed to move to the next position in the driving course.
+Classes implementing this interface are expected to perform the actual communication with a vehicle, e.g. via TCP, UDP or some field bus.</p>
+</li>
+<li>
+<p><code>BasicVehicleCommAdapter</code> is the recommended base class for implementing a <code>VehicleCommAdapter</code>.
+It primarily provides some basic command queueing.</p>
+</li>
+<li>
+<p><code>VehicleCommAdapterFactory</code> describes a factory for <code>VehicleCommAdapter</code> instances.
+The kernel instantiates and uses one such factory per vehicle driver to create instances of the respective <code>VehicleCommAdapter</code> implementation on demand.</p>
+</li>
+<li>
+<p>A single <code>VehicleProcessModel</code> instance should be provided by every <code>VehicleCommAdapter</code> instance in which it keeps the relevant state of both the vehicle and the comm adapter.
+This model instance is supposed to be updated to notify the kernel about relevant changes.
+The comm adapter implementation should e.g. update the vehicle&#8217;s current position in the model when it receives that information to allow the kernel and GUI frontends to use it.
+Likewise, other components may set values that influence the comm adapter&#8217;s behaviour in the model, e.g. a time interval for periodic messages the comm adapter sends to the vehicle.
+<code>VehicleProcessModel</code> may be used as it is, as it contains members for all the information the openTCS kernel itself needs.
+However, developers may use driver-specific subclasses of <code>VehicleProcessModel</code> to have the comm adapter and other components exchange more than the default set of attributes.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_classes_and_interfaces_for_the_control_center">5.3.2. Classes and interfaces for the control center</h4>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The Kernel Control Center GUI provided by the kernel application itself is <strong>deprecated and scheduled for removal with openTCS 5.0</strong>.
+A separate Kernel Control Center application is available and should be used instead.
+For the remote version of the Kernel Control Center the following interfaces are the most important.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/commadapter_classes_kcc.png" alt="commadapter classes kcc">
+</div>
+<div class="title">Figure 7. Classes of a comm adapter implementation (control center side)</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>VehicleCommAdapterPanel</code> instances may be created by a <code>VehicleCommAdapterPanelFactory</code> e.g. to display information about the associated vehicle or send low-level messages to it.</p>
+</li>
+<li>
+<p><code>VehicleProcessModelTO</code> instances should be provided by every <code>VehicleCommAdapter</code> instance according to the current state of its <code>VehicleProcessModel</code>.
+Instances of this model are supposed to be used in a comm adapter&#8217;s <code>VehicleCommAdapterPanel</code> instances for updating their contents only.
+Note that <code>VehicleProcessModelTO</code> is basically a serializable representation of a comm adapter&#8217;s <code>VehicleProcessModel</code>.
+Developers should keep that in mind when creating driver-specific subclasses of <code>VehicleProcessModelTO</code>.</p>
+</li>
+<li>
+<p>Instances of <code>VehicleCommAdapterDescription</code> provide a string describing/identifying the comm adapter implementation.
+This string is shown e.g. when the user may select one of a set of driver implementations and should thus be unique.
+It is also used for attaching a comm adapter implementation via <code>VehicleService.attachCommAdapter()</code>.</p>
+</li>
+<li>
+<p><code>AdapterCommand</code> instances can be sent from a panel to a <code>VehicleCommAdapter</code> instance via <code>VehicleService.sendCommAdapterCommand()</code>.
+They are supposed to be executed by the comm adapter and can be used to execute arbitrary methods, e.g. methods of the <code>VehicleCommAdapter</code> itself, or update contents of the comm adapter&#8217;s <code>VehicleProcessModel</code>.
+Note that <code>AdapterCommand</code> instances can only be sent to and processed by the kernel application if they are serializable and present in the kernel application&#8217;s classpath.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_steps_to_create_a_new_vehicle_driver">5.3.3. Steps to create a new vehicle driver</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create an implementation of <code>VehicleCommAdapter</code>:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Subclass <code>BasicVehicleCommAdapter</code> unless you have a reason not to.
+You don&#8217;t have to, but if you don&#8217;t, you also need to implement command queue management yourself.</p>
+</li>
+<li>
+<p>Implement the abstract methods of <code>BasicVehicleCommAdapter</code> in the derived class to realize communication with the vehicle and to provide driver-specific visualization panels, if any.</p>
+</li>
+<li>
+<p>In situations in which the state of the vehicle changes in a way that is relevant for the kernel or the comm adapter&#8217;s custom panels, the comm adapter should call the respective methods on the model.
+Most importantly, call <code>setVehiclePosition()</code> and <code>commandExecuted()</code> on the comm adapter&#8217;s model when the controlled vehicle&#8217;s reported state indicates that it has moved to a different position or that it has finished an order.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Create an implementation of <code>VehicleCommAdapterFactory</code> that provides instances of your <code>VehicleCommAdapter</code> for given <code>Vehicle</code> objects.</p>
+</li>
+<li>
+<p>Optional: Create any number of implementations of <code>VehicleCommAdapterPanel</code> that the kernel control center application should display for the comm adapter.
+Create and return instances of these panels in the <code>getPanelsFor()</code> method of your <code>VehicleCommAdapterPanelFactory</code>s implementation.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>See the API documentation for more details.
+For an example, refer to the implementation of the loopback comm adapter for virtual vehicles in the openTCS source distribution.
+(Note, however, that this implementation does not implement communication with any physical vehicle.)</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_registering_a_vehicle_driver_with_the_kernel">5.3.4. Registering a vehicle driver with the kernel</h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a Guice module for your vehicle driver by creating a subclass of <code>KernelInjectionModule</code>.
+Implement the <code>configure()</code> method and register a binding to your <code>VehicleCommAdapterFactory</code>.
+For example, the loopback driver that is part of the openTCS distribution registers its own factory class with the following line in its <code>configure()</code> method:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">    vehicleCommAdaptersBinder().addBinding().to(LoopbackCommunicationAdapterFactory.class);</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>In the JAR file containing your driver, ensure that there exists a folder named <code>META-INF/services/</code> with a file named <code>org.opentcs.customizations.kernel.KernelInjectionModule</code>.
+This file should consist of a single line of text holding simply the name of the Guice module class, e.g.:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>org.opentcs.virtualvehicle.LoopbackCommAdapterModule</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Background: openTCS uses <code>java.util.ServiceLoader</code> to automatically find Guice modules on startup, which depends on this file (with this name) being present.
+See the JDK&#8217;s API documentation for more information about how this mechanism works.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Place the JAR file of your driver including all neccessary resources in the subdirectory <code>lib/openTCS-extensions/</code> of the openTCS kernel application&#8217;s installation directory <em>before</em> the kernel is started.
+(The openTCS start scripts include all JAR files in that directory in the application&#8217;s classpath.)</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Drivers meeting these requirements are found automatically when you start the kernel.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sending_messages_to_communication_adapters">5.4. Sending messages to communication adapters</h3>
+<div class="paragraph">
+<p>Sometimes it is required to have some influence on the behaviour of a communication adapter (and thus the vehicle it is associated with) directly from a kernel client - to send a special telegram to the vehicle, for instance.
+For these cases, <code>VehicleService.sendCommAdapterMessage(TCSObjectReference&lt;Vehicle&gt;, Object)</code> provides a one-way communication channel for a client to send a message object to a communication adapter currently associated with a vehicle.
+A comm adapter implementing <code>processMessage()</code> may interpret message objects sent to it and react in an appropriate way.
+Note that the client sending the message may not know which communication adapter implementation is currently associated with the vehicle, so the adapter may or may not be able to understand the message.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_acquiring_data_from_communication_adapters">5.5. Acquiring data from communication adapters</h3>
+<div class="paragraph">
+<p>For getting information from a communication adapter to a kernel client, there are the following ways:</p>
+</div>
+<div class="paragraph">
+<p>Communication adapters may publish events via their <code>VehicleProcessModel</code> instance to emit information encapsulated in an event for any listeners registered with the kernel.
+Apparently, listeners must already be registered before such an event is emitted by the communication adapter, or they will miss it.
+To register a client as a listener, use <code>EventSource.subscribe()</code>.
+You can get the EventSource instance used by the kernel through dependency injection by using the qualifier annotation <code>org.opentcs.customizations.ApplicationEventBus</code>.</p>
+</div>
+<div class="paragraph">
+<p>Alternatively, communication adapters may use their <code>VehicleProcessModel</code> to set properties in the corresponding <code>Vehicle</code> object.
+Kernel clients may then retrieve the information from it:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">    <span class="comment">// The object service instance we're working with</span>
+    TCSObjectService objectService = getTCSObjectServiceFromSomewhere();
+
+    <span class="comment">// Get the vehicle from which information shall be retrieved</span>
+    Vehicle vehicle = objectService.fetchObject(Vehicle.class, getTheVehicleName());
+
+    <span class="comment">// Get the actual property you're looking for</span>
+    <span class="predefined-type">String</span> property = vehicle.getProperty(<span class="string"><span class="delimiter">&quot;</span><span class="content">someKey</span><span class="delimiter">&quot;</span></span>);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Communication adapters may also use their <code>VehicleProcessModel</code> to set properties in the corresponding <code>TransportOrder</code> object a vehicle is currently processing.
+This basically works the same way as with the <code>Vehicle</code> object:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">    <span class="comment">// The Kernel instance we're working with</span>
+    TCSObjectService objectService = getTCSObjectServiceFromSomewhere();
+
+    <span class="comment">// Get the tansport order from which information shall be retrieved</span>
+    TransportOrder transportOrder = objectService.fetchObject(TransportOrder.class,
+                                                              getTheTransportOrderName());
+
+    <span class="comment">// Get the actual property you're looking for</span>
+    <span class="predefined-type">String</span> property = transportOrder.getProperty(<span class="string"><span class="delimiter">&quot;</span><span class="content">someKey</span><span class="delimiter">&quot;</span></span>);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Unlike information published via events, data stored as properties in <code>Vehicle</code> or <code>TransportOrder</code> objects can be retrieved at any time.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="section-kernel-executor">5.6. Executing code in kernel context</h3>
+<div class="paragraph">
+<p>Within the kernel, concurrent modifications of the data model&#8201;&#8212;&#8201;e.g. contents of the plant model or transport order properties&#8201;&#8212;&#8201;need to be synchronized carefully.
+Similar to e.g. the Swing framework&#8217;s Event Dispatcher Thread, a single thread is used for executing one-shot or periodics tasks performing data modifications.
+To help with this, an instance of <code>java.util.concurrent.ScheduledExecutorService</code> is provided.
+Custom code running within the kernel application, including vehicle drivers and implementations of additional funcionality, should also perform changes of the data model via this executor only to avoid concurrency issues.</p>
+</div>
+<div class="paragraph">
+<p>To make use of the kernel&#8217;s executor, use the <code>@KernelExecutor</code> qualifier annotation and inject a <code>ScheduledExecutorService</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="annotation">@Inject</span>
+<span class="directive">public</span> MyClass(<span class="annotation">@KernelExecutor</span> <span class="predefined-type">ScheduledExecutorService</span> kernelExecutor) {
+  ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also inject it as a <code>java.util.concurrent.ExecutorService</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="annotation">@Inject</span>
+<span class="directive">public</span> MyClass(<span class="annotation">@KernelExecutor</span> <span class="predefined-type">ExecutorService</span> kernelExecutor) {
+  ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Injecting a <code>java.util.concurrent.Executor</code> is also possible:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="annotation">@Inject</span>
+<span class="directive">public</span> MyClass(<span class="annotation">@KernelExecutor</span> <span class="predefined-type">Executor</span> kernelExecutor) {
+  ...
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then, you can use it e.g. to lock a path in the plant model in kernel context:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">kernelExecutor.submit(() -&gt; routerService.updatePathLock(ref, <span class="predefined-constant">true</span>));</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Due to the single-threaded nature of the kernel executor, tasks submitted to it are executed sequentially, one after another.
+This implies that submitting long-running tasks should be avoided, as they would block the execution of subsequent tasks.</p>
+</div>
+<div class="paragraph">
+<p>When event objects, e.g. instances of <code>TCSObjectEvent</code>, are distributed within the kernel, this always happens in kernel context, i.e. from a task that is run by the kernel executor.
+Event handlers should behave accordingly and finish quickly/not block execution for too long.
+If processing an event requires time-consuming actions to be taken, these should be executed on a different thread.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+As its name indicates, the kernel executor is only available within the kernel application.
+It is not available for code running in other applications like the Plant Overview, and it is not required there (for avoiding concurrency issues in the kernel).
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_customizing_and_extending_the_control_center_application">6. Customizing and extending the control center application</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_guice_modules_2">6.1. Guice modules</h3>
+<div class="paragraph">
+<p>The openTCS kernel control center application uses Guice to configure its components.
+To modify the wiring of components within the application and to add your own components, you can register custom Guice modules.
+Modules are found and registered automatically via <code>java.util.ServiceLoader</code>.</p>
+</div>
+<div class="paragraph">
+<p>Basically, the following steps are required for customizing the application:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Build a JAR file for your custom injection module with the following content:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>A subclass of <code>org.opentcs.customizations.controlcenter.ControlCenterInjectionModule</code> must be contained.
+Configure your custom components or adjust the application&#8217;s default wiring in this module.
+<code>ControlCenterInjectionModule</code> provides a few supporting methods you can use.</p>
+</li>
+<li>
+<p>A plain text file named <code>META-INF/services/org.opentcs.customizations.controlcenter.ControlCenterInjectionModule</code> must also be contained.
+This file should contain a single line of text with the fully qualified class name of your module.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Ensure that the JAR file(s) containing your Guice modules and the implementation of your custom component(s) are part of the class path when you start the control center application.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>For more information on how the automatic registration works, see the documentation of <code>java.util.ServiceLoader</code> in the Java class library.
+For more information on how Guice works, see the Guice documentation.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_registering_driver_panels_with_the_control_center">6.2. Registering driver panels with the control center</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a Guice module for your vehicle driver by creating a subclass of <code>ControlCenterInjectionModule</code>.
+Implement the <code>configure()</code> method and register a binding to your <code>VehicleCommAdapterPanelFactory</code>.
+The following example demonstrates how this module&#8217;s <code>configure()</code> method looks like for the loopback driver that is part of the openTCS distribution:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">  <span class="annotation">@Override</span>
+  <span class="directive">protected</span> <span class="type">void</span> configure() {
+    commAdapterPanelFactoryBinder().addBinding().to(LoopbackCommAdapterPanelFactory.class);
+  }</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>In the JAR file containing your driver, ensure that there exists a folder named <code>META-INF/services/</code> with a file named <code>org.opentcs.customizations.controlcenter.ControlCenterInjectionModule</code>.
+This file should consist of a single line of text holding simply the name of the Guice module class, e.g.:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>org.opentcs.controlcenter.LoopbackCommAdapterPanelsModule</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Background: openTCS uses <code>java.util.ServiceLoader</code> to automatically find Guice modules on startup, which depends on this file (with this name) being present.
+See the JDK&#8217;s API documentation for more information about how this mechanism works.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Place the JAR file of your driver including all neccessary resources in the subdirectory <code>lib/openTCS-extensions/</code> of the control center application&#8217;s installation directory <em>before</em> the application is started.
+(The openTCS start scripts include all JAR files in that directory in the application&#8217;s classpath.)</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Panels meeting these requirements are found automatically when you start the kernel control center application.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_customizing_and_extending_the_plant_overview_application">7. Customizing and extending the plant overview application</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_guice_modules_3">7.1. Guice modules</h3>
+<div class="paragraph">
+<p>Analogous to the kernel application, the plant overview application uses Guice to configure its components.
+To modify the wiring of components within the application and to add your own components, you can register custom Guice modules.
+Modules are found and registered automatically via <code>java.util.ServiceLoader</code>.</p>
+</div>
+<div class="paragraph">
+<p>Basically, the following steps are required for customizing the application:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Build a JAR file for your custom injection module with the following content:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>A subclass of <code>PlantOverviewInjectionModule</code>, which can be found in the base library, must be contained.
+Configure your custom components or adjust the application&#8217;s default wiring in this module.
+<code>PlantOverviewInjectionModule</code> provides a few supporting methods you can use.</p>
+</li>
+<li>
+<p>A plain text file named <code>META-INF/services/org.opentcs.customizations.plantoverview.PlantOverviewInjectionModule</code> must also be contained.
+This file should contain a single line of text with the fully qualified class name of your module.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Ensure that the JAR file(s) containing your Guice modules and the implementation of your custom component(s) are part of the class path when you start the plant overview application.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>For more information on how the automatic registration works, see the documentation of <code>java.util.ServiceLoader</code> in the Java class library.
+For more information on how Guice works, see the Guice documentation.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_how_to_create_a_plugin_panel_for_the_plant_overview_client">7.2. How to create a plugin panel for the plant overview client</h3>
+<div class="paragraph">
+<p>The plant overview client offers to integrate custom panels providing project-specific functionality.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Implement a subclass of <code>PluggablePanel</code>.</p>
+</li>
+<li>
+<p>Implement a <code>PluggablePanelFactory</code> that produces instances of your <code>PluggablePanel</code>.</p>
+</li>
+<li>
+<p>Create a Guice module for your <code>PluggablePanelFactory</code> by subclassing <code>PlantOverviewInjectionModule</code>.
+Implement the <code>configure()</code> method and add a binding to your <code>PluggablePanelFactory</code> using <code>pluggablePanelFactoryBinder()</code>.
+For example, the load generator panel that is part of the openTCS distribution is registered with the following line in its module&#8217;s <code>configure()</code> method:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">    pluggablePanelFactoryBinder().addBinding().to(ContinuousLoadPanelFactory.class);</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Build and package the <code>PluggablePanel</code>, <code>PluggablePanelFactory</code> and Guice module into a JAR file.</p>
+</li>
+<li>
+<p>In the JAR file, register the Guice module class as a service of type <code>PlantOverviewInjectionModule</code>.
+To do that, ensure that the JAR file contains a folder named <code>META-INF/services/</code> with a file named <code>org.opentcs.customizations.plantoverview.PlantOverviewInjectionModule</code>.
+This file should consist of a single line of text holding simply the name of the guice module class, e.g.:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>org.opentcs.guing.plugins.panels.loadgenerator.LoadGeneratorPanelModule</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Place the JAR file in the Plant Overview application&#8217;s class path (subdirectory <code>lib/openTCS-extensions/</code> of the application&#8217;s installation directory) and start the application.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_how_to_create_a_location_vehicle_theme_for_opentcs">7.3. How to create a location/vehicle theme for openTCS</h3>
+<div class="paragraph">
+<p>Locations and vehicles are visualized in the plant overview client using configurable themes.
+To customize the appearance of locations and vehicles, new theme implementations can be created and integrated into the plant overview client.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a new class which implements <code>LocationTheme</code> or <code>VehicleTheme</code>.</p>
+</li>
+<li>
+<p>Place the JAR file of your theme, containing all required resources, in the subdirectory <code>lib/openTCS-extensions/</code> of the openTCS plant overview application&#8217;s installation directory <em>before</em> the application is started.
+(The openTCS start scripts include all JAR files in that directory in the application&#8217;s classpath.)</p>
+</li>
+<li>
+<p>Set the <code>locationThemeClass</code> or <code>vehicleThemeClass</code> in the Plant Overview application&#8217;s configuration file.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Vehicles or locations in plant models are then rendered using your custom theme.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_translating_the_user_interfaces">8. Translating the user interfaces</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Each openTCS application with a user interface is prepared for internationalization based on Java&#8217;s <code>ResourceBundle</code> mechanism.
+As a result, the applications can be configured to display texts in different languages, provided there is a translation in the form of resource bundle property files.
+(How this configuration works is described in the User&#8217;s Guide.)
+The openTCS distribution itself comes with language files for the default language (English) and German.
+Additional translations can be integrated primarily by adding JAR files containing property files to the class path.</p>
+</div>
+<div class="paragraph">
+<p>The following sections explain how to create and integrate a new translation.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Parts of the texts in the distribution may change between openTCS releases.
+While this might not happen often, it still means that, when you update to a new version of openTCS, you may want to check whether your translations are still correct.
+If there were textual changes in the openTCS distribution, you may need to update your language files.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_extracting_default_language_files">8.1. Extracting default language files</h3>
+<div class="paragraph">
+<p>To create a new translation pack for an application, you first need to know what texts to translate.
+The best way to do this is to look at the existing language files in the openTCS distribution.
+These are contained in the applications' JAR files (<code>opentcs-*.jar</code>), and are by convention kept in a common directory <code>/i18n/org/opentcs</code> inside these JAR files.</p>
+</div>
+<div class="paragraph">
+<p>To start your translation work, extract all of the application&#8217;s language files into a single directory first.
+Since JAR files are really only ZIP files, this can be done using any ZIP utility you like.
+As an example, to use <code>unzip</code> in a shell on a Linux system, issue the following command from the application&#8217;s <code>lib/</code> directory:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>unzip "opentcs-*.jar" "i18n/org/opentcs/*.properties"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Alternatively, to use <a href="https://7-zip.org/">7-Zip</a> in a shell on a Windows system, issue the following command from the application&#8217;s <code>lib/</code> directory:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>7z x -r "opentcs-*.jar" "i18n\org\opentcs\*.properties"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You will find the extracted language files in the <code>i18n/</code> directory, then.
+For the Plant Overview application, an excerpt of that directory&#8217;s contents would look similar to this:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>i18n/
+  org/
+    opentcs/
+      plantoverview/
+        mainMenu.properties
+        mainMenu_de.properties
+        toolbar.properties
+        toolbar_de.properties
+        ...</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Files whose names end with <code>_de.properties</code> are German translations.
+You will not need these and can delete them.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_creating_a_translation">8.2. Creating a translation</h3>
+<div class="paragraph">
+<p>Copy the whole <code>i18n/</code> directory with the English language files to a new, separate directory, e.g. <code>translation/</code>.
+Working with a copy ensures that you still have the English version at hand to look up the original texts when translating.</p>
+</div>
+<div class="paragraph">
+<p>Then rename all property files in the new directory so their names contain the appropriate language tag for your translation.
+If you are e.g. translating to Norwegian, rename <code>mainMenu.properties</code> to <code>mainMenu_no.properties</code> and the other files accordingly.
+It is important that the base name of the file remains the same and only the language tag is added to it.</p>
+</div>
+<div class="paragraph">
+<p>The next step is doing the actual translation work&#8201;&#8212;&#8201;open each property file in a text editor and translate the properties' values in it.</p>
+</div>
+<div class="paragraph">
+<p>After translating all the files, create a JAR file containing the <code>i18n/</code> directory with your language files.
+You can do this for instance by simply creating a ZIP file and changing its name to end with <code>.jar</code>.</p>
+</div>
+<div class="paragraph">
+<p>The result could be a file named e.g. <code>language-pack-norwegian.jar</code>, whose contents should look similar to this:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>i18n/
+  org/
+    opentcs/
+      plantoverview/
+        mainMenu_no.properties
+        toolbar_no.properties
+        ...</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_integrating_a_translation">8.3. Integrating a translation</h3>
+<div class="paragraph">
+<p>Finally, you merely need to add the JAR file you created to the translated application&#8217;s class path.
+After configuring the application to the respective language and restarting it, you should see your translations in the user interface.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_updating_a_translation">8.4. Updating a translation</h3>
+<div class="paragraph">
+<p>As development of openTCS proceeds, parts of the applications' language files may change.
+This means that your translations may also need to be updated when you move from one version of openTCS to a more recent one.</p>
+</div>
+<div class="paragraph">
+<p>To find out what changes were made and may need to be applied to your translations, you could do the following:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Extract the language files for the old version of the application, e.g. into a directory <code>translation_old/</code>.</p>
+</li>
+<li>
+<p>Extract the language files for the new version of the application, e.g. into a directory <code>translation_new/</code>.</p>
+</li>
+<li>
+<p>Create a <a href="https://en.wikipedia.org/wiki/Diff">diff</a> between the two language file versions.
+For example, on a Linux system you could run <code>diff -urN translation_old/ translation_new/ &gt; language_changes.diff</code> to write a diff to the file <code>language_changes.diff</code>.</p>
+</li>
+<li>
+<p>Read the diff to see which new language files and/or entries were added, removed or changed.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Based on the information from the diff, you can apply appropriate changes to your own language files.
+Then you merely need to create new JAR files for your translations and add them to the applications' class paths.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+</div>
+</div>
+</body>
+</html>

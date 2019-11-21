@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="tcsStatusMessageSet" type="tcsStatusMessageSet"/>
+
+  <xs:complexType name="tcsStatusMessageSet">
+    <xs:sequence>
+      <xs:element name="statusMessage" type="statusMessage" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="timeStamp" type="xs:dateTime" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="statusMessage">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="orderStatusMessage">
+    <xs:complexContent>
+      <xs:extension base="statusMessage">
+        <xs:sequence>
+          <xs:element name="destination" type="destination" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="property" type="property" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="orderName" type="xs:string" use="required"/>
+        <xs:attribute name="orderState" type="orderState" use="required"/>
+        <xs:attribute name="processingVehicleName" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="destination">
+    <xs:sequence>
+      <xs:element name="property" type="property" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="locationName" type="xs:string" use="required"/>
+    <xs:attribute name="operation" type="xs:string" use="required"/>
+    <xs:attribute name="state" type="driveOrderState" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="property">
+    <xs:sequence/>
+    <xs:attribute name="key" type="xs:string" use="required"/>
+    <xs:attribute name="value" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="vehicleStatusMessage">
+    <xs:complexContent>
+      <xs:extension base="statusMessage">
+        <xs:sequence>
+          <xs:element name="precisePosition" type="precisePosition" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="position" type="xs:string"/>
+        <xs:attribute name="processingState" type="procState" use="required"/>
+        <xs:attribute name="state" type="state" use="required"/>
+        <xs:attribute name="transportOrderName" type="xs:string"/>
+        <xs:attribute name="vehicleName" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="precisePosition">
+    <xs:sequence/>
+    <xs:attribute name="x" type="xs:long" use="required"/>
+    <xs:attribute name="y" type="xs:long" use="required"/>
+    <xs:attribute name="z" type="xs:long" use="required"/>
+  </xs:complexType>
+
+  <xs:simpleType name="driveOrderState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PRISTINE"/>
+      <xs:enumeration value="ACTIVE"/>
+      <xs:enumeration value="TRAVELLING"/>
+      <xs:enumeration value="OPERATING"/>
+      <xs:enumeration value="FINISHED"/>
+      <xs:enumeration value="FAILED"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="orderState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RAW"/>
+      <xs:enumeration value="ACTIVE"/>
+      <xs:enumeration value="DISPATCHABLE"/>
+      <xs:enumeration value="BEING_PROCESSED"/>
+      <xs:enumeration value="WITHDRAWN"/>
+      <xs:enumeration value="FINISHED"/>
+      <xs:enumeration value="FAILED"/>
+      <xs:enumeration value="UNROUTABLE"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="procState">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="UNAVAILABLE"/>
+      <xs:enumeration value="IDLE"/>
+      <xs:enumeration value="AWAITING_ORDER"/>
+      <xs:enumeration value="PROCESSING_ORDER"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="state">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="UNKNOWN"/>
+      <xs:enumeration value="UNAVAILABLE"/>
+      <xs:enumeration value="ERROR"/>
+      <xs:enumeration value="IDLE"/>
+      <xs:enumeration value="EXECUTING"/>
+      <xs:enumeration value="CHARGING"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

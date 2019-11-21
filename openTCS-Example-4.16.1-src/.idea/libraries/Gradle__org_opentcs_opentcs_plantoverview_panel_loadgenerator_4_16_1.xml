@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.opentcs:opentcs-plantoverview-panel-loadgenerator:4.16.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.opentcs/opentcs-plantoverview-panel-loadgenerator/4.16.1/5fb74249de4fdd09d34e0cca09672c385af286dd/opentcs-plantoverview-panel-loadgenerator-4.16.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.opentcs/opentcs-plantoverview-panel-loadgenerator/4.16.1/fe185d8f9ae1f0a2fef83630cba04789f1833f27/opentcs-plantoverview-panel-loadgenerator-4.16.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

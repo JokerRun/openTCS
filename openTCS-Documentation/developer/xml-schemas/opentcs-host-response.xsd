@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="tcsResponseSet" type="tcsResponseSet"/>
+
+  <xs:complexType name="tcsResponseSet">
+    <xs:sequence>
+      <xs:element name="response" type="tcsResponse" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tcsResponse">
+    <xs:sequence/>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="transportResponse">
+    <xs:complexContent>
+      <xs:extension base="tcsResponse">
+        <xs:sequence/>
+        <xs:attribute name="executionSuccessful" type="xs:boolean" use="required"/>
+        <xs:attribute name="orderName" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="scriptResponse">
+    <xs:complexContent>
+      <xs:extension base="tcsResponse">
+        <xs:sequence>
+          <xs:element name="transport" type="transportResponse" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="parsingSuccessful" type="xs:boolean" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+

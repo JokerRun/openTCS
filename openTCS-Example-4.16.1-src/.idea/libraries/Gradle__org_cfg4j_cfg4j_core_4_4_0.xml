@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.cfg4j:cfg4j-core:4.4.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.cfg4j/cfg4j-core/4.4.0/3604e7402ccaabd54877a7a5d372bfc0a0df63f2/cfg4j-core-4.4.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.cfg4j/cfg4j-core/4.4.0/5a13e40b70f811dbd34ab5bd47be8f771126a0f1/cfg4j-core-4.4.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.opentcs:opentcs-kernel-extension-tcp-host-interface:4.16.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.opentcs/opentcs-kernel-extension-tcp-host-interface/4.16.1/ec999cfff384373e1343ee401fc62dfeb3ef5765/opentcs-kernel-extension-tcp-host-interface-4.16.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.opentcs/opentcs-kernel-extension-tcp-host-interface/4.16.1/66b4e0baebb7ad8ce2e759b7ebd1bbe7b02b84fe/opentcs-kernel-extension-tcp-host-interface-4.16.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

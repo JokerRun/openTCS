@@ -1,0 +1,2121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.4">
+<meta name="author" content="The openTCS developers">
+<title>openTCS: Release Notes</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<style>
+/* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
+/* Remove comment around @import statement below when using as a custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
+audio,canvas,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+[hidden],template{display:none}
+script{display:none!important}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+body{margin:0}
+a{background:transparent}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}
+input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,*:before,*:after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+body{-webkit-font-smoothing:antialiased}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.spread{width:100%}
+p.lead,.paragraph.lead>p,#preamble>.sectionbody>.paragraph:first-of-type p{font-size:1.21875em;line-height:1.6}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:none}
+p{font-family:inherit;font-weight:400;font-size:1em;line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #ddddd8;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em;height:0}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol,ul.no-bullet,ol.no-bullet{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ul.no-bullet{list-style:none}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
+abbr{text-transform:none}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite:before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media only screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table thead,table tfoot{background:#f7f8f7;font-weight:bold}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt,table tr:nth-of-type(even){background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+body{tab-size:4}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.clearfix:before,.clearfix:after,.float-group:before,.float-group:after{content:" ";display:table}
+.clearfix:after,.float-group:after{clear:both}
+*:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
+pre,pre>code{line-height:1.45;color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;text-rendering:optimizeSpeed}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menu{color:rgba(0,0,0,.8)}
+b.button:before,b.button:after{position:relative;top:-1px;font-weight:400}
+b.button:before{content:"[";padding:0 3px 0 2px}
+b.button:after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header:before,#header:after,#content:before,#content:after,#footnotes:before,#footnotes:after,#footer:before,#footer:after{content:" ";display:table}
+#header:after,#content:after,#footnotes:after,#footer:after{clear:both}
+#content{margin-top:1.25em}
+#content:before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #ddddd8}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #ddddd8;padding-bottom:8px}
+#header .details{border-bottom:1px solid #ddddd8;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span:before{content:"\00a0\2013\00a0"}
+#header .details br+span.author:before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark:before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber:after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #ddddd8;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #efefed;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media only screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background-color:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #efefed;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #efefed;left:auto;right:0}}
+@media only screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:100%;background-color:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:rgba(255,255,255,.8);line-height:1.44}
+.sect1{padding-bottom:.625em}
+@media only screen and (min-width:768px){.sect1{padding-bottom:1.25em}}
+.sect1+.sect1{border-top:1px solid #efefed}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor:before,h2>a.anchor:before,h3>a.anchor:before,#toctitle>a.anchor:before,.sidebarblock>.content>.title>a.anchor:before,h4>a.anchor:before,h5>a.anchor:before,h6>a.anchor:before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock>caption.title{white-space:nowrap;overflow:visible;max-width:0}
+.paragraph.lead>p,#preamble>.sectionbody>.paragraph:first-of-type p{color:rgba(0,0,0,.85)}
+table.tableblock #preamble>.sectionbody>.paragraph:first-of-type p{font-size:inherit}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #ddddd8;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock pre:not(.highlight),.listingblock pre[class="highlight"],.listingblock pre[class^="highlight "],.listingblock pre.CodeRay,.listingblock pre.prettyprint{background:#f7f7f8}
+.sidebarblock .literalblock pre,.sidebarblock .listingblock pre:not(.highlight),.sidebarblock .listingblock pre[class="highlight"],.sidebarblock .listingblock pre[class^="highlight "],.sidebarblock .listingblock pre.CodeRay,.sidebarblock .listingblock pre.prettyprint{background:#f2f1f1}
+.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;padding:1em;font-size:.8125em}
+.literalblock pre.nowrap,.literalblock pre[class].nowrap,.listingblock pre.nowrap,.listingblock pre[class].nowrap{overflow-x:auto;white-space:pre;word-wrap:normal}
+@media only screen and (min-width:768px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:.90625em}}
+@media only screen and (min-width:1280px){.literalblock pre,.literalblock pre[class],.listingblock pre,.listingblock pre[class]{font-size:1em}}
+.literalblock.output pre{color:#f7f7f8;background-color:rgba(0,0,0,.9)}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]:before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:#999}
+.listingblock:hover code[data-lang]:before{display:block}
+.listingblock.terminal pre .command:before{content:attr(data-prompt);padding-right:.5em;color:#999}
+.listingblock.terminal pre .command:not([data-prompt]):before{content:"$"}
+table.pyhltable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.pyhltable td{vertical-align:top;padding-top:0;padding-bottom:0;line-height:1.45}
+table.pyhltable td.code{padding-left:.75em;padding-right:0}
+pre.pygments .lineno,table.pyhltable td:not(.code){color:#999;padding-left:0;padding-right:.5em;border-right:1px solid #ddddd8}
+pre.pygments .lineno{display:inline-block;margin-right:.25em}
+table.pyhltable .linenodiv{background:none!important;padding-right:0!important}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock blockquote p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote:before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.5em;margin-right:.5ex;text-align:right}
+.quoteblock .quoteblock{margin-left:0;margin-right:0;padding:.5em 0;border-left:3px solid rgba(0,0,0,.6)}
+.quoteblock .quoteblock blockquote{padding:0 0 0 .75em}
+.quoteblock .quoteblock blockquote:before{display:none}
+.verseblock{margin:0 1em 1.25em 1em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract{margin:0 0 1.25em 0;display:block}
+.quoteblock.abstract blockquote,.quoteblock.abstract blockquote p{text-align:left;word-spacing:0}
+.quoteblock.abstract blockquote:before,.quoteblock.abstract blockquote p:first-of-type:before{display:none}
+table.tableblock{max-width:100%;border-collapse:separate}
+table.tableblock td>.paragraph:last-child p>p:last-child,table.tableblock th>p:last-child,table.tableblock td>p:last-child{margin-bottom:0}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all th.tableblock,table.grid-all td.tableblock{border-width:0 1px 1px 0}
+table.grid-all tfoot>tr>th.tableblock,table.grid-all tfoot>tr>td.tableblock{border-width:1px 1px 0 0}
+table.grid-cols th.tableblock,table.grid-cols td.tableblock{border-width:0 1px 0 0}
+table.grid-all *>tr>.tableblock:last-child,table.grid-cols *>tr>.tableblock:last-child{border-right-width:0}
+table.grid-rows th.tableblock,table.grid-rows td.tableblock{border-width:0 0 1px 0}
+table.grid-all tbody>tr:last-child>th.tableblock,table.grid-all tbody>tr:last-child>td.tableblock,table.grid-all thead:last-child>tr>th.tableblock,table.grid-rows tbody>tr:last-child>th.tableblock,table.grid-rows tbody>tr:last-child>td.tableblock,table.grid-rows thead:last-child>tr>th.tableblock{border-bottom-width:0}
+table.grid-rows tfoot>tr>th.tableblock,table.grid-rows tfoot>tr>td.tableblock{border-width:1px 0 0 0}
+table.frame-all{border-width:1px}
+table.frame-sides{border-width:0 1px}
+table.frame-topbot{border-width:1px 0}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+td>div.verse{white-space:pre}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.unstyled,ol.unnumbered,ul.checklist,ul.none{list-style-type:none}
+ul.unstyled,ol.unnumbered,ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1em;font-size:.85em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{width:1em;position:relative;top:1px}
+ul.inline{margin:0 auto .625em auto;margin-left:-1.375em;margin-right:0;padding:0;list-style:none;overflow:hidden}
+ul.inline>li{list-style:none;float:left;margin-left:1.375em;display:block}
+ul.inline>li>*{display:block}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist>table tr>td:first-of-type{padding:0 .75em;line-height:1}
+.colist>table tr>td:last-of-type{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
+.imageblock.left,.imageblock[style*="float: left"]{margin:.25em .625em 1.25em 0}
+.imageblock.right,.imageblock[style*="float: right"]{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em 0;border-width:1px 0 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;text-indent:-1.05em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background-color:#00fafa}
+.black{color:#000}
+.black-background{background-color:#000}
+.blue{color:#0000bf}
+.blue-background{background-color:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background-color:#fa00fa}
+.gray{color:#606060}
+.gray-background{background-color:#7d7d7d}
+.green{color:#006000}
+.green-background{background-color:#007d00}
+.lime{color:#00bf00}
+.lime-background{background-color:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background-color:#7d0000}
+.navy{color:#000060}
+.navy-background{background-color:#00007d}
+.olive{color:#606000}
+.olive-background{background-color:#7d7d00}
+.purple{color:#600060}
+.purple-background{background-color:#7d007d}
+.red{color:#bf0000}
+.red-background{background-color:#fa0000}
+.silver{color:#909090}
+.silver-background{background-color:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background-color:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background-color:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background-color:#fafa00}
+span.icon>.fa{cursor:default}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note:before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip:before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning:before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution:before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important:before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background-color:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]:after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background-color:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@media print{@page{margin:1.25cm .75cm}
+*{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare):after,a[href^="https:"]:not(.bare):after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]:after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #ddddd8!important;padding-bottom:0!important}
+.sect1{padding-bottom:0!important}
+.sect1+.sect1{border:0!important}
+#header>h1:first-child{margin-top:1.25rem}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em 0}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span:before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]:before{display:block}
+#footer{background:none!important;padding:0 .9375em}
+#footer-text{color:rgba(0,0,0,.6)!important;font-size:.9em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<style>
+/* Stylesheet for CodeRay to match GitHub theme | MIT License | http://foundation.zurb.com */
+/*pre.CodeRay {background-color:#f7f7f8;}*/
+.CodeRay .line-numbers{border-right:1px solid #d8d8d8;padding:0 0.5em 0 .25em}
+.CodeRay span.line-numbers{display:inline-block;margin-right:.5em;color:rgba(0,0,0,.3)}
+.CodeRay .line-numbers strong{color:rgba(0,0,0,.4)}
+table.CodeRay{border-collapse:separate;border-spacing:0;margin-bottom:0;border:0;background:none}
+table.CodeRay td{vertical-align: top;line-height:1.45}
+table.CodeRay td.line-numbers{text-align:right}
+table.CodeRay td.line-numbers>pre{padding:0;color:rgba(0,0,0,.3)}
+table.CodeRay td.code{padding:0 0 0 .5em}
+table.CodeRay td.code>pre{padding:0}
+.CodeRay .debug{color:#fff !important;background:#000080 !important}
+.CodeRay .annotation{color:#007}
+.CodeRay .attribute-name{color:#000080}
+.CodeRay .attribute-value{color:#700}
+.CodeRay .binary{color:#509}
+.CodeRay .comment{color:#998;font-style:italic}
+.CodeRay .char{color:#04d}
+.CodeRay .char .content{color:#04d}
+.CodeRay .char .delimiter{color:#039}
+.CodeRay .class{color:#458;font-weight:bold}
+.CodeRay .complex{color:#a08}
+.CodeRay .constant,.CodeRay .predefined-constant{color:#008080}
+.CodeRay .color{color:#099}
+.CodeRay .class-variable{color:#369}
+.CodeRay .decorator{color:#b0b}
+.CodeRay .definition{color:#099}
+.CodeRay .delimiter{color:#000}
+.CodeRay .doc{color:#970}
+.CodeRay .doctype{color:#34b}
+.CodeRay .doc-string{color:#d42}
+.CodeRay .escape{color:#666}
+.CodeRay .entity{color:#800}
+.CodeRay .error{color:#808}
+.CodeRay .exception{color:inherit}
+.CodeRay .filename{color:#099}
+.CodeRay .function{color:#900;font-weight:bold}
+.CodeRay .global-variable{color:#008080}
+.CodeRay .hex{color:#058}
+.CodeRay .integer,.CodeRay .float{color:#099}
+.CodeRay .include{color:#555}
+.CodeRay .inline{color:#000}
+.CodeRay .inline .inline{background:#ccc}
+.CodeRay .inline .inline .inline{background:#bbb}
+.CodeRay .inline .inline-delimiter{color:#d14}
+.CodeRay .inline-delimiter{color:#d14}
+.CodeRay .important{color:#555;font-weight:bold}
+.CodeRay .interpreted{color:#b2b}
+.CodeRay .instance-variable{color:#008080}
+.CodeRay .label{color:#970}
+.CodeRay .local-variable{color:#963}
+.CodeRay .octal{color:#40e}
+.CodeRay .predefined{color:#369}
+.CodeRay .preprocessor{color:#579}
+.CodeRay .pseudo-class{color:#555}
+.CodeRay .directive{font-weight:bold}
+.CodeRay .type{font-weight:bold}
+.CodeRay .predefined-type{color:inherit}
+.CodeRay .reserved,.CodeRay .keyword {color:#000;font-weight:bold}
+.CodeRay .key{color:#808}
+.CodeRay .key .delimiter{color:#606}
+.CodeRay .key .char{color:#80f}
+.CodeRay .value{color:#088}
+.CodeRay .regexp .delimiter{color:#808}
+.CodeRay .regexp .content{color:#808}
+.CodeRay .regexp .modifier{color:#808}
+.CodeRay .regexp .char{color:#d14}
+.CodeRay .regexp .function{color:#404;font-weight:bold}
+.CodeRay .string{color:#d20}
+.CodeRay .string .string .string{background:#ffd0d0}
+.CodeRay .string .content{color:#d14}
+.CodeRay .string .char{color:#d14}
+.CodeRay .string .delimiter{color:#d14}
+.CodeRay .shell{color:#d14}
+.CodeRay .shell .delimiter{color:#d14}
+.CodeRay .symbol{color:#990073}
+.CodeRay .symbol .content{color:#a60}
+.CodeRay .symbol .delimiter{color:#630}
+.CodeRay .tag{color:#008080}
+.CodeRay .tag-special{color:#d70}
+.CodeRay .variable{color:#036}
+.CodeRay .insert{background:#afa}
+.CodeRay .delete{background:#faa}
+.CodeRay .change{color:#aaf;background:#007}
+.CodeRay .head{color:#f8f;background:#505}
+.CodeRay .insert .insert{color:#080}
+.CodeRay .delete .delete{color:#800}
+.CodeRay .change .change{color:#66f}
+.CodeRay .head .head{color:#f4f}
+</style>
+</head>
+<body class="book toc2 toc-left">
+<div id="header">
+<h1>openTCS: Release Notes</h1>
+<div class="details">
+<span id="author" class="author">The openTCS developers</span><br>
+<span id="revdate">openTCS 4.16.1</span>
+</div>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a></li>
+<li><a href="#_getting_started">2. Getting started</a></li>
+<li><a href="#_support">3. Support</a></li>
+<li><a href="#_change_log">4. Change log</a>
+<ul class="sectlevel2">
+<li><a href="#_version_4_16_1_2019_10_30">4.1. Version 4.16.1 (2019-10-30)</a></li>
+<li><a href="#_version_4_16_2019_10_22">4.2. Version 4.16 (2019-10-22)</a></li>
+<li><a href="#_version_4_15_2019_05_02">4.3. Version 4.15 (2019-05-02)</a></li>
+<li><a href="#_version_4_14_2019_03_22">4.4. Version 4.14 (2019-03-22)</a></li>
+<li><a href="#_version_4_13_1_2019_02_25">4.5. Version 4.13.1 (2019-02-25)</a></li>
+<li><a href="#_version_4_13_2019_02_18">4.6. Version 4.13 (2019-02-18)</a></li>
+<li><a href="#_version_4_12_2018_12_20">4.7. Version 4.12 (2018-12-20)</a></li>
+<li><a href="#_version_4_11_2018_12_04">4.8. Version 4.11 (2018-12-04)</a></li>
+<li><a href="#_version_4_10_2018_08_07">4.9. Version 4.10 (2018-08-07)</a></li>
+<li><a href="#_version_4_9_1_2018_04_26">4.10. Version 4.9.1 (2018-04-26)</a></li>
+<li><a href="#_version_4_9_2018_04_16">4.11. Version 4.9 (2018-04-16)</a></li>
+<li><a href="#_version_4_8_4_2018_02_12">4.12. Version 4.8.4 (2018-02-12)</a></li>
+<li><a href="#_version_4_8_3_2018_01_24">4.13. Version 4.8.3 (2018-01-24)</a></li>
+<li><a href="#_version_4_8_2_2017_12_15">4.14. Version 4.8.2 (2017-12-15)</a></li>
+<li><a href="#_version_4_8_1_2017_12_05">4.15. Version 4.8.1 (2017-12-05)</a></li>
+<li><a href="#_version_4_8_2017_11_28">4.16. Version 4.8 (2017-11-28)</a></li>
+<li><a href="#_version_4_7_2017_10_11">4.17. Version 4.7 (2017-10-11)</a></li>
+<li><a href="#_version_4_6_2017_09_25">4.18. Version 4.6 (2017-09-25)</a></li>
+<li><a href="#_version_4_5_2017_08_10">4.19. Version 4.5 (2017-08-10)</a></li>
+<li><a href="#_version_4_4_2017_07_17">4.20. Version 4.4 (2017-07-17)</a></li>
+<li><a href="#_version_4_3_2017_06_30">4.21. Version 4.3 (2017-06-30)</a></li>
+<li><a href="#_version_4_2_2017_05_29">4.22. Version 4.2 (2017-05-29)</a></li>
+<li><a href="#_version_4_1_2017_04_20">4.23. Version 4.1 (2017-04-20)</a></li>
+<li><a href="#_version_4_0_1_2017_02_25">4.24. Version 4.0.1 (2017-02-25)</a></li>
+<li><a href="#_version_4_0_2017_02_11">4.25. Version 4.0 (2017-02-11)</a></li>
+<li><a href="#_version_3_2_2016_01_19">4.26. Version 3.2 (2016-01-19)</a></li>
+<li><a href="#_version_3_1_1_2015_05_06">4.27. Version 3.1.1 (2015-05-06)</a></li>
+<li><a href="#_version_3_1_2015_03_23">4.28. Version 3.1 (2015-03-23)</a></li>
+<li><a href="#_version_3_0_2014_11_25">4.29. Version 3.0 (2014-11-25)</a></li>
+<li><a href="#_version_2_7_1_2014_06_30">4.30. Version 2.7.1 (2014-06-30)</a></li>
+<li><a href="#_version_2_7_2014_06_25">4.31. Version 2.7 (2014-06-25)</a></li>
+<li><a href="#_version_2_6_1_2014_03_14">4.32. Version 2.6.1 (2014-03-14)</a></li>
+<li><a href="#_version_2_6_2014_02_28">4.33. Version 2.6 (2014-02-28)</a></li>
+<li><a href="#_version_2_5_2013_12_18">4.34. Version 2.5 (2013-12-18)</a></li>
+<li><a href="#_version_2_4_2_2013_07_29">4.35. Version 2.4.2 (2013-07-29)</a></li>
+<li><a href="#_version_2_4_1_2013_05_30">4.36. Version 2.4.1 (2013-05-30)</a></li>
+<li><a href="#_version_2_4_2013_02_07">4.37. Version 2.4 (2013-02-07)</a></li>
+<li><a href="#_version_2_3_2012_09_17">4.38. Version 2.3 (2012-09-17)</a></li>
+<li><a href="#_version_2_2_2012_07_10">4.39. Version 2.2 (2012-07-10)</a></li>
+</ul>
+</li>
+<li><a href="#_contributors">5. Contributors</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_introduction">1. Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>openTCS (short for "open Transportation Control System") is a free platform for controlling vehicles in an Automated Guided Vehicle System (AGVS).
+It should generally be possible to control any track-guided vehicle with it, even if the tracks are only virtual, but AGVSs are the main target.
+It is being maintained at the Fraunhofer Institute for Material Flow and Logistics in Dortmund, Germany.</p>
+</div>
+<div class="paragraph">
+<p>The software runs on the Java platform (version 1.8).
+All libraries required for compiling and/or using it are freely available, too.</p>
+</div>
+<div class="paragraph">
+<p>openTCS itself is not a complete product you can use "out-of-the-box" to control an AGVS with.
+Primarily, It is a framework/an implementation of the basic data structures and algorithms (routing, dispatching, scheduling) needed for running an AGVS with more than one vehicle.
+It tries to be as generic as possible to allow interoperation with track-guided vehicles of practically any vendor.
+Thus it is usually necessary to at least create and integrate a vehicle driver (called "communication adapter" in openTCS-speak) that translates between the abstract interface of the openTCS kernel and the communication protocol your vehicle understands.
+Depending on your needs, it might also be necessary to adapt algorithms or add project-specific strategies.</p>
+</div>
+<div class="paragraph">
+<p>The openTCS source code is licensed partly under the terms of the MIT License and partly under the terms of the GNU Lesser General Public License.
+A copy of the licenses is included in the distribution.
+For details on the licensing, see the file <code>LICENSE.txt</code>.</p>
+</div>
+<div class="paragraph">
+<p>Please note that openTCS is distributed without any warranty - without even the implied warranty of merchantibility or fitness for a particular purpose.
+Please refer to the license for details.</p>
+</div>
+<div class="paragraph">
+<p>We are grateful to any developers that have contributed to openTCS.
+A list of all contributors known by name can be found at the end of this document.</p>
+</div>
+<div class="paragraph">
+<p>To download the latest version and/or read news about openTCS, please see its web site at <a href="http://www.opentcs.org/" class="bare">http://www.opentcs.org/</a> or the project homepage at <a href="http://sourceforge.net/projects/opentcs/" class="bare">http://sourceforge.net/projects/opentcs/</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_getting_started">2. Getting started</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To get started with openTCS, please refer to the user&#8217;s guide, the developer&#8217;s guide and the JavaDoc API documentation that are included in the distribution.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_support">3. Support</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Please note that, while we are happy to be able to release openTCS to the public as free software and would like to see it used and improved continuously, the development team cannot provide unlimited free support for it.</p>
+</div>
+<div class="paragraph">
+<p>If you have technical/support questions, please post them on the project&#8217;s mailing list, where the community and the developers involved will respond as time permits.
+You can subscribe to the mailing list on the project homepage at <a href="http://sourceforge.net/projects/opentcs/" class="bare">http://sourceforge.net/projects/opentcs/</a>.</p>
+</div>
+<div class="paragraph">
+<p>Legal notice:
+This announcement of possible supporting services is not intended to create any binding or legal obligations or an obligation on entering any contract.
+It does not impose any duty on Fraunhofer IML to disclose any information nor to enter into any individual agreement or obligation.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_change_log">4. Change log</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This change log lists the most relevant changes for past releases in reverse chronological order.</p>
+</div>
+<div class="sect2">
+<h3 id="_version_4_16_1_2019_10_30">4.1. Version 4.16.1 (2019-10-30)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Bugs fixed:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Fix creating links between points and locations in the Plant Overview application.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_4_16_2019_10_22">4.2. Version 4.16 (2019-10-22)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>New features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Optionally have names for transport orders and order sequences generated by the kernel.
+Use ULIDs for these generated names by default, to have lexicographically sortable names.</p>
+</li>
+<li>
+<p>Add a <code>publishEvent()</code> method to the <code>KernelServicePortal</code> interface that RMI-Clients can use to publish events on the Kernel application&#8217;s event bus.</p>
+</li>
+<li>
+<p>Enable the Kernel Control Center application to set positions for all simulating vehicle drivers, not only the loopback driver.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Bugs fixed:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Paths that have the same start and end components are now displayed properly in the Plant Overview.</p>
+</li>
+<li>
+<p>In the Plant Overview&#8217;s continuous load panel, transport order definitions can now be saved to and restored from XML files again.
+(Note that in the course of fixing this issue, the XML files' structure was improved.
+Since the feature had been broken for a while and is not part of a public API, backwards compatibility was not maintained for this.
+As a result, transport order definition files from old versions of openTCS cannot be restored.)</p>
+</li>
+<li>
+<p>Make using the "try it out" buttons in the OpenAPI documentation possible by setting CORS headers in the web API&#8217;s responses.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_4_15_2019_05_02">4.3. Version 4.15 (2019-05-02)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>New features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Add history entries for transport orders being deferred or resumed as well as assigned to or reserved for vehicles in the dispatching process.
+This makes it easier to find out e.g. why a transport order wasn&#8217;t assigned to a vehicle, yet.
+It also implicitly deprecates transport orders' rejection entries, as history entries provide the same functionality, but for more use cases.</p>
+</li>
+<li>
+<p>Expect applications' locales to be set via BCP 47 language tags, making the configuration more flexible and independent from the source code.</p>
+</li>
+<li>
+<p>Extend the default router to be able to extract explicitly given routing costs from path properties, too.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Bugs fixed:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>In case no load or unload operation is defined for a virtual vehicle, use a default value to avoid exceptions.</p>
+</li>
+<li>
+<p>Do not (wrongly) set a vehicle&#8217;s processing state to <code>IDLE</code> whenever its integration level is set to <code>TO_BE_UTILIZED</code>.</p>
+</li>
+<li>
+<p>Avoid potential deadlocks related to using the Plant Overview&#8217;s resource allocation panel.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Other changes:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Disable the Kernel application&#8217;s integrated control center GUI by default.
+It can still be re-enabled via the Kernel configuration, but it has been deprecated for several openTCS releases now and will be removed with the openTCS 5.</p>
+</li>
+<li>
+<p>Move all language files for the applications' internationalization to a common hierarchy, remove unused/left-over entries and apply a proper naming pattern to the remaining ones to improve maintainability.
+(The language files for the Kernel application&#8217;s integrated control center GUI are excluded from this, as that GUI will be removed with openTCS 5.)</p>
+</li>
+<li>
+<p>Remove support for the Plant Overview application&#8217;s old model file format (file name extension <code>.opentcs</code>).
+The old format has been deprecated since openTCS 4.8 in favour of a unified file format (file name extension <code>.xml</code>) shared by Kernel and Plant Overview.
+Users who still have model files in the old format may want to save them in the current format before updating.</p>
+</li>
+<li>
+<p>Remove the menu item to trigger the kernel&#8217;s dispatching process from the Plant Overview&#8217;s main menu.
+The dispatcher is triggered automatically (and, for special cases in integration projects, periodically), so manual triggering does not need to be involved.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_4_14_2019_03_22">4.4. Version 4.14 (2019-03-22)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Bugs fixed:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>With the <code>defaultdispatcher.reparkVehiclesToHigherPriorityPositions</code> configuration enabled:
+Prevent a vehicle from being re-parked to positions that have the same priority as the vehicle&#8217;s current parking position.</p>
+</li>
+<li>
+<p>Fix a bug where charging vehicles don&#8217;t execute transport orders after they have reached the "sufficiently recharged" state.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Other changes:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The Kernel application does no longer persist <code>Color</code> and <code>ViewBookmark</code> elements of the visual layout.
+(For some time now, these elements could no longer be created with the PlantOverview application and were ignored when a model was loaded, anyway.)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_4_13_1_2019_02_25">4.5. Version 4.13.1 (2019-02-25)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Bugs fixed:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Fix a bug with the loopback communication adapter that prevents resources from being properly released when the "loopback:initialPosition" property is set on vehicles.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_4_13_2019_02_18">4.6. Version 4.13 (2019-02-18)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>New features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Introduce an event history for transport orders that can be filled with arbitrary event data.</p>
+</li>
+<li>
+<p>Introduce <code>"*"</code> as a wildcard in a vehicle&#8217;s processable categories to allow processing of transport orders in <em>any</em> category.</p>
+</li>
+<li>
+<p>The Plant Overview&#8217;s vehicle panel now also shows the current destination of each vehicle.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Bugs fixed:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>With the <code>defaultdispatcher.rerouteTrigger</code> configuration entry set to <code>DRIVE_ORDER_FINISHED</code>, ensure that the rerouting is only applied to the vehicle that has actually finished a drive order.</p>
+</li>
+<li>
+<p>For vehicles selected in the Plant Overview, re-allow changing their integration levels via the context menu to either "to be utilized" or "to be respected" if any of them is currently processing a transport order, too.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Other changes:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Remove the included integration project generator and document usage of the example integration project, instead.</p>
+</li>
+<li>
+<p>Update the web API specification to OpenAPI 3.</p>
+</li>
+<li>
+<p>Update Gradle to 4.10.3.</p>
+</li>
+<li>
+<p>Update Checkstyle to 8.16.</p>
+</li>
+<li>
+<p>Update JUnit to 5.3.2.</p>
+</li>
+<li>
+<p>Update Guice to 4.2.2.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_4_12_2018_12_20">4.7. Version 4.12 (2018-12-20)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>New features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Introduce optional priorities for parking positions.
+With these, vehicles are parked at the one with the highest priority.
+Optionally, vehicles already parking may be reparked to unoccupied positions with higher priorities.</p>
+</li>
+<li>
+<p>Provide additional energy levels for vehicles to influence when recharging may be stopped.</p>
+</li>
+<li>
+<p>Make the Plant Overview&#8217;s naming schemes for plant model elements configurable.</p>
+</li>
+<li>
+<p>In the Plant Overview, allow multiple vehicles to be selected for changing the integration level or withdrawing transport orders.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Bugs fixed:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Prevent a movement order from being sent to a vehicle a second time after the vehicle got rerouted while waiting for resource allocation.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_4_11_2018_12_04">4.8. Version 4.11 (2018-12-04)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>New features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Introduce a <em>type</em> property for blocks.
+A block&#8217;s type now determines the rules for entering it:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Single vehicle only: The resources aggregated in this block can only be used by a single vehicle at the same time.</p>
+</li>
+<li>
+<p>Same direction only: The resources aggregated in this block can be used by multiple vehicles, but only if they enter the block in the same direction.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Bugs fixed:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Properly set a point&#8217;s layout coordinates when it is placed exactly on an axis in the Plant Overview.</p>
+</li>
+<li>
+<p>Properly select the correct/clicked-on tree entry in the Plant Overview&#8217;s blocks tree view when the same element is a member of more than one block.</p>
+</li>
+<li>
+<p>Prevent the Kernel application from freezing when loading some larger plant models.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Other changes:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Require the user to confirm <em>immediate</em> withdrawals of transport orders in the plant overview, as they have some implications that may lead to collisions or deadlocks in certain situations.</p>
+</li>
+<li>
+<p>Improve input validation of unit-based properties for plant model elements.</p>
+</li>
+<li>
+<p>Remove the Kernel Control Center&#8217;s function to reset the position of a vehicle.
+Users should now set the vehicle&#8217;s integration level to <code>TO_BE_IGNORED</code>, instead.</p>
+</li>
+<li>
+<p>Allow the loopback driver to be disabled completely.</p>
+</li>
+<li>
+<p>Minor improvements to the configuration interface API.</p>
+</li>
+<li>
+<p>Mark all <code>AdapterCommand</code> implementations in the base API as deprecated.
+These commands' functionality is specific to the respective communication adapter and should be implemented and used there.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_4_10_2018_08_07">4.9. Version 4.10 (2018-08-07)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>New features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Introduce an explicit <em>integration level</em> property for vehicles that expresses to what degree a vehicle should be integrated into the system.
+(Setting the integration level to <code>TO_BE_UTILIZED</code> replaces the manual dispatching that was previously used to integrate a vehicle.)</p>
+</li>
+<li>
+<p>Allow recomputing of a vehicle&#8217;s route after finishing a drive order or on topology changes.</p>
+</li>
+<li>
+<p>Allow vehicle themes to define not only the graphics used, but also the content and style of vehicle labels in the Plant Overview.</p>
+</li>
+<li>
+<p>Enable the web API to optionally use HTTPS.</p>
+</li>
+<li>
+<p>Allow an optional set of properties for meta information to be stored in a model, and use it to store the model file&#8217;s last-modified time stamp in it.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Bugs fixed:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Prevent moving of model elements in the Plant Overview when in mode OPERATING.</p>
+</li>
+<li>
+<p>Prevent creation of groups in the Plant Overview when in mode OPERATING.</p>
+</li>
+<li>
+<p>Properly handle renaming of paths and path names that do not follow the default naming pattern in the Plant Overview.</p>
+</li>
+<li>
+<p>Multiple minor fixes for the integration project generator.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Other changes:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>When using the Plant Overview or Kernel Control Center with SSL-encrypted RMI, verification of the server certificate is now mandatory.</p>
+</li>
+<li>
+<p>Adjust the default docking frames layout in the Plant Overview for mode OPERATING a bit to make better use of wide-screen displays.</p>
+</li>
+<li>
+<p>Include web API documentation generated by Swagger in the distribution.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_4_9_1_2018_04_26">4.10. Version 4.9.1 (2018-04-26)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Bugs fixed:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Include the <code>buildSrc/</code> directory in the source distribution.</p>
+</li>
+<li>
+<p>Properly display vehicle routes after adding driving course views in the Plant Overview.</p>
+</li>
+<li>
+<p>Properly disconnect the plant overview from the kernel when switching to modelling mode.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_4_9_2018_04_16">4.11. Version 4.9 (2018-04-16)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Bugs fixed:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Fix jumping mouse cursor when dragging/moving model elements in the Plant Overview in some cases.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>New features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Allow the kernel to work headless, i.e. without a GUI.
+Introduce a separate Kernel Control Center application that provides the same functionality and can be attached to the kernel as a client.</p>
+</li>
+<li>
+<p>Provide a single-threaded executor for sequential processing of tasks in the kernel, which helps avoiding locking and visibility issues.
+Use this executor for most tasks, especially the ones manipulating kernel state, that were previously executed concurrently.</p>
+</li>
+<li>
+<p>Introduce a web API (HTTP + JSON), intended to replace the proprietary TCP/IP host interface, which is now deprecated.</p>
+</li>
+<li>
+<p>Introduce an API for pluggable model import and export implementations in the Plant Overview.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Other changes:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Split the Kernel interface into aspect-specific service interfaces.</p>
+</li>
+<li>
+<p>Provide a (more) simple event API, including an event bus implementation as a replacement for the previously used MBassador and event hub.</p>
+</li>
+<li>
+<p>Overhaul the default dispatcher implementation to improve maintainability and extensibility.</p>
+</li>
+<li>
+<p>Allow suggestions for property values in the Plant Overview to depend on the key.</p>
+</li>
+<li>
+<p>Improve API and deprecate classes and methods in lots of places.</p>
+</li>
+<li>
+<p>Improve default formatting of log output for better readability.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_4_8_4_2018_02_12">4.12. Version 4.8.4 (2018-02-12)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Bugs fixed:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Fix erroneous behaviour for renaming of points when points are block members in the plant model.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_4_8_3_2018_01_24">4.13. Version 4.8.3 (2018-01-24)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Bugs fixed:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Fix processing of XML messages received via the TCP-based host interface.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_4_8_2_2017_12_15">4.14. Version 4.8.2 (2017-12-15)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Bugs fixed:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Properly store links between locations and points in the unified XML file format when the link was drawn from the location instead of from the point.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_4_8_1_2017_12_05">4.15. Version 4.8.1 (2017-12-05)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Bugs fixed:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Ensure that marshalling and unmarshalling of XML data always uses UTF-8.
+This fixes problems with plant models containing special characters (like German umlauts) e.g. in element names.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_4_8_2017_11_28">4.16. Version 4.8 (2017-11-28)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Bugs fixed:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Properly copy model coordinates to layout coordinates in the plant overview without invalidating the model.</p>
+</li>
+<li>
+<p>Adjust erroneous behaviour in the load generator plugin panel and properly update its GUI elements depending on its state.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>New features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Add a category property to transport orders and order sequences and a set of processable categories to vehicles, allowing a finer-grained selection of processable orders.</p>
+</li>
+<li>
+<p>Prepare proper encryption for RMI connections.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Other changes:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Use the unified (i.e. the kernel&#8217;s) XML file format to load and save plant models in the plant overview by default.
+(The plant overview&#8217;s previous default file format is still supported for both loading and saving.
+Support for the old format will eventually be removed in a future version, though, so users are advised to switch to the new format.)</p>
+</li>
+<li>
+<p>Remove some unmaintained features from the loopback adapter and its GUI.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_4_7_2017_10_11">4.17. Version 4.7 (2017-10-11)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Bugs fixed:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Ensure that scheduler modules are properly terminated.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>New features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Allow the colors used for vehicles' routes be defined in the plant model.</p>
+</li>
+<li>
+<p>Have the default dispatcher periodically check for idle vehicles that could be dispatched.
+This picks up vehicles that have not been in a dispatchable state when dispatching them was previously tried.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_4_6_2017_09_25">4.18. Version 4.6 (2017-09-25)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Bugs fixed:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Don&#8217;t mark a drive order as finished if the transport order it belongs to was withdrawn.</p>
+</li>
+<li>
+<p>Properly update the vehicles' states in the kernel control center&#8217;s vehicle list.</p>
+</li>
+<li>
+<p>When creating locations, properly attach links to the respective points, too.</p>
+</li>
+<li>
+<p>When renaming a point in the plant overview, properly update blocks containing paths starting or ending at this point.</p>
+</li>
+<li>
+<p>Avoid NPE when the transport order referenced in a <code>Vehicle</code> instance does not exist in the kernel any more.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>New features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Allow the kernel&#8217;s RMI port to be set via configuration.</p>
+</li>
+<li>
+<p>Allow preferred parking positions and recharge locations to be set as properties on <code>Vehicle</code> instances.</p>
+</li>
+<li>
+<p>In XML status channel messages, add a reference to a vehicle&#8217;s transport order, and vice versa.</p>
+</li>
+<li>
+<p>Allow the kernel&#8217;s order cleanup task to be adjusted via predicates that approve cleanup of transport orders and order sequences.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Other changes:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Deprecate <code>VehicleCommAdapter.State</code>. It&#8217;s not really used anywhere, and the enum elements are fuzzy/incomplete, anyway.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_4_5_2017_08_10">4.19. Version 4.5 (2017-08-10)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Switched to a plain JGraphT-based implementation of Dijkstra&#8217;s algorithm for routing.</p>
+</li>
+<li>
+<p>Deprecated static routes.
+All routes are supposed to be computed by the router implementation.
+(Both the kernel and the plant overview will still be able to load models containing static routes.
+The button for creating new static routes in the plant overview has been removed, however.)</p>
+</li>
+<li>
+<p>Introduced caching for configuration entries read via binding interfaces.</p>
+</li>
+<li>
+<p>Prepared immutability for plant model and transport order objects within the kernel.</p>
+</li>
+<li>
+<p>Deprecated dummy references to objects as well as the superfluous ID attribute in <code>TCSObject</code>.</p>
+</li>
+<li>
+<p>Made JHotDraw and Docking Frames libraries available as Maven artifacts so they do not have to be kept in the sources distribution.</p>
+</li>
+<li>
+<p>Updated Mockito to 2.8.47.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_4_4_2017_07_17">4.20. Version 4.4 (2017-07-17)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixed a performance issue with building routing tables in the default router caused by excessive calling of methods on a configuration binding interface.</p>
+</li>
+<li>
+<p>Introduced a method to explicitly trigger routing topology updates via the <code>Kernel</code> interface instead of explicitly updating it whenever a path was locked/unlocked to avoid redundant computations.</p>
+</li>
+<li>
+<p>Improved behaviour with scaling the course model in the plant overview.</p>
+</li>
+<li>
+<p>Added a mechanism to provide project-specific suggestions for keys and values when editing object properties in the plant overview.</p>
+</li>
+<li>
+<p>Added GUI components to set vehicle properties from the loopback driver&#8217;s panel.</p>
+</li>
+<li>
+<p>Deprecated explicit event filters, which make the code more verbose without adding any value.</p>
+</li>
+<li>
+<p>Some small bugfixes and improvements.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_4_3_2017_06_30">4.21. Version 4.3 (2017-06-30)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Introduced configuration based on binding interfaces and cfg4j to provide implementations for these, and deprecated the previously used configuration classes.
+Implications and side effects:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Made documentation of configuration entries (for users) easy via annotations.</p>
+</li>
+<li>
+<p>Switched configuration files from XML to properties.</p>
+</li>
+<li>
+<p>Switched to read-only configuration.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Improved maintainability and reusability of the default dispatcher implementation.</p>
+</li>
+<li>
+<p>Updated Gradle wrapper to 3.5.</p>
+</li>
+<li>
+<p>Many small bugfixes and improvements.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_4_2_2017_05_29">4.22. Version 4.2 (2017-05-29)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Simplify the kernel API by using transfer objects to create plant models and transport orders.
+Expect plant models to be transferred as a whole instead of updating existing model elements with multiple calls.</p>
+</li>
+<li>
+<p>Actually make use of modules in the default scheduler: A scheduler module can be used to influence the allocation process of resources to vehicles (e.g. to wait for infrastructure feedback before letting a vehicle pass a path).</p>
+</li>
+<li>
+<p>A location type&#8217;s (default) symbol can now be overwritten by a location to display an empty symbol.</p>
+</li>
+<li>
+<p>Fix a bug where a large plant model could be loaded multiple times when loaded from the kernel into the plant overview.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_4_1_2017_04_20">4.23. Version 4.1 (2017-04-20)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Added functionality for reading and writing the kernel&#8217;s plant model file format to the plant overview client.</p>
+</li>
+<li>
+<p>Added bezier paths with three control points to the plant overview client.</p>
+</li>
+<li>
+<p>Added a panel to observe resource allocations to the plant overview client.</p>
+</li>
+<li>
+<p>Added a dialog requiring user confirmation before changing the driver associated with a vehicle to prevent accidental changes.</p>
+</li>
+<li>
+<p>Improved performance for transferring model data from the plant overview client to the kernel.</p>
+</li>
+<li>
+<p>Improved selection of colors used for marking vehicles' routes in the plant overview client.</p>
+</li>
+<li>
+<p>Improved performance of routing table computation by computing only one table shared by all vehicles by default.
+(Computation of separate tables for vehicles is optionally possible.)</p>
+</li>
+<li>
+<p>Many small bugfixes and improvements to code and documentation.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_4_0_1_2017_02_25">4.24. Version 4.0.1 (2017-02-25)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Fix a potential deadlock in the default scheduler.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_4_0_2017_02_11">4.25. Version 4.0 (2017-02-11)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Split the base library into a base API, an injection API and a library with commonly used utility classes to reduce the load of transitive dependencies for API users.</p>
+</li>
+<li>
+<p>Heavily cleaned up the APIs, including some backwards-incompatible changes (mainly renaming and removing previously deprecated elements).
+Notable examples:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Moved vehicle communication adapter base classes to <code>org.opentcs.drivers.vehicle</code> and named them more appropriately.</p>
+</li>
+<li>
+<p>Removed TCP/IP communication implementation from <code>org.opentcs.util.communication.tcp</code> and a few more utility classes.
+Maintaining these is out of the openTCS project&#8217;s scope.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Greatly improved extension and customization capabilities for both the kernel and plant overview applications by applying dependency injection in more places.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Communication adapters may now participate with dependency injection.</p>
+</li>
+<li>
+<p>Default kernel strategies may now easily be overridden.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Simplified the default <code>Scheduler</code> implementation.</p>
+</li>
+<li>
+<p>Switched logging to SLF4J.</p>
+</li>
+<li>
+<p>Improved project documentation for both users and developers and migrated to Asciidoctor for easier maintenance.</p>
+</li>
+<li>
+<p>Updated Guice to 4.1.0.</p>
+</li>
+<li>
+<p>Updated Guava to 19.0.</p>
+</li>
+<li>
+<p>Updated JDOM to 2.0.6.</p>
+</li>
+<li>
+<p>Updated Gradle to 2.13.</p>
+</li>
+<li>
+<p>Many small bugfixes and improvements.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_3_2_2016_01_19">4.26. Version 3.2 (2016-01-19)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Switched to Gradle as the build management system for improved dependency management and release process.
+This introduces cleanly separate subprojects for base library, basic strategies library, kernel application, plant overview application and documentation.
+It also adds clean separation of application code and Guice configuration.</p>
+</li>
+<li>
+<p>Added an event bus-backed event hub implementation for the kernel to distribute events sent by e.g. communication adapters and make it possible to forward them to kernel clients.
+Also add method <code>publishEvent()</code> to <code>BasicCommunicationAdapter</code> to allow communication adapters to use it.</p>
+</li>
+<li>
+<p>Adjusted the dispatcher&#8217;s and kernel&#8217;s methods for withdrawing transport orders to explicitly state whether the order should be withdrawn regularly or aborted immediately, which makes them deterministic for the caller.</p>
+</li>
+<li>
+<p>Moved code for handling transport order states/activations from the kernel to the dispatcher implementation for better separation of concerns.</p>
+</li>
+<li>
+<p>Improved the use of dependency injection via Guice in the kernel to make the code more modular.</p>
+</li>
+<li>
+<p>Added annotation <code>@ScheduledApiChange</code> for marking scheduled incompatible API changes.</p>
+</li>
+<li>
+<p>Updated library Guava to 18.0.</p>
+</li>
+<li>
+<p>Many small fixes and improvements.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_3_1_1_2015_05_06">4.27. Version 3.1.1 (2015-05-06)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Fix a crash in the plant overview client that occured when the user tried to add a drive order to a transport order.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_3_1_2015_03_23">4.28. Version 3.1 (2015-03-23)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Fix the encoding of model files written by the plant overview client.</p>
+</li>
+<li>
+<p>Fix a problem with renaming points that resulted in broken model files.</p>
+</li>
+<li>
+<p>Fix a crash that happened when trying to open a context menu on a vehicle in modelling mode.</p>
+</li>
+<li>
+<p>Properly set the scale factor when loading a model from a file.</p>
+</li>
+<li>
+<p>Avoid a crash when trying to create a transport order with a model that does not contain any locations/transport order destinations.</p>
+</li>
+<li>
+<p>Fix direction indicators of paths not being displayed properly after loading a model from a file.</p>
+</li>
+<li>
+<p>Fix outdated documentation in a couple of places.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_3_0_2014_11_25">4.29. Version 3.0 (2014-11-25)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>The plant overview client can now be used for offline modelling, i.e. without requiring a permanent connection to the kernel.</p>
+</li>
+<li>
+<p>To further reflect these changes, the plant overview client now maintains its operating mode independently from the kernel&#8217;s state.
+If the user sets the mode of the plant overview client to <code>OPERATING</code> while the kernel is in modelling mode, an empty model will be displayed and the actual model will be loaded as soon as the connected kernel switches back to operating mode.
+Furthermore, this allows to modify the driving course model in the plant overview client while the kernel remains in operating mode.
+See the manual for more information.</p>
+</li>
+<li>
+<p>The management of course model files was moved to the plant overview client.
+As of this version, the kernel stores only a single driving course model which can be persisted by selecting the corresponding menu item in the graphical user interface of the plant overview client.
+Changes made to the model in the plant overview client must be explicitly transferred to the kernel.
+To migrate all of your existing models to this new version, please refer to the manual.</p>
+</li>
+<li>
+<p>Changes made to the Kernel API:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Method <code>Set&lt;String&gt; getModelNames()</code> was changed to <code>String getModelName()</code>, as from now on there exists only one model at a time.</p>
+</li>
+<li>
+<p>Method <code>loadModel(String modelName)</code> no longer requires/accepts a parameter.</p>
+</li>
+<li>
+<p>Method <code>saveModel(String modelName, boolean overwrite)</code> no longer accepts the <code>boolean</code> parameter and overwrites the model automatically.</p>
+</li>
+<li>
+<p>Method <code>removeModel(String rmName)</code> no longer requires/accepts a parameter.</p>
+</li>
+<li>
+<p>Methods <code>createLayout(byte[] layoutData)</code> and <code>setLayoutData(TCSObjectReference&lt;Layout&gt; ref, byte[] newData)</code> have been removed along with class <code>Layout</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Updated library Google Guava to 17.0.</p>
+</li>
+<li>
+<p>Updated library JAXB to 2.2.7.</p>
+</li>
+<li>
+<p>Updated project to Java 8.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_2_7_1_2014_06_30">4.30. Version 2.7.1 (2014-06-30)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Fixed a potential crash with switching to plant operation mode when the model contained static routes.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_2_7_2014_06_25">4.31. Version 2.7 (2014-06-25)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Updated library Docking Frames to 1.1.2p11.</p>
+</li>
+<li>
+<p>Added library Google Guava 16.0.1 for better code readability via small utility methods.</p>
+</li>
+<li>
+<p>Added position coordinates to locations.</p>
+</li>
+<li>
+<p>Added synchronization of model and layout coordinates for points and locations.</p>
+</li>
+<li>
+<p>Fixed reconstruction of routing tables when locking/unlocking paths in plant operation mode.</p>
+</li>
+<li>
+<p>Reimplemented the former Dijkstra-based routing table construction, now providing one based on breadth-first search and an alternative based on depth-first search, and use pluggable routing cost functions.</p>
+</li>
+<li>
+<p>Implemented a proper life cycle for plant overview plugin panels.</p>
+</li>
+<li>
+<p>Modified model management to not allow model names to differ in the case of their spelling only to prevent inconsistencies on Windows systems.</p>
+</li>
+<li>
+<p>Replaced the reference on a Location in a MovementCommand with the Location itself to provide more information to the vehicle driver.</p>
+</li>
+<li>
+<p>Made more wide-spread use of dependency injection via Guice and refactored, cleaned up and simplified source code in many places, primarily in the plant overview client.</p>
+</li>
+<li>
+<p>Many small bugfixes and improvements.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_2_6_1_2014_03_14">4.32. Version 2.6.1 (2014-03-14)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Properly color the route for vehicles that have just been created and not loaded from an existing plant model.</p>
+</li>
+<li>
+<p>Fix loading plant models created by older versions of openTCS that contained certain path liner types.</p>
+</li>
+<li>
+<p>Properly set point types as read from the plant model in the plant overview client.</p>
+</li>
+<li>
+<p>Do not provide a clickable graphical figure in the plant overview client for vehicles that should actually be invisible.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_2_6_2014_02_28">4.33. Version 2.6 (2014-02-28)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Updated library Docking Frames to 1.1.2p10e.</p>
+</li>
+<li>
+<p>Updated library JDOM to 2.0.5.</p>
+</li>
+<li>
+<p>Updated library JFreeChart to 1.0.17, including an update of JCommon to 1.0.21.</p>
+</li>
+<li>
+<p>Updated library JUnit to 4.11, including the addition of Hamcrest 1.3.</p>
+</li>
+<li>
+<p>Updated DocBook style sheets to 1.78.1.</p>
+</li>
+<li>
+<p>Added library Google Guice 3.0 for dependency injection and thus better modularity.</p>
+</li>
+<li>
+<p>Added library Mockito 1.9.5 to simplify and improve the included unit tests.</p>
+</li>
+<li>
+<p>Downgraded the Saxon XSL processor to version 6.5.5, as more recent versions seem to have deficiencies with DocBook to FO transformations.</p>
+</li>
+<li>
+<p>Merged the experimental generic client application into the plant overview client, which can now be extended with plugin-like panels providing custom functionality.</p>
+</li>
+<li>
+<p>Added plugin panels for load generation and statistics reports into the plant overview client.</p>
+</li>
+<li>
+<p>Improved the undo/redo functionality of the plant overview client in modelling mode.</p>
+</li>
+<li>
+<p>Temporarily disabled the copy-and-paste functionality of the plant overview client in modelling mode until some major usability issues have been sorted out.</p>
+</li>
+<li>
+<p>Improved editing of multiple driving course elements at the same time.</p>
+</li>
+<li>
+<p>Temporarily disabled the possibility to add background graphics until this works more reliably.</p>
+</li>
+<li>
+<p>Unified look-and-feel and fonts in the kernel control center and the plant overview client and removed the selection menu for different Swing look-and-feels from the kernel control center.</p>
+</li>
+<li>
+<p>Improved localization of the plant overview client.</p>
+</li>
+<li>
+<p>Removed the kernel&#8217;s explicit "simulation" mode, which was never fully implemented or used and provided practically no advantages over the normal mode of operation, in which vehicles can be simulated using the loopback driver.</p>
+</li>
+<li>
+<p>Fixed/improved GUI layout in multiple places of the kernel control center.</p>
+</li>
+<li>
+<p>Many bugfixes and improvements to code and documentation.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_2_5_2013_12_18">4.34. Version 2.5 (2013-12-18)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Added library Docking Frames 1.1.2-P8c.</p>
+</li>
+<li>
+<p>Made some panels in the plant overview client (un)dockable.</p>
+</li>
+<li>
+<p>Added a panel with an overview of all vehicles and their respective states to the plant overview client.</p>
+</li>
+<li>
+<p>Added a pause button to the plant overview client to pause/stop all active vehicles at once.</p>
+</li>
+<li>
+<p>Introduced pluggable themes to customize the appearance of locations and vehicles in the plant overview.</p>
+</li>
+<li>
+<p>Added generic grouping of driving course elements, primarily to support visualization in the plant overview.</p>
+</li>
+<li>
+<p>Translated the user manual to English.</p>
+</li>
+<li>
+<p>Many small bugfixes and improvements to both the code and the documentation.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_2_4_2_2013_07_29">4.35. Version 2.4.2 (2013-07-29)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Updated the XML Schema definitions for the host interface.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_2_4_1_2013_05_30">4.36. Version 2.4.1 (2013-05-30)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Updated the visualization client, including many bug fixes, usability improvements and internationalization (English and German language).</p>
+</li>
+<li>
+<p>Properly included a vehicle&#8217;s length when persisting/materializing a course model.</p>
+</li>
+<li>
+<p>Removed an erroneous JAXB annotation that led to an exception when trying to persist load generator input data in the generic client.</p>
+</li>
+<li>
+<p>Changed the startup scripts/batch files to look for extension JARs in <code>lib/openTCS-extensions/</code> instead of <code>lib/</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_2_4_2013_02_07">4.37. Version 2.4 (2013-02-07)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Updated JDOM to 2.0.4.</p>
+</li>
+<li>
+<p>Updated JHotDraw to 7.6.</p>
+</li>
+<li>
+<p>Updated Checkstyle to 5.6.</p>
+</li>
+<li>
+<p>Integrated Saxon 9.4 and Apache FOP 1.1 into the build for processing the DocBook manual.</p>
+</li>
+<li>
+<p>Major overhaul of the visualization client, including:
+Integration of both modes (modelling and visualization) into a single application, preparation for proper localization and integration of the course layout information into model data structures, making it easier to create complete models including course layout via the kernel API.
+(This basically allows to implement other clients that can create new models or import/convert existing models from other applications.)
+Using models containing "old" layout data is still supported but deprecated.</p>
+</li>
+<li>
+<p>Changed license of the visualization client to LGPL.</p>
+</li>
+<li>
+<p>Improved support for vehicle energy management:
+For each vehicle, a specific charging operation may be specified (default: &#8220;CHARGE&#8221;), which will be used by the dispatcher to automatically create orders to recharge the vehicle&#8217;s energy source.</p>
+</li>
+<li>
+<p>Improved strategies for selecting parking positions and charging locations.</p>
+</li>
+<li>
+<p>Changed initial processing state of a vehicle to <code>UNAVAILABLE</code>, preventing immediate dispatching of vehicles on startup.</p>
+</li>
+<li>
+<p>Improved kernel methods for withdrawing orders from vehicles and allow setting a vehicle&#8217;s processing state to <code>UNAVAILABLE</code> to prevent it being dispatched again immediately.</p>
+</li>
+<li>
+<p>Added kernel method dispatchVehicle() to allow vehicles in state <code>UNAVAILABLE</code> to be dispatched again.</p>
+</li>
+<li>
+<p>(Re-)Added 'dispensable' flag to class TransportOrder to indicate that an order may be withdrawn automatically by the dispatcher.
+(Primarily used to make parking orders abortable.)</p>
+</li>
+<li>
+<p>Improved handling of order sequences.</p>
+</li>
+<li>
+<p>Added a simple, preliminary implementation of data collection for statistics based on event data in <code>org.opentcs.util.statistics</code>.</p>
+</li>
+<li>
+<p>Removed class <code>VehicleType</code> and all references to it completely.
+All information about the vehicles themselves is stored in Vehicle, now, simplifying the code in which <code>VehicleType</code> was used.</p>
+</li>
+<li>
+<p>Added <code>Vehicle.State.UNAVAILABLE</code> for vehicles that are not in an ERROR state but currently remotely usable, either.
+(Examples: manual or semi-automatic modes)</p>
+</li>
+<li>
+<p>Added methods <code>Kernel.sendCommAdapterMessage()</code> and <code>CommunicationAdapter.processMessage()</code> to allow clients to send generic messages to communication adapters associated with vehicles.</p>
+</li>
+<li>
+<p>Removed methods <code>stop()</code>, <code>pause()</code> and <code>resume()</code> from communication adapter interface as they had not served any purpose for long time.</p>
+</li>
+<li>
+<p>Removed kernel method <code>getInfoText()</code>, for which the <code>query()</code> method has served as a replacement for a while, now.</p>
+</li>
+<li>
+<p>Properly propagate exceptions to clients connected via the RMI proxy.</p>
+</li>
+<li>
+<p>Small bug fixes and improvements to code and documentation.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_2_3_2012_09_17">4.38. Version 2.3 (2012-09-17)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Moved sources of the generic client into the main project&#8217;s source tree.</p>
+</li>
+<li>
+<p>Updated JFreeChart to 1.0.14.</p>
+</li>
+<li>
+<p>Use JFreeChart for drawing the velocity graph of a communication adapter.</p>
+</li>
+<li>
+<p>Instead of emitting an event only after the kernel&#8217;s state changed, emit an additional one before the state transition.</p>
+</li>
+<li>
+<p>Implemented org.opentcs.data.order.OrderSequence for processes spanning more than one transport order that should be processed by a single vehicle.</p>
+</li>
+<li>
+<p>Added a set of properties to DriveOrder.Destination and MovementCommand, allowing an order/command to carry additional information for a communication adapter or vehicle, if necessary.</p>
+</li>
+<li>
+<p>(Re-)Added <code>State.CHARGING</code> and merged <code>State.DRIVING</code> and <code>State.OPERATING</code> into <code>State.EXECUTING</code> in <code>org.opentcs.data.model.Vehicle</code>.</p>
+</li>
+<li>
+<p>Added a settable threshold for critical and good energy levels of a vehicle.</p>
+</li>
+<li>
+<p>Added a vehicle specific charging operation to Vehicle, settable by the communication adapter.</p>
+</li>
+<li>
+<p>Recompute routing tables when (un)locking a path.</p>
+</li>
+<li>
+<p>Remove <code>org.opentcs.data.model.Path.Action</code>, which wasn&#8217;t really used anywhere and doesn&#8217;t provide any benefit over a Path&#8217;s properties.</p>
+</li>
+<li>
+<p>Remove a lot of deprecated methods in the kernel interface.</p>
+</li>
+<li>
+<p>Replace the existing dispatcher with one that is aware of order sequences and vehicles' energy levels and automatically creates orders to recharge vehicles.</p>
+</li>
+<li>
+<p>Deprecated and largely removed references to <code>org.opentcs.data.model.VehicleType</code>, simplifying some code.</p>
+</li>
+<li>
+<p>Bug fix in <code>KernelStateOperating.activateTransportOrder()</code>:
+Use our own references to the transport order, not the one we received as a parameter, as that causes problems if the order has been renamed but a reference with the old name is being used by the calling client.</p>
+</li>
+<li>
+<p>Moved classes to packages properly separated by functionality, and removed a few utility classes that were not used and didn&#8217;t provide much.
+(This effectively means the API provided by the base JAR changed.
+Fixing any resulting broken imports should be the only thing required to use the new version.)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version_2_2_2012_07_10">4.39. Version 2.2 (2012-07-10)</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Published as free open source software (license: the MIT license, see <code>LICENSE.txt</code>) - Requires Java 1.7</p>
+</li>
+<li>
+<p>Update JDOM to 2.0.2.</p>
+</li>
+<li>
+<p>Integrated kernel and driver GUI into a single application.</p>
+</li>
+<li>
+<p>Basic support for energy management</p>
+</li>
+<li>
+<p>Support for dynamic load handling devices reported by vehicles/vehicle drivers to the kernel</p>
+</li>
+<li>
+<p>Simplified integration of vehicle drivers: Vehicle drivers in the class path are found automatically using <code>java.util.ServiceLoader</code>.</p>
+</li>
+<li>
+<p>Automatic backup copies (in <code>$KERNEL/data/backups/</code>) when saving models</p>
+</li>
+<li>
+<p>Switched from properties to XML for configuration files</p>
+</li>
+<li>
+<p>Simplified and more consistent kernel API</p>
+</li>
+<li>
+<p>Many small bug fixes and adjustments of the included strategies</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_contributors">5. Contributors</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We are grateful for anyone helping us to improve openTCS by contributing code or documentation.
+So far, the developers involved were/are (in alphabetical order by last name):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Hubert Buechter</p>
+</li>
+<li>
+<p>Iryna Felko</p>
+</li>
+<li>
+<p>Martin Grzenia</p>
+</li>
+<li>
+<p>Preity Gupta</p>
+</li>
+<li>
+<p>Heinz Huber</p>
+</li>
+<li>
+<p>Olaf Krause</p>
+</li>
+<li>
+<p>Tobias Marquardt</p>
+</li>
+<li>
+<p>Sebastian Naumann</p>
+</li>
+<li>
+<p>Volkmar Pontow</p>
+</li>
+<li>
+<p>Leonard Schüngel</p>
+</li>
+<li>
+<p>Philipp Seifert</p>
+</li>
+<li>
+<p>Andreas Trautmann</p>
+</li>
+<li>
+<p>Stefan Walter</p>
+</li>
+<li>
+<p>Mats Wilhelm</p>
+</li>
+<li>
+<p>Mustafa Yalciner</p>
+</li>
+<li>
+<p>Youssef Zaki</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If you have contributed to openTCS and we have missed you on this list, please accept our apologies and send us an e-mail via <a href="mailto:info@opentcs.org">info@opentcs.org</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+</div>
+</div>
+</body>
+</html>

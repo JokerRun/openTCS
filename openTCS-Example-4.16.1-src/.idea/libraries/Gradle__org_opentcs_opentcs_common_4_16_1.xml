@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.opentcs:opentcs-common:4.16.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.opentcs/opentcs-common/4.16.1/7e4e37122303f3b6bb5e7d7c51170e1b360fae0/opentcs-common-4.16.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.opentcs/opentcs-common/4.16.1/a4081fdeddf989d2b461843218b39b1ee1095625/opentcs-common-4.16.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

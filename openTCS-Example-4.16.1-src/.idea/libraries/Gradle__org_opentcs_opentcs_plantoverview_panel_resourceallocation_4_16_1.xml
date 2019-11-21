@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.opentcs:opentcs-plantoverview-panel-resourceallocation:4.16.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.opentcs/opentcs-plantoverview-panel-resourceallocation/4.16.1/a0b26a4e20062ffceb39ce75e28ca94e7580d687/opentcs-plantoverview-panel-resourceallocation-4.16.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.opentcs/opentcs-plantoverview-panel-resourceallocation/4.16.1/bfab1f0dabb6c6e72f3cd4fe00f6bbc1712af3a8/opentcs-plantoverview-panel-resourceallocation-4.16.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

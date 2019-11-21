@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.opentcs:opentcs-commadapter-loopback:4.16.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.opentcs/opentcs-commadapter-loopback/4.16.1/41f0380e01c1d209bc0ba8387a6ee47cbbdb6937/opentcs-commadapter-loopback-4.16.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.opentcs/opentcs-commadapter-loopback/4.16.1/61fb1430dd131f1e38ce4d6c9d7326cc58c16347/opentcs-commadapter-loopback-4.16.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

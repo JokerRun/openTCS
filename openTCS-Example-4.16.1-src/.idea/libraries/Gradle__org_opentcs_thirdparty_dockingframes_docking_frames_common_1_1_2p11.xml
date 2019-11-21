@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.opentcs.thirdparty.dockingframes:docking-frames-common:1.1.2p11">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.opentcs.thirdparty.dockingframes/docking-frames-common/1.1.2p11/2bfe33795642502c67507424e408c845cb6a9a0c/docking-frames-common-1.1.2p11.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.opentcs.thirdparty.dockingframes/docking-frames-common/1.1.2p11/4745a2772578d1061a273251dd0458555c55246a/docking-frames-common-1.1.2p11-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

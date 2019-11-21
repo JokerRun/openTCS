@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="tcsScriptFile" type="tcsScriptFile"/>
+
+  <xs:complexType name="tcsScriptFile">
+    <xs:sequence>
+      <xs:element name="order" type="order" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="sequentialDependencies" type="xs:boolean" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="order">
+    <xs:sequence>
+      <xs:element name="destination" type="destination" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="intendedVehicle" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="destination">
+    <xs:sequence>
+      <xs:element name="property" type="property" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="locationName" type="xs:string" use="required"/>
+    <xs:attribute name="operation" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="property">
+    <xs:sequence/>
+    <xs:attribute name="key" type="xs:string" use="required"/>
+    <xs:attribute name="value" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="transport">
+    <xs:complexContent>
+      <xs:extension base="tcsOrder">
+        <xs:sequence>
+          <xs:element name="destination" type="destination" maxOccurs="unbounded"/>
+          <xs:element name="property" type="property" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="dependency" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="deadline" type="xs:dateTime"/>
+        <xs:attribute name="intendedVehicle" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="tcsOrder">
+    <xs:sequence/>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="transportScript">
+    <xs:complexContent>
+      <xs:extension base="tcsOrder">
+        <xs:sequence/>
+        <xs:attribute name="fileName" type="xs:string" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+
