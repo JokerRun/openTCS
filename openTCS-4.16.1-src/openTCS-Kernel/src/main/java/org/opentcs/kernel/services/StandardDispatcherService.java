@@ -17,6 +17,9 @@ import org.opentcs.data.TCSObjectReference;
 import org.opentcs.data.model.Vehicle;
 import org.opentcs.data.order.TransportOrder;
 import org.opentcs.kernel.workingset.TCSObjectPool;
+import org.opentcs.strategies.basic.dispatching.DefaultDispatcher;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * This class is the standard implementation of the {@link DispatcherService} interface.
@@ -25,6 +28,7 @@ import org.opentcs.kernel.workingset.TCSObjectPool;
  */
 public class StandardDispatcherService
     implements DispatcherService {
+    private static final Logger LOG = LoggerFactory.getLogger(StandardDispatcherService.class);
 
   /**
    * A global object to be used for synchronization within the kernel.
@@ -57,6 +61,7 @@ public class StandardDispatcherService
 
   @Override
   public void dispatch() {
+      LOG.debug("【StandardDispatcherService】调用 dispatcher.dispatch()");
     synchronized (globalSyncObject) {
       dispatcher.dispatch();
     }

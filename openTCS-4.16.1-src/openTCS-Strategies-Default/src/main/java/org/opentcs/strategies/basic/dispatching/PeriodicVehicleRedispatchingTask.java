@@ -52,6 +52,7 @@ public class PeriodicVehicleRedispatchingTask
 
   @Override
   public void run() {
+      LOG.debug("每10s定时查看是否有可用空闲小车，如果有的话，将触发dispatcherService.dispatch();");
     // If there are any vehicles that could process a transport order,
     // trigger the dispatcher once.
     objectService.fetchObjects(Vehicle.class, this::couldProcessTransportOrder).stream()
@@ -63,6 +64,7 @@ public class PeriodicVehicleRedispatchingTask
   }
 
   private boolean couldProcessTransportOrder(Vehicle vehicle) {
+      LOG.debug("判断小车{}是否可用于处理运单couldProcessTransportOrder: 条件：TO_BE_UTILIZED&&当前位置不为空&&电量级别严重&&(小车不在处理运单||小城正在处理可用订单())",vehicle.getName());
     return vehicle.getIntegrationLevel() == Vehicle.IntegrationLevel.TO_BE_UTILIZED
         && vehicle.getCurrentPosition() != null
         && !vehicle.isEnergyLevelCritical()

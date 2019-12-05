@@ -13,7 +13,10 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import javax.inject.Inject;
 import org.opentcs.data.model.Vehicle;
+import org.opentcs.strategies.basic.dispatching.phase.assignment.AssignFreeOrdersPhase;
 import org.opentcs.strategies.basic.dispatching.selection.VehicleSelectionFilter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * A collection of {@link VehicleSelectionFilter}s.
@@ -22,8 +25,10 @@ import org.opentcs.strategies.basic.dispatching.selection.VehicleSelectionFilter
  */
 public class CompositeVehicleSelectionFilter
     implements VehicleSelectionFilter {
+    private static final Logger LOG = LoggerFactory.getLogger(CompositeVehicleSelectionFilter.class);
 
-  /**
+
+    /**
    * The {@link VehicleSelectionFilter}s.
    */
   private final Set<VehicleSelectionFilter> filters;
@@ -35,6 +40,7 @@ public class CompositeVehicleSelectionFilter
 
   @Override
   public Collection<String> apply(Vehicle vehicle) {
+      LOG.debug("【CompositeVehicleSelectionFilter组合过滤器】对{}执行过滤条件{}",vehicle.getName(),this.filters);
     return filters.stream()
         .flatMap(filter -> filter.apply(vehicle).stream())
         .collect(Collectors.toList());

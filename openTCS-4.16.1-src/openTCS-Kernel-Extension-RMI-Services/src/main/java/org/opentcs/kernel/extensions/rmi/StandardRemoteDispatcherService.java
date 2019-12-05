@@ -31,7 +31,7 @@ import org.slf4j.LoggerFactory;
  * This class is the standard implementation of the {@link RemoteDispatcherService} interface.
  * <p>
  * Upon creation, an instance of this class registers itself with the RMI registry by the name
- * declared as {@link RemoteDispatcherService#getRegistrationName()}.
+ * declared as {@link //RemoteDispatcherService#getRegistrationName()}.
  * </p>
  *
  * @author Martin Grzenia (Fraunhofer IML)
@@ -157,6 +157,7 @@ public class StandardRemoteDispatcherService
     userManager.verifyCredentials(clientId, UserPermission.MODIFY_ORDER);
 
     try {
+      LOG.debug("远程客户端{}执行dispatcherService.dispatch()任务提交",clientId);
       kernelExecutor.submit(() -> dispatcherService.dispatch()).get();
     }
     catch (InterruptedException | ExecutionException exc) {

@@ -121,7 +121,7 @@ public class DefaultDispatcher
       return;
     }
 
-    LOG.debug("Initializing...");
+    LOG.debug("Initializing Default Dispatcher...");
 
     transportOrderUtil.initialize();
     orderReservationPool.clear();
@@ -129,10 +129,12 @@ public class DefaultDispatcher
     fullDispatchTask.initialize();
 
     implicitDispatchTrigger = new ImplicitDispatchTrigger(this);
+    // 添加 监听式隐式触发器 用于消费应用事件
     eventSource.subscribe(implicitDispatchTrigger);
 
     LOG.debug("Scheduling periodic dispatch task with interval of {} ms...",
               configuration.idleVehicleRedispatchingInterval());
+    //初始化周期性运单分配任务
     periodicDispatchTaskFuture = kernelExecutor.scheduleAtFixedRate(
         periodicDispatchTaskProvider.get(),
         configuration.idleVehicleRedispatchingInterval(),
@@ -169,9 +171,13 @@ public class DefaultDispatcher
 
   @Override
   public void dispatch() {
-    LOG.debug("Scheduling dispatch task...");
+      LOG.debug("【DefaultDispatcher】:::全局调度器DefaultDispatcher.dispatch调用开始");
+
+      LOG.debug("Scheduling dispatch task...");
     // Schedule this to be executed by the kernel executor.
     kernelExecutor.submit(fullDispatchTask);
+      LOG.debug("【DefaultDispatcher】:::全局调度器DefaultDispatcher.dispatch调用结束");
+
   }
 
   @Override
