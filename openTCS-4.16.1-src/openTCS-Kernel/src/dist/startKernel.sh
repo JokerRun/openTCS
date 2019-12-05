@@ -22,10 +22,10 @@ fi
 
 # Start kernel
 ${JAVA} -enableassertions \
-    -Dopentcs.base="${OPENTCS_BASE}" \
-    -Dopentcs.home="${OPENTCS_HOME}" \
-    -Djava.util.logging.config.file=${OPENTCS_CONFIGDIR}/logging.config \
-    -Djava.security.policy=file:${OPENTCS_CONFIGDIR}/java.policy \
+    -Dopentcs.base="/Users/rico/AnypointStudio/workspace/Git/Laurus/openTCS/openTCS-4.16.1-src/openTCS-Kernel/build/install/openTCS-Kernel" \
+    -Dopentcs.home="/Users/rico/AnypointStudio/workspace/Git/Laurus/openTCS/openTCS-4.16.1-src/openTCS-Kernel/build/install/openTCS-Kernel" \
+    -Djava.util.logging.config.file=src/dist/config/logging.config \
+    -Djava.security.policy=file:src/dist/config/java.policy \
     -XX:-OmitStackTraceInFastThrow \
     -classpath "${OPENTCS_CP}" \
     org.opentcs.kernel.RunKernel
