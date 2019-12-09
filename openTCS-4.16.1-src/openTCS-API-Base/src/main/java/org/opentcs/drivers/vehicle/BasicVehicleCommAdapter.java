@@ -176,8 +176,9 @@ public abstract class BasicVehicleCommAdapter
     commandDispatcherTask = new CommandDispatcherTask();
     Thread commandDispatcherThread = new Thread(commandDispatcherTask,
                                                 getName() + "-commandDispatcher");
-    commandDispatcherThread.start();
-    enabled = true;
+      LOG.debug("【BasicVehicleCommAdapter】[环回通讯适配器父类BasicVehicleCommAdapter] 将被激活:将启动一个新的线程，执行模拟任务【{}】 ",commandDispatcherThread.getName());
+      commandDispatcherThread.start();
+      enabled = true;
     getProcessModel().setCommAdapterEnabled(true);
   }
 
@@ -261,6 +262,7 @@ public abstract class BasicVehicleCommAdapter
   public synchronized boolean enqueueCommand(MovementCommand newCommand) {
     requireNonNull(newCommand, "newCommand");
 
+    LOG.debug("【BasicVehicleCommAdapter.enqueueCommand】新的移动指令[{}]被加到指令队列中....",newCommand);
     boolean commandAdded = false;
     if (getCommandQueue().size() < getCommandQueueCapacity()) {
       LOG.debug("{}: Adding command: {}", getName(), newCommand);
@@ -434,6 +436,7 @@ public abstract class BasicVehicleCommAdapter
           curCmd = getCommandQueue().poll();
           if (curCmd != null) {
             try {
+                LOG.debug("【BasicVehicleCommAdapter】移动指令[curCmd={}]即将被下发：sendCommand(curCmd)->getSentQueue().add(curCmd)->getProcessModel().commandSent(curCmd)",curCmd);
               sendCommand(curCmd);
               // Remember that we sent this command to the vehicle.
               getSentQueue().add(curCmd);

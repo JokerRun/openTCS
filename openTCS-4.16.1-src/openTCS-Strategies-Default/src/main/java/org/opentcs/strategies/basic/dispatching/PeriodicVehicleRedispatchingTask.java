@@ -64,7 +64,7 @@ public class PeriodicVehicleRedispatchingTask
   }
 
   private boolean couldProcessTransportOrder(Vehicle vehicle) {
-      LOG.debug("判断小车{}是否可用于处理运单couldProcessTransportOrder: 条件：TO_BE_UTILIZED&&当前位置不为空&&电量级别严重&&(小车不在处理运单||小城正在处理可用订单())",vehicle.getName());
+      LOG.debug("判断小车{}是否可用于处理运单couldProcessTransportOrder: 条件：TO_BE_UTILIZED&&当前位置不为空&&电量级别严重&&(小车不在处理运单||小城正在处理可有可无的订单())",vehicle.getName());
     return vehicle.getIntegrationLevel() == Vehicle.IntegrationLevel.TO_BE_UTILIZED
         && vehicle.getCurrentPosition() != null
         && !vehicle.isEnergyLevelCritical()

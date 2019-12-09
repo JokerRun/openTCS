@@ -12,6 +12,7 @@ import org.opentcs.components.kernel.services.TCSObjectService;
 import org.opentcs.data.ObjectHistory;
 import org.opentcs.data.model.Point;
 import org.opentcs.data.model.Vehicle;
+import org.opentcs.data.order.DriveOrder;
 import org.opentcs.data.order.TransportOrder;
 import org.opentcs.strategies.basic.dispatching.AssignmentCandidate;
 import org.opentcs.strategies.basic.dispatching.OrderReservationPool;
@@ -36,6 +37,7 @@ import org.slf4j.LoggerFactory;
 import javax.inject.Inject;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static java.util.Objects.requireNonNull;
 import static org.opentcs.data.order.TransportOrderHistoryCodes.*;
@@ -165,19 +167,20 @@ public class AssignFreeOrdersPhase
     public void run() {
         Map<Boolean, List<VehicleFilterResult>> vehiclesSplitByFilter
                 = objectService.fetchObjects(Vehicle.class, isAvailableForAnyOrder)
-                .stream()
-                .map(order -> new VehicleFilterResult(order, vehicleSelectionFilter.apply(order)))
+                .stream()//将小车-(过滤器)->过滤结果[VehicleFilterResult(小车，过滤排除原因)]
+                .map(vehicle -> new VehicleFilterResult(vehicle, vehicleSelectionFilter.apply(vehicle)))
                 .collect(Collectors.partitioningBy(filterResult -> !filterResult.isFiltered()));
+        LOG.debug("【AssignFreeOrdersPhase.run.IsAvailableForAnyOrder.CompositeVehicleSelectionFilter(组合过滤器默认为空)】做完小车过滤，过滤结果:Map<Boolean, List<VehicleFilterResult>> = {}", vehiclesSplitByFilter);
         Collection<Vehicle> availableVehicles = vehiclesSplitByFilter.get(Boolean.TRUE).stream()
                 .map(VehicleFilterResult::getVehicle)
                 .collect(Collectors.toList());
-        LOG.debug("【AssignFreeOrdersPhase.run】做完过滤，获取到availableVehicles:{}", availableVehicles);
+        LOG.debug("【AssignFreeOrdersPhase.run.vehiclesSplitByFilter.collect】收集过滤结果，获取到availableVehicles:{}", availableVehicles);
 
         if (availableVehicles.isEmpty()) {
             LOG.debug("No vehicles available, skipping potentially expensive fetching of orders.");
             return;
         }
-        LOG.debug("【AssignFreeOrdersPhase.run】做完小车过滤，获取到availableVehicles:{}", availableVehicles);
+        LOG.debug("【AssignFreeOrdersPhase.run.IsAvailableForAnyOrder.CompositeVehicleSelectionFilter(组合过滤器默认为空)】做完小车过滤，获取到availableVehicles:{}", availableVehicles);
 
         // Select only dispatchable orders first, then apply the composite filter, handle
         // the orders that can be tried as usual and mark the others as filtered (if they aren't, yet).
@@ -186,7 +189,8 @@ public class AssignFreeOrdersPhase
                 .stream()
                 .map(order -> new OrderFilterResult(order, transportOrderSelectionFilter.apply(order)))
                 .collect(Collectors.partitioningBy(filterResult -> !filterResult.isFiltered()));
-
+        LOG.debug("【AssignFreeOrdersPhase.run.IsFreelyDispatchableToAnyVehicle.CompositeTransportOrderSelectionFilter(组合过滤器默认为空)】做完订单过滤，过滤结果:Map<Boolean, List<OrderFilterResult>> = {}", ordersSplitByFilter);
+        //将被过滤掉的订单的不可用原因记录到订单的历史信息中
         markNewlyFilteredOrders(ordersSplitByFilter.get(Boolean.FALSE));
         LOG.debug("【AssignFreeOrdersPhase.run】做完订单过滤，获取到availableOrders:{}", ordersSplitByFilter.get(Boolean.TRUE));
         LOG.debug("【AssignFreeOrdersPhase.run】开始执行分配tryAssignments");
@@ -197,6 +201,16 @@ public class AssignFreeOrdersPhase
                         .collect(Collectors.toList()));
     }
 
+    /**
+     * 1、比较availableVehicles与availableOrders数量
+     * 1.1、车<订单，则对小车先排序CompositeVehicleComparator，然后给小车分配订单tryAssignOrder
+     * 1.2、车>订单，则对订单优先级排序CompositeOrderComparator，然后给订单分配小车tryAssignVehicle
+     * <p>
+     * 2、
+     *
+     * @author Rico
+     * @date 2019/12/6 9:49 上午
+     */
     private void tryAssignments(Collection<Vehicle> availableVehicles,
                                 Collection<TransportOrder> availableOrders) {
         LOG.debug("Available for dispatching: {} transport orders and {} vehicles.",
@@ -205,15 +219,19 @@ public class AssignFreeOrdersPhase
 
         AssignmentState assignmentState = new AssignmentState();
         if (availableVehicles.size() < availableOrders.size()) {
+            LOG.debug("【AssignFreeOrderPhase.run.tryAssignments】[可用的小车数量] < [可分配自由订单数量] 的情况下:所有[可用小车]->小车排序->tryAssignOrder");
+
             availableVehicles.stream()
                     .sorted(vehicleComparator)
                     .forEach(vehicle -> tryAssignOrder(vehicle, availableOrders, assignmentState));
         } else {
+            LOG.debug("【AssignFreeOrderPhase.run.tryAssignments】[可用的小车数量]>[可分配自由订单数量]的情况下:所有[可分配自由订单]->小车排序->tryAssignVehicle");
             availableOrders.stream()
+                    //org.opentcs.strategies.basic.dispatching.priorization.CompositeOrderComparator
                     .sorted(orderComparator)
                     .forEach(order -> tryAssignVehicle(order, availableVehicles, assignmentState));
         }
-
+        //小车、订单、驾驶单的 候选项、终选项分配完成后，执行标记动作。
         assignmentState.getFilteredOrders().values().stream()
                 .filter(filterResult -> !assignmentState.wasAssignedToVehicle(filterResult.getOrder()))
                 .filter(this::filterReasonsChanged)
@@ -282,10 +300,17 @@ public class AssignFreeOrdersPhase
                 .anyMatch(other -> string.equals(other));
     }
 
+    /**
+     * 给小车分配订单
+     *
+     * @author Rico
+     * @date 2019/12/6 10:56 上午
+     */
     private void tryAssignOrder(Vehicle vehicle,
                                 Collection<TransportOrder> availableOrders,
                                 AssignmentState assignmentState) {
         LOG.debug("Trying to find transport order for vehicle '{}'...", vehicle.getName());
+        LOG.debug("【AssignFreeOrderPhase.run.tryAssignments.tryAssignOrder】开始给小车'{}'分配订单...", vehicle.getName());
 
         Point vehiclePosition = objectService.fetchObject(Point.class, vehicle.getCurrentPosition());
 
@@ -314,9 +339,9 @@ public class AssignFreeOrdersPhase
                                   Collection<Vehicle> availableVehicles,
                                   AssignmentState assignmentState) {
         LOG.debug("Trying to find vehicle for transport order '{}'...", order.getName());
-
-        Map<Boolean, List<CandidateFilterResult>> ordersSplitByFilter
-                = availableVehicles.stream()
+        LOG.debug("【AssignFreeOrderPhase.run.tryAssignments.tryAssignVehicle】开始遍历小车，给订单'{}'分配小车(未分配订单，能承运本(订单预用小车或预用本小车)订单)...", order.getName());
+        //获取到所有候选项(小车、运单、驾驶单s、成本)
+        Stream<AssignmentCandidate> assignmentCandidateStream = availableVehicles.stream()
                 .filter(vehicle -> (!assignmentState.wasAssignedToOrder(vehicle)
                         && orderAssignableToVehicle(order, vehicle)))
                 .map(vehicle -> computeCandidate(vehicle,
@@ -324,14 +349,18 @@ public class AssignFreeOrdersPhase
                                 vehicle.getCurrentPosition()),
                         order))
                 .filter(optCandidate -> optCandidate.isPresent())
-                .map(optCandidate -> optCandidate.get())
+                .map(optCandidate -> optCandidate.get());
+        //将所有候选项交给【候选过滤器assignmentCandidateSelectionFilter】,获取最终选用项
+        Map<Boolean, List<CandidateFilterResult>> ordersSplitByFilter = assignmentCandidateStream
                 .map(candidate -> new CandidateFilterResult(candidate, assignmentCandidateSelectionFilter.apply(candidate)))
                 .collect(Collectors.partitioningBy(filterResult -> !filterResult.isFiltered()));
+        LOG.debug("【AssignFreeOrdersPhase.*.tryAssignVehicle.CompositeAssignmentCandidateSelectionFilter(组合过滤器默认为IsProcessable,用于检查小车的Operation是否包含所有驾驶单中的Operation)】做完候选项过滤，过滤结果:Map<Boolean, List<CandidateFilterResult>> = {}", ordersSplitByFilter);
 
         ordersSplitByFilter.get(Boolean.FALSE).stream()
                 .map(CandidateFilterResult::toFilterResult)
                 .forEach(filterResult -> assignmentState.addFilteredOrder(filterResult));
 
+        LOG.debug("【AssignFreeOrdersPhase.*.tryAssignVehicle.CompositeVehicleCandidateComparator(候选小车比较器).findFirst.assignOrder】");
         ordersSplitByFilter.get(Boolean.TRUE).stream()
                 .map(CandidateFilterResult::getCandidate)
                 .sorted(vehicleCandidateComparator)
@@ -343,14 +372,16 @@ public class AssignFreeOrdersPhase
         // If the vehicle currently has a (dispensable) order, we may not assign the new one here
         // directly, but must abort the old one (DefaultDispatcher.abortOrder()) and wait for the
         // vehicle's ProcState to become IDLE.
+        LOG.debug("【AssignFreeOrdersPhase.*.tryAssignVehicle.CompositeVehicleCandidateComparator(候选小车比较器).findFirst.assignOrder】开始执行终选项分配:::If the vehicle currently has a (dispensable) order, we may not assign the new one here directly, but must abort the old one (DefaultDispatcher.abortOrder()) and wait for the vehicle's ProcState to become IDLE.");
+        LOG.debug(" If the vehicle currently has a (dispensable) order, we may not assign the new one here directly, but must abort the old one (DefaultDispatcher.abortOrder()) and wait for the vehicle's ProcState to become IDLE.");
         if (candidate.getVehicle().getTransportOrder() == null) {
             LOG.debug("Assigning transport order '{}' to vehicle '{}'...",
                     candidate.getTransportOrder().getName(),
                     candidate.getVehicle().getName());
-            doMarkAsAssigned(candidate.getTransportOrder(), candidate.getVehicle());
-            transportOrderUtil.assignTransportOrder(candidate.getVehicle(),
-                    candidate.getTransportOrder(),
-                    candidate.getDriveOrders());
+            doMarkAsAssigned(candidate.getTransportOrder(), candidate.getVehicle());//标记订单已经被分配给小车(在订单历史中添加记录)
+            LOG.debug("==================完成最优方案选定， 开始进行运单与小车绑定及运单拆解==================");
+            transportOrderUtil.assignTransportOrder(candidate.getVehicle(), candidate.getTransportOrder(), candidate.getDriveOrders());//执行运单分配
+            LOG.debug("==================完成最优方案选定， 完成进行运单与小车绑定及运单拆解==================");
             assignmentState.getAssignedCandidates().add(candidate);
         } else {
             LOG.debug("Reserving transport order '{}' for vehicle '{}'...",
@@ -382,7 +413,10 @@ public class AssignFreeOrdersPhase
     private Optional<AssignmentCandidate> computeCandidate(Vehicle vehicle,
                                                            Point vehiclePosition,
                                                            TransportOrder order) {
-        return router.getRoute(vehicle, vehiclePosition, order)
+        LOG.debug("开始试算{}点位上的{}小车执行{}订单所需要的运输成本", vehiclePosition.getName(), vehicle.getName(), order.getName());
+        Optional<List<DriveOrder>> optionalDriveOrderList = router.getRoute(vehicle, vehiclePosition, order);
+        LOG.debug("新增候选项，该候选项getRoute获取最短路径调用返回结果Optional<List<DriveOrder>>为:::【{}】", optionalDriveOrderList);
+        return optionalDriveOrderList
                 .map(driveOrders -> new AssignmentCandidate(vehicle, order, driveOrders));
     }
 

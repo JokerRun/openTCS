@@ -71,7 +71,7 @@ public class VelocityHistory {
    * @param newValue The value to be added.
    */
   public void addVelocityValue(int newValue) {
-    LOG.debug("method entry");
+//    LOG.debug("method entry");
     synchronized (velocities) {
       if (valueCounter % divisor == 0) {
         velocities[writeIndex] = newValue;

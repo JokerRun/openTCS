@@ -35,7 +35,7 @@ import org.slf4j.LoggerFactory;
  * This class is the standard implementation of the {@link RemoteVehicleService} interface.
  * <p>
  * Upon creation, an instance of this class registers itself with the RMI registry by the name
- * declared as {@link RemoteVehicleService#getRegistrationName()}.
+ * declared as {@link //RemoteVehicleService#getRegistrationName()}.
  * </p>
  *
  * @author Martin Grzenia (Fraunhofer IML)
@@ -216,7 +216,7 @@ public class StandardRemoteVehicleService
                                      TCSObjectReference<Vehicle> ref,
                                      AdapterCommand command) {
     userManager.verifyCredentials(clientId, UserPermission.MODIFY_VEHICLES);
-
+    LOG.debug("【StandardRemoteVehicleService.sendCommAdapterCommand】收到来自{}的请求,将对小车{}执行适配器指令{}",clientId,ref.getName(),command);
     try {
       kernelExecutor.submit(() -> vehicleService.sendCommAdapterCommand(ref, command)).get();
     }

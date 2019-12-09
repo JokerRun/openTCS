@@ -199,7 +199,6 @@ public class TransportOrderUtil
     requireNonNull(vehicle, "vehicle");
     requireNonNull(transportOrder, "transportOrder");
     requireNonNull(driveOrders, "driveOrders");
-
     LOG.debug("Assigning vehicle {} to order {}.", vehicle.getName(), transportOrder.getName());
     final TCSObjectReference<Vehicle> vehicleRef = vehicle.getReference();
     final TCSObjectReference<TransportOrder> orderRef = transportOrder.getReference();

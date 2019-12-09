@@ -49,7 +49,7 @@ public class ImplicitDispatchTrigger
     }
     TCSObjectEvent objectEvent = (TCSObjectEvent) event;
     if (objectEvent.getCurrentOrPreviousObjectState() instanceof Vehicle) {
-        LOG.debug("【ImplicitDispatchTrigger】::: 监听到并处理关于小车事件");
+//        LOG.debug("【ImplicitDispatchTrigger】::: 监听到并处理关于小车事件");
         checkVehicleChange((Vehicle) objectEvent.getPreviousObjectState(),
                          (Vehicle) objectEvent.getCurrentObjectState());
     }
@@ -61,8 +61,7 @@ public class ImplicitDispatchTrigger
         && (idleAndEnergyLevelChanged(oldVehicle, newVehicle)
             || awaitingNextOrder(oldVehicle, newVehicle)
             || orderSequenceNulled(oldVehicle, newVehicle))) {
-        LOG.debug("【ImplicitDispatchTrigger】::: 监听到并处理关于小车事件并且小车新状态为:TO_BE_UTILIZED || TO_BE_RESPECTED");
-
+        LOG.debug("【ImplicitDispatchTrigger】::: 监听到小车信息变更事件，并且小车满足可调度条件");
         LOG.debug("【ImplicitDispatchTrigger】::: 触发dispatcher.dispatch()方法，执行全局调度操作");
         LOG.debug("Dispatching for {}...", newVehicle);
       dispatcher.dispatch();

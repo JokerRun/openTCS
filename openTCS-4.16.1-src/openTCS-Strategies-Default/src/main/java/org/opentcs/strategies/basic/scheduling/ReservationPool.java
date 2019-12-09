@@ -135,7 +135,7 @@ public class ReservationPool {
 
   public void freeAll(Scheduler.Client client) {
     requireNonNull(client, "client");
-
+    LOG.debug("【scheduling.ReservationPool.freeAll】预留池即将为[{}]释放资源[{}] (即释放本客户之前所占用的资源)",client,reservations);
     reservations.values().stream()
         .filter(reservationEntry -> reservationEntry.isAllocatedBy(client))
         .forEach(reservationEntry -> reservationEntry.freeCompletely());

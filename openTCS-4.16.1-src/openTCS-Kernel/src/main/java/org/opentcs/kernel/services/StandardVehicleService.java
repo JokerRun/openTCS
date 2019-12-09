@@ -160,6 +160,7 @@ public class StandardVehicleService
       throws ObjectUnknownException {
     synchronized (globalSyncObject) {
       LOG.debug("Vehicle {} has reached point {}.", vehicleRef, pointRef);
+      LOG.debug("小车 {} 位置发生变化，已经到达 {}.", vehicleRef.getName(), null==pointRef?null:pointRef.getName());
       model.setVehiclePosition(vehicleRef, pointRef);
     }
   }

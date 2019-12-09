@@ -21,6 +21,8 @@ import org.opentcs.data.model.Vehicle;
 import org.opentcs.data.notification.UserNotification;
 import org.opentcs.data.order.TransportOrder;
 import org.opentcs.util.annotations.ScheduledApiChange;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * An observable model of a vehicle's and its comm adapter's attributes.
@@ -29,7 +31,7 @@ import org.opentcs.util.annotations.ScheduledApiChange;
  * @author Stefan Walter (Fraunhofer IML)
  */
 public class VehicleProcessModel {
-
+    private static final Logger LOG = LoggerFactory.getLogger(VehicleProcessModel.class);
   /**
    * The maximum number of notifications we want to keep.
    */
@@ -262,7 +264,7 @@ public class VehicleProcessModel {
     // Otherwise update the position, notify listeners and let the kernel know.
     String oldValue = this.vehiclePosition;
     vehiclePosition = position;
-
+    LOG.debug("【小车数据模型VehicleProcessModel.setVehiclePosition】[模型{}].更新[小车{}] ： [当前位置{}] -->[新位置{}]",this.getName(),this.getVehicleReference().getName(),oldValue,position);
     getPropertyChangeSupport().firePropertyChange(Attribute.POSITION.name(),
                                                   oldValue,
                                                   position);
