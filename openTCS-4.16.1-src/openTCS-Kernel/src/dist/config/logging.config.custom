@@ -2,9 +2,13 @@
 .level= INFO
 
 # 2、指定包、类的日志输出级别
+org.opentcs.util.CyclicTask.level = ALL
+org.opentcs.drivers.vehicle.BasicVehicleCommAdapter.level = ALL
 org.opentcs.kernel.KernelStateOperating.level = ALL
 org.opentcs.strategies.basic.level = ALL
 org.opentcs.kernel.services.level = ALL
+org.opentcs.virtualvehicle.level = ALL
+org.opentcs.kernel.vehicles.level = ALL
 org.opentcs.kernel.workingset.level = INFO
 org.opentcs.level = INFO
 java.level = WARNING
@@ -12,7 +16,6 @@ org.eclipse = WARNING
 javax.level = WARNING
 sun.level = WARNING
 com.level = WARNING
-
 
 # 3、限制控制台最高输出级别(不管2中特定包的级别多高，都会在这里被过滤掉)
 handlers= java.util.logging.ConsoleHandler
