@@ -176,7 +176,7 @@ public abstract class BasicVehicleCommAdapter
     commandDispatcherTask = new CommandDispatcherTask();
     Thread commandDispatcherThread = new Thread(commandDispatcherTask,
                                                 getName() + "-commandDispatcher");
-      LOG.debug("【BasicVehicleCommAdapter】[环回通讯适配器父类BasicVehicleCommAdapter] 将被激活:将启动一个新的线程，执行模拟任务【{}】 ",commandDispatcherThread.getName());
+      LOG.debug("【BasicVehicleCommAdapter】[{}任务线程] 将被激活", commandDispatcherThread.getName());
       commandDispatcherThread.start();
       enabled = true;
     getProcessModel().setCommAdapterEnabled(true);
@@ -419,6 +419,8 @@ public abstract class BasicVehicleCommAdapter
 
     @Override
     protected void runActualTask() {
+        //基础驱动任务在于判断是否可以下发指令给驱动并执行下发: sendCommand(curCmd)->getSentQueue().add(curCmd)->getProcessModel().commandSent(curCmd)
+        //自定义驱动任务在于处理【已下发、未执行的SentQueue】，执行SentQueue，回调告知执行情况
       MovementCommand curCmd;
       synchronized (BasicVehicleCommAdapter.this) {
         // Wait until we're terminated or we can send the next command.
@@ -436,7 +438,7 @@ public abstract class BasicVehicleCommAdapter
           curCmd = getCommandQueue().poll();
           if (curCmd != null) {
             try {
-                LOG.debug("【BasicVehicleCommAdapter】移动指令[curCmd={}]即将被下发：sendCommand(curCmd)->getSentQueue().add(curCmd)->getProcessModel().commandSent(curCmd)",curCmd);
+                LOG.debug("【BasicVehicleCommAdapter】即将被下发移动指令[curCmd={}]：sendCommand(curCmd)->getSentQueue().add(curCmd)->getProcessModel().commandSent(curCmd)",curCmd);
               sendCommand(curCmd);
               // Remember that we sent this command to the vehicle.
               getSentQueue().add(curCmd);

@@ -186,7 +186,7 @@ public class LoopbackCommunicationAdapter
         // Create task for vehicle simulation.
         vehicleSimulationTask = new VehicleSimulationTask();
         Thread simThread = new Thread(vehicleSimulationTask, getName() + "-simulationTask");
-        LOG.debug("【LoopbackCommunicationAdapter】[环回通讯适配器] 将被激活:将启动一个新的线程，执行模拟任务【{}】 ", simThread.getName());
+        LOG.debug("【LoopbackCommunicationAdapter】[{}任务线程] 将被激活", simThread.getName());
         simThread.start();
         super.enable();
     }
@@ -341,6 +341,8 @@ public class LoopbackCommunicationAdapter
 
         @Override
         protected void runActualTask() {
+            //基础驱动任务在于判断是否可以下发指令给驱动并执行下发: sendCommand(curCmd)->getSentQueue().add(curCmd)->getProcessModel().commandSent(curCmd)
+            //自定义驱动任务在于处理【已下发、未执行的SentQueue】，执行SentQueue，回调告知执行情况
             final MovementCommand curCommand;
             synchronized (LoopbackCommunicationAdapter.this) {
                 curCommand = getSentQueue().peek();
@@ -350,9 +352,8 @@ public class LoopbackCommunicationAdapter
                 Uninterruptibles.sleepUninterruptibly(ADVANCE_TIME, TimeUnit.MILLISECONDS);
                 getProcessModel().getVelocityController().advanceTime(simAdvanceTime);
             } else {
-                LOG.debug("当前所有commandQueue{}", getCommandQueue());
                 LOG.debug("当前所有sentQueue{}", getSentQueue());
-                LOG.debug("peek获取已发送队列中的的当前运行指令MovementCommand:{}", curCommand);
+                LOG.debug("peek获取【已发送未执行队列sentQueue】中的的当前运行指令MovementCommand:{}", curCommand);
                 // If we were told to move somewhere, simulate the journey.
                 LOG.debug("Processing MovementCommand...");
                 final Step curStep = curCommand.getStep();
@@ -372,7 +373,7 @@ public class LoopbackCommunicationAdapter
                     LOG.debug("=========适配器开始更新小车状态：========", curStep);
                     // Set the vehicle's state back to IDLE, but only if there aren't
                     // any more movements to be processed.
-                    LOG.debug("如果getSentQueue <= 1 && getCommandQueue为空，置Vehicle.State.IDLE");
+                    LOG.debug("如果【待执行SentQueue】 <= 1 && 【待发送CommandQueue】为空，置Vehicle.State.IDLE");
                     if (getSentQueue().size() <= 1 && getCommandQueue().isEmpty()) {
                         getProcessModel().setVehicleState(Vehicle.State.IDLE);
                     }

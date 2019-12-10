@@ -238,7 +238,7 @@ public class DefaultVehicleController
         if (evt.getSource() != commAdapter.getProcessModel()) {
             return;
         }
-
+//        LOG.debug("【DefaultVehicleController.propertyChange】Controller监听到VPM属性变更，即将执行handleProcessModelEvent(evt):{}",evt);
         handleProcessModelEvent(evt);
     }
 
