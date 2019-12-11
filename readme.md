@@ -72,3 +72,55 @@ cd apps/openTCS-4.16.1-bin/openTCS-PlantOverview
 
 ## 4.开始debug。。。
 
+
+
+
+
+
+
+## 问题处理
+
+RMI远程连接Kernel时，会出现无法连接的问题，参见https://sourceforge.net/p/opentcs/mailman/message/36661250/
+
+处理方式为：在内核启动时，添加JVM参数 `-Djava.rmi.server.hostname=machine001`：
+
+```shell
+vim /opt/openTCS/openTCS-Kernel/startKernel.sh
+```
+
+```shell
+#!/bin/sh
+#
+# Start the openTCS kernel.
+#
+
+# Set base directory names.
+export OPENTCS_BASE=.
+export OPENTCS_HOME=.
+export OPENTCS_CONFIGDIR="${OPENTCS_HOME}/config"
+export OPENTCS_LIBDIR="${OPENTCS_BASE}/lib"
+
+# Set the class path
+export OPENTCS_CP="${OPENTCS_LIBDIR}/*"
+export OPENTCS_CP="${OPENTCS_CP}:${OPENTCS_LIBDIR}/openTCS-extensions/*"
+
+if [ -n "${OPENTCS_JAVAVM}" ]; then
+    export JAVA="${OPENTCS_JAVAVM}"
+else
+    # XXX Be a bit more clever to find out the name of the JVM runtime.
+    export JAVA="java"
+fi
+
+# Start kernel
+${JAVA} -enableassertions \
+    -Dopentcs.base="${OPENTCS_BASE}" \
+    -Dopentcs.home="${OPENTCS_HOME}" \
+    -Djava.util.logging.config.file=${OPENTCS_CONFIGDIR}/logging.config -Djava.rmi.server.hostname=machine001 \
+    -Djava.security.policy=file:${OPENTCS_CONFIGDIR}/java.policy \
+    -XX:-OmitStackTraceInFastThrow \
+    -classpath "${OPENTCS_CP}" \
+    org.opentcs.kernel.RunKernel
+root@machine001:/opt/openTCS/openTCS-Kernel#
+
+```
+
