@@ -82,7 +82,8 @@ public class DefaultRouterModule
         .toProvider(() -> {
           EdgeEvaluatorComposite result = new EdgeEvaluatorComposite();
           for (ShortestPathConfiguration.EvaluatorType type : spConfiguration.edgeEvaluators()) {
-            result.getComponents().add(toEdgeEvaluator(type));
+              LOG.debug("【DefaultRouterModule.configureRouterDependencies】即将为【EdgeEvaluatorComposite】添加【{}】类型的边缘求值器",type);
+              result.getComponents().add(toEdgeEvaluator(type));
           }
           // Make sure at least one evaluator is used.
           if (result.getComponents().isEmpty()) {

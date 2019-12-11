@@ -53,6 +53,19 @@ public class DefaultModelGraphMapper
     this.configuration = requireNonNull(configuration, "configuration");
   }
 
+  /**
+   *构建计算模型图过程：
+   * 1. Model.Points =={graph.addVertex(point.getName());}==> Graph.Vertex
+   * 2.Model.Path -> Graph.Edge
+   *  2.1.ForwardEdge:
+   *    2.1.1.Model.Path -> new Edge
+   *    2.1.2.weight = edgeEvaluator.computeWeight(edge, vehicle)
+   *    2.1.3.Graph.addEdge(sourceVertex,targetVertex, edge);
+   *    2.1.4.graph.setEdgeWeight(edge, weight);
+   *  2.2.ReverseEdge
+   * @author Rico
+   * @date 2019/12/11 2:12 下午
+   */
   @Override
   public Graph<String, ModelEdge> translateModel(Collection<Point> points,
                                                  Collection<Path> paths,
@@ -60,6 +73,23 @@ public class DefaultModelGraphMapper
     requireNonNull(points, "points");
     requireNonNull(paths, "paths");
     requireNonNull(vehicle, "vehicle");
+    LOG.debug("【DefaultModelGraphMapper.translateModel】即将为{}小车构建图模型。");
+    LOG.debug("  /** ");
+    LOG.debug("   *构建计算模型图过程： ");
+    LOG.debug("   * 1. Model.Points =={graph.addVertex(point.getName());}==> Graph.Vertex ");
+    LOG.debug("   * 2.Model.Path -> Graph.Edge ");
+    LOG.debug("   *  2.1.ForwardEdge: ");
+    LOG.debug("   *    2.1.1.Model.Path -> new Edge ");
+    LOG.debug("   *    2.1.2.weight = edgeEvaluator.computeWeight(edge, vehicle) ");
+    LOG.debug("   *    2.1.3.Graph.addEdge(sourceVertex,targetVertex, edge); ");
+    LOG.debug("   *    2.1.4.graph.setEdgeWeight(edge, weight); ");
+    LOG.debug("   *  2.2.ReverseEdge ");
+    LOG.debug("   * @author Rico ");
+    LOG.debug("   * @date 2019/12/11 2:12 下午 ");
+    LOG.debug("   */ ");
+
+
+
 
     Graph<String, ModelEdge> graph = new DirectedWeightedMultigraph<>(ModelEdge.class);
 
@@ -108,7 +138,7 @@ public class DefaultModelGraphMapper
       }
 
     }
-
+      LOG.debug("【DefaultModelGraphMapper.translateModel】已为{}小车构建图模型{}。",vehicle.getName(),graph.getClass());
     return graph;
   }
 

@@ -143,11 +143,14 @@ public class DefaultRouter
       pointRoutersByVehicleGroup.clear();
       for (Vehicle curVehicle : objectService.fetchObjects(Vehicle.class)) {
         String currentGroup = getRoutingGroupOfVehicle(curVehicle);
-        if (!pointRoutersByVehicleGroup.containsKey(currentGroup)) {
+          LOG.debug("【DefaultRouter.updateRoutingTables】即将为{}组的{}小车构建PointRouter", currentGroup,curVehicle.getName());
+          if (!pointRoutersByVehicleGroup.containsKey(currentGroup)) {
+
           pointRoutersByVehicleGroup.put(currentGroup,
                                          pointRouterFactory.createPointRouter(curVehicle));
         }
       }
+      LOG.debug("共有{}组小车，构建了{}个PointRouter", pointRoutersByVehicleGroup.size(), pointRoutersByVehicleGroup.size());
       LOG.debug("Number of point routers created: {}", pointRoutersByVehicleGroup.size());
     }
     finally {
@@ -546,7 +549,7 @@ public class DefaultRouter
    */
   private String getRoutingGroupOfVehicle(Vehicle vehicle) {
     String propVal = vehicle.getProperty(PROPKEY_ROUTING_GROUP);
-    
+
     return propVal == null ? DEFAULT_ROUTING_GROUP : propVal;
   }
 
