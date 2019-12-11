@@ -56,7 +56,7 @@ public class ShortestPathPointRouter
     public List<Route.Step> getRouteSteps(Point srcPoint, Point destPoint) {
         requireNonNull(srcPoint, "srcPoint");
         requireNonNull(destPoint, "destPoint");
-        LOG.debug("【ShortestPathPointRouter.getRouteSteps】开始执行计算「 起点{} --> 终点{} 」 之间的的最短路径");
+        LOG.debug("【ShortestPathPointRouter.getRouteSteps】开始执行计算「 起点{} --> 终点{} 」 之间的的最短路径",srcPoint.getName(),destPoint.getName());
         long timeBefore = System.currentTimeMillis();
         if (Objects.equals(srcPoint.getName(), destPoint.getName())) {
             return new ArrayList<>();

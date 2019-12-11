@@ -73,7 +73,7 @@ public class DefaultModelGraphMapper
     requireNonNull(points, "points");
     requireNonNull(paths, "paths");
     requireNonNull(vehicle, "vehicle");
-    LOG.debug("【DefaultModelGraphMapper.translateModel】即将为{}小车构建图模型。");
+    LOG.debug("【DefaultModelGraphMapper.translateModel】即将为{}小车构建图模型。",vehicle.getName());
     LOG.debug("  /** ");
     LOG.debug("   *构建计算模型图过程： ");
     LOG.debug("   * 1. Model.Points =={graph.addVertex(point.getName());}==> Graph.Vertex ");

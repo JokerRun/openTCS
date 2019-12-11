@@ -143,7 +143,7 @@ public class DefaultRouter
       pointRoutersByVehicleGroup.clear();
       for (Vehicle curVehicle : objectService.fetchObjects(Vehicle.class)) {
         String currentGroup = getRoutingGroupOfVehicle(curVehicle);
-          LOG.debug("【DefaultRouter.updateRoutingTables】即将为{}组的{}小车构建PointRouter", currentGroup,curVehicle.getName());
+          LOG.debug("【DefaultRouter.updateRoutingTables】即将为【{}】组的【{}】小车构建PointRouter.（组名为空则表示默认组DEFAULT_ROUTING_GROUP）", currentGroup,curVehicle.getName());
           if (!pointRoutersByVehicleGroup.containsKey(currentGroup)) {
 
           pointRoutersByVehicleGroup.put(currentGroup,
