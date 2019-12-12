@@ -1,0 +1,988 @@
+============================开始启动============================
+> Task:openTCS-Kernel:RunKernel.main()
+>>>  openTCS baseline version: 4.16.1-SNAPSHOT (build date: 2019-12-03 18:57:43), customization '-' version - (build date: -), Java: 1.8.0_191, Oracle Corporation; JVM: 25.191-b12, Oracle Corporation; OS: Mac OS X, x86_64
+>>>  Using default configuration file /Users/rico/AnypointStudio/workspace/Git/Laurus/openTCS/openTCS-4.16.1-src/openTCS-Kernel/build/install/openTCS-Kernel/config/opentcs-kernel-defaults-baseline.properties...
+>>>  Supplementary configuration file /Users/rico/AnypointStudio/workspace/Git/Laurus/openTCS/openTCS-4.16.1-src/openTCS-Kernel/build/install/openTCS-Kernel/config/opentcs-kernel-defaults-custom.properties not found, skipped.
+>>>  Using overrides from supplementary configuration file /Users/rico/AnypointStudio/workspace/Git/Laurus/openTCS/openTCS-4.16.1-src/openTCS-Kernel/build/install/openTCS-Kernel/config/opentcs-kernel.properties...
+>>>  Initializing ConfigurationProvider with org.opentcs.configuration.cfg4j.CachedConfigurationSource source, org.opentcs.configuration.cfg4j.PeriodicalReloadStrategy reload strategy and org.cfg4j.source.context.environment.DefaultEnvironment environment
+>>>  [[CyclicTask.run]]开始执行任务org.opentcs.configuration.cfg4j.PeriodicalReloadStrategy$ReloadTask
+>>>  Integrating injection module org.opentcs.kernel.extensions.controlcenter.ControlCenterModule
+>>>  Integrating injection module org.opentcs.virtualvehicle.LoopbackCommAdapterModule
+>>>  Integrating injection module org.opentcs.kernel.extensions.adminwebapi.AdminWebApiModule
+>>>  Integrating injection module org.opentcs.kernel.extensions.servicewebapi.ServiceWebApiModule
+>>>  Integrating injection module org.opentcs.kernel.extensions.rmi.RmiServicesModule
+>>>  Integrating injection module org.opentcs.kernel.extensions.statistics.StatisticsModule
+>>>  Integrating injection module org.opentcs.kernel.extensions.xmlhost.TcpHostInterfaceModule
+>>>  Control center disabled by configuration.
+>>>  SSL encryption disabled, connections will not be secured!
+>>>  Setting up communication adapter factory: org.opentcs.virtualvehicle.LoopbackCommunicationAdapterFactory
+>>>  【CompositeVehicleSelectionFilter】初始化组合小车选择过滤器，注入filters为[[]]
+>>>  Logging initialized @4575ms to org.eclipse.jetty.util.log.Slf4jLog
+>>>  == Spark has ignited ...
+>>>  >> Listening on 127.0.0.1:55100
+>>>  jetty-9.4.6.v20170531
+>>>  DefaultSessionIdManager workerName=node0
+>>>  No SessionScavenger set, using defaults
+>>>  Scavenging every 600000ms
+>>>  Started ServerConnector@318917ff{HTTP/1.1,[http/1.1]}{127.0.0.1:55100}
+>>>  Started @4896ms
+>>>  Switching kernel to state 'MODELLING'
+>>>  Emitting model transition event: TCSModelTransitionEvent{oldModelName=, newModelName=demo-1-vehicle, modelContentChanged=true, transitionFinished=false}
+>>>  Emitting model transition event: TCSModelTransitionEvent{oldModelName=, newModelName=demo-1-vehicle, modelContentChanged=true, transitionFinished=true}
+>>>  Loaded model named 'demo-1-vehicle'.
+>>>  Switching kernel to state 'OPERATING'
+>>>  Initializing operating state...
+>>>  Updating procState of vehicle Vehicle-01 to UNAVAILABLE...
+>>>  Initializing scheduler 'org.opentcs.strategies.basic.scheduling.DefaultScheduler@49c6c24f'...
+>>>  Initializing router 'org.opentcs.strategies.basic.routing.DefaultRouter@6fe1b4fb'...
+>>>  Looking up route from Point-0013 to Point-0012 took 17 milliseconds.
+>>>  Created point router for Vehicle-01 in 71 milliseconds.
+>>>  Number of point routers created: 1
+>>>  Initializing dispatcher 'org.opentcs.strategies.basic.dispatching.DefaultDispatcher@51972dc7'...
+>>>  Initializing Default Dispatcher...
+>>>  Scheduling periodic dispatch task with interval of 1000000000 ms...
+>>>  Initializing recovery evaluator 'org.opentcs.strategies.basic.recovery.DefaultRecoveryEvaluator@2002348'...
+>>>  Initializing vehicle controller pool 'org.opentcs.kernel.vehicles.DefaultVehicleControllerPool@5911e990'...
+>>>  Initializing attachment manager 'org.opentcs.kernel.extensions.controlcenter.vehicles.AttachmentManager@31000e60'...
+>>>  Detaching controller for vehicle Vehicle-01...
+>>>  A vehicle named 'Vehicle-01' is not attached to a controller.
+>>>  Vehicle-01: Reported new position null and we do not have a drive order.
+>>>  Vehicle-01: Releasing all resources
+>>>  小车控制器Vehicle-01请求: Releasing all resources
+>>>  【scheduling.ReservationPool.freeAll】预留池即将为[DefaultVehicleController{vehicleName=Vehicle-01}]释放资源[{}] (即释放本客户之前所占用的资源)
+>>>  小车控制器Vehicle-01占用资源已被释放，即将新建并执行AllocatorTask任务
+>>>  【AllocatorTask】有新的资源分配计划将被创建，创建命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$RetryAllocates@6cbcf243
+>>>  【AllocatorTask】有新的资源分配计划将被执行，执行的命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$RetryAllocates@6cbcf243
+>>>  Vehicle TCSObjectReference{referentClass=class org.opentcs.data.model.Vehicle, id=123, name=Vehicle-01} has reached point null.
+>>>  小车 Vehicle-01 位置发生变化，已经到达 null.
+>>>  Initializing script file manager 'org.opentcs.kernel.extensions.xmlhost.orders.ScriptFileManager@3234f74e'...
+>>>  Initializing kernel extension 'org.opentcs.kernel.extensions.servicewebapi.ServiceWebApi@35f26e72'...
+>>>  Encryption disabled, connections will not be secured!
+>>>  == Spark has ignited ...
+>>>  >> Listening on 0.0.0.0:55200
+>>>  jetty-9.4.6.v20170531
+>>>  DefaultSessionIdManager workerName=node0
+>>>  No SessionScavenger set, using defaults
+>>>  Scavenging every 600000ms
+>>>  Started ServerConnector@1d06964d{HTTP/1.1,[http/1.1]}{0.0.0.0:55200}
+>>>  Started @9591ms
+>>>  Initializing kernel extension 'org.opentcs.kernel.extensions.statistics.StatisticsCollector@2d6764b2'...
+>>>  Logging events to /Users/rico/AnypointStudio/workspace/Git/Laurus/openTCS/openTCS-4.16.1-src/openTCS-Kernel/build/install/openTCS-Kernel/log/statistics/opentcs-statistics-20191210-111635.txt...
+>>>  Initializing kernel extension 'org.opentcs.kernel.extensions.xmlhost.orders.XMLTelegramOrderReceiver@67304a40'...
+>>>  Finished initializing kernel extensions.
+>>>  Operating state initialized.
+
+============================启动完成============================
+
+
+============================激活LoopbackCommunicationAdapter============================
+
+
+>>>  【LoopbackCommunicationAdapter】[Vehicle-01-simulationTask任务线程] 将被激活
+>>>  [[CyclicTask.run]]开始执行任务org.opentcs.virtualvehicle.LoopbackCommunicationAdapter$VehicleSimulationTask
+>>>  【BasicVehicleCommAdapter】[Vehicle-01-commandDispatcher任务线程] 将被激活
+>>>  [[CyclicTask.run]]开始执行任务org.opentcs.drivers.vehicle.BasicVehicleCommAdapter$CommandDispatcherTask
+
+
+============================完成激活LoopbackCommunicationAdapter============================
+============================设置Vehicle-01 Position============================
+
+>>>  驱动Vehicle-01将执行小车Vehicle-01位置初始化Point-0001
+>>>  Vehicle-01: Reported new position Point{id=0, name=Point-0001} and we do not have a drive order.
+>>>  Vehicle-01: Releasing all resources
+>>>  小车控制器Vehicle-01请求: Releasing all resources
+>>>  【scheduling.ReservationPool.freeAll】预留池即将为[DefaultVehicleController{vehicleName=Vehicle-01}]释放资源[{}] (即释放本客户之前所占用的资源)
+>>>  小车控制器Vehicle-01占用资源已被释放，即将新建并执行AllocatorTask任务
+>>>  【AllocatorTask】有新的资源分配计划将被创建，创建命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$RetryAllocates@4cfe6cb6
+>>>  Vehicle-01: Allocating immediately: [Point{id=0, name=Point-0001}]
+>>>  Allocating resource Point{id=0, name=Point-0001} for client Vehicle-01
+>>>  Vehicle TCSObjectReference{referentClass=class org.opentcs.data.model.Vehicle, id=123, name=Vehicle-01} has reached point TCSObjectReference{referentClass=class org.opentcs.data.model.Point, id=0, name=Point-0001}.
+>>>  小车 Vehicle-01 位置发生变化，已经到达 Point-0001.
+>>>  【AllocatorTask】有新的资源分配计划将被执行，执行的命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$RetryAllocates@4cfe6cb6
+
+============================设置完成Vehicle-01 Position============================
+============================设置Vehicle-01集成度为TO_BE_UTILIZED============================
+>>>  Updating procState of vehicle Vehicle-01 to IDLE...
+>>>  【ImplicitDispatchTrigger】::: 监听到小车信息变更事件，并且小车满足可调度条件
+>>>  【ImplicitDispatchTrigger】::: 触发dispatcher.dispatch()方法，执行全局调度操作
+>>>  Dispatching for Vehicle{name=Vehicle-01, procState=IDLE, integrationLevel=TO_BE_UTILIZED, state=IDLE, energyLevel=100, currentPosition=TCSObjectReference{referentClass=class org.opentcs.data.model.Point, id=0, name=Point-0001}, precisePosition=null, orientationAngle=NaN, nextPosition=null, loadHandlingDevices=[], length=1000, adapterState=UNKNOWN, transportOrder=null, routeProgressIndex=-1, orderSequence=null, energyLevelGood=90, energyLevelCritical=30, energyLevelFullyRecharged=95, energyLevelSufficientlyRecharged=45, maxVelocity=100000, maxReverseVelocity=100000, rechargeOperation=CHARGE, processableCategories=[*]}...
+>>>  【DefaultDispatcher】:::全局调度器DefaultDispatcher.dispatch调用开始
+>>>  Scheduling dispatch task...
+>>>  【DefaultDispatcher】:::全局调度器DefaultDispatcher.dispatch调用结束
+>>>  ==============开始 FullDispatchTask.run ==============
+>>>  触发调度器的FullDispatchTask，执行任务分配：：：
+>>>  Starting full dispatch run...
+>>>  1、检查RAW状态的订单，调整为: UNROUTABLE(router判定无法路由), ACTIVE（可路由）, DISPATCHABLE(没有其他未完成的依赖任务)
+>>>  2、处理AWAITING_ORDER的小车。如果小车身上存在WITHDRAWN的运单，则将小车(是否需要disable,需要则UNAVAILABLE否则IDLE)及运单状态(fail)做相应调整
+>>>  3、分配下一个DriveOrder给AWAITING_ORDER的小车。checkForNextDriveOrder根据小车身上的TransportOrder.getCurrentDriveOrder()判断小车当前运单完成情况及是否需要分配下一个DriveOrder
+>>>  4、根据order sequences分配下一个运单给小车。Assigns vehicles to the next transport orders in their respective order sequences, if any.
+>>>  5、分配订单给小车，首先分配已预订的订单，然后分配自由订单。Assignment of orders to vehicles.Default: Assigns reserved and then free orders to vehicles.
+>>>  5.1、分配已被预定的订单给小车。Assigns reserved transport orders (if any) to vehicles that have just finished their withdrawn ones.
+>>>  5.2、分配订单给当前没有renew任务的小车。Assigns transport orders to vehicles that are currently not processing any and are not bound to any order sequences.
+>>>  检查Vehicle-01小车是否可用(TO_BE_UTILIZED && 当前点位不为空&&没有OrderSequence&&电量部位紧急状态&&不需要继续充电(对于正在充电的小车)&&【不在处理订单||正在处理的订单可有可无DispensableOrder】)&&未被其他订单预定
+>>>  【CompositeVehicleSelectionFilter组合过滤器】对Vehicle-01执行过滤条件[]
+>>>  【AssignFreeOrdersPhase.run.IsAvailableForAnyOrder.CompositeVehicleSelectionFilter(组合过滤器默认为空)】做完小车过滤，过滤结果:Map<Boolean, List<VehicleFilterResult>> = {false=[], true=[org.opentcs.strategies.basic.dispatching.phase.VehicleFilterResult@6799796]}
+>>>  【AssignFreeOrdersPhase.run.vehiclesSplitByFilter.collect】收集过滤结果，获取到availableVehicles:[Vehicle{name=Vehicle-01, procState=IDLE, integrationLevel=TO_BE_UTILIZED, state=IDLE, energyLevel=100, currentPosition=TCSObjectReference{referentClass=class org.opentcs.data.model.Point, id=0, name=Point-0001}, precisePosition=null, orientationAngle=NaN, nextPosition=null, loadHandlingDevices=[], length=1000, adapterState=UNKNOWN, transportOrder=null, routeProgressIndex=-1, orderSequence=null, energyLevelGood=90, energyLevelCritical=30, energyLevelFullyRecharged=95, energyLevelSufficientlyRecharged=45, maxVelocity=100000, maxReverseVelocity=100000, rechargeOperation=CHARGE, processableCategories=[*]}]
+>>>  【AssignFreeOrdersPhase.run.IsAvailableForAnyOrder.CompositeVehicleSelectionFilter(组合过滤器默认为空)】做完小车过滤，获取到availableVehicles:[Vehicle{name=Vehicle-01, procState=IDLE, integrationLevel=TO_BE_UTILIZED, state=IDLE, energyLevel=100, currentPosition=TCSObjectReference{referentClass=class org.opentcs.data.model.Point, id=0, name=Point-0001}, precisePosition=null, orientationAngle=NaN, nextPosition=null, loadHandlingDevices=[], length=1000, adapterState=UNKNOWN, transportOrder=null, routeProgressIndex=-1, orderSequence=null, energyLevelGood=90, energyLevelCritical=30, energyLevelFullyRecharged=95, energyLevelSufficientlyRecharged=45, maxVelocity=100000, maxReverseVelocity=100000, rechargeOperation=CHARGE, processableCategories=[*]}]
+>>>  【AssignFreeOrdersPhase.run.IsFreelyDispatchableToAnyVehicle.CompositeTransportOrderSelectionFilter(组合过滤器默认为空)】做完订单过滤，过滤结果:Map<Boolean, List<OrderFilterResult>> = {false=[], true=[]}
+>>>  【AssignFreeOrdersPhase.run】做完订单过滤，获取到availableOrders:[]
+>>>  【AssignFreeOrdersPhase.run】开始执行分配tryAssignments
+>>>  Available for dispatching: 0 transport orders and 1 vehicles.
+>>>  【AssignFreeOrderPhase.run.tryAssignments】[可用的小车数量]>[可分配自由订单数量]的情况下:所有[可分配自由订单]->小车排序->tryAssignVehicle
+>>>  6、Recharging of vehicles.Default: Sends idle vehicles with a degraded energy level to recharge locations.
+>>>  6.1、新建充电订单给Creates recharging orders for any vehicles with a degraded energy level.
+>>>  7、Parking of vehicles.Default: Sends idle vehicles to parking positions.
+>>>  7.1、Creates parking orders for idle vehicles already at a parking position to send them to higher prioritized parking positions.
+>>>  7.2、Creates parking orders for idle vehicles not already at a parking position considering only prioritized parking positions.
+>>>  7.3、Creates parking orders for idle vehicles not already at a parking position considering all parking positions.
+>>>  Finished full dispatch run.
+>>>  ==============结束 FullDispatchTask.run ==============
+
+============================设置完成Vehicle-01集成度为TO_BE_UTILIZED============================
+
+
+
+============================新增运单============================
+
+>>>  【StandardDispatcherService】调用 dispatcher.dispatch()
+>>>  【DefaultDispatcher】:::全局调度器DefaultDispatcher.dispatch调用开始
+>>>  Scheduling dispatch task...
+>>>  【DefaultDispatcher】:::全局调度器DefaultDispatcher.dispatch调用结束
+>>>  ==============开始 FullDispatchTask.run ==============
+>>>  触发调度器的FullDispatchTask，执行任务分配：：：
+>>>  Starting full dispatch run...
+>>>  1、检查RAW状态的订单，调整为: UNROUTABLE(router判定无法路由), ACTIVE（可路由）, DISPATCHABLE(没有其他未完成的依赖任务)
+>>>  Updating state of transport order TOrder-01DVPX3Y8PNKTM0RM9JZ4ZFTS3 to ACTIVE...
+>>>  Updating state of transport order TOrder-01DVPX3Y8PNKTM0RM9JZ4ZFTS3 to DISPATCHABLE...
+>>>  2、处理AWAITING_ORDER的小车。如果小车身上存在WITHDRAWN的运单，则将小车(是否需要disable,需要则UNAVAILABLE否则IDLE)及运单状态(fail)做相应调整
+>>>  3、分配下一个DriveOrder给AWAITING_ORDER的小车。checkForNextDriveOrder根据小车身上的TransportOrder.getCurrentDriveOrder()判断小车当前运单完成情况及是否需要分配下一个DriveOrder
+>>>  4、根据order sequences分配下一个运单给小车。Assigns vehicles to the next transport orders in their respective order sequences, if any.
+>>>  5、分配订单给小车，首先分配已预订的订单，然后分配自由订单。Assignment of orders to vehicles.Default: Assigns reserved and then free orders to vehicles.
+>>>  5.1、分配已被预定的订单给小车。Assigns reserved transport orders (if any) to vehicles that have just finished their withdrawn ones.
+>>>  5.2、分配订单给当前没有renew任务的小车。Assigns transport orders to vehicles that are currently not processing any and are not bound to any order sequences.
+>>>  检查Vehicle-01小车是否可用(TO_BE_UTILIZED && 当前点位不为空&&没有OrderSequence&&电量部位紧急状态&&不需要继续充电(对于正在充电的小车)&&【不在处理订单||正在处理的订单可有可无DispensableOrder】)&&未被其他订单预定
+>>>  【CompositeVehicleSelectionFilter组合过滤器】对Vehicle-01执行过滤条件[]
+>>>  【AssignFreeOrdersPhase.run.IsAvailableForAnyOrder.CompositeVehicleSelectionFilter(组合过滤器默认为空)】做完小车过滤，过滤结果:Map<Boolean, List<VehicleFilterResult>> = {false=[], true=[org.opentcs.strategies.basic.dispatching.phase.VehicleFilterResult@313e0890]}
+>>>  【AssignFreeOrdersPhase.run.vehiclesSplitByFilter.collect】收集过滤结果，获取到availableVehicles:[Vehicle{name=Vehicle-01, procState=IDLE, integrationLevel=TO_BE_UTILIZED, state=IDLE, energyLevel=100, currentPosition=TCSObjectReference{referentClass=class org.opentcs.data.model.Point, id=0, name=Point-0001}, precisePosition=null, orientationAngle=NaN, nextPosition=null, loadHandlingDevices=[], length=1000, adapterState=UNKNOWN, transportOrder=null, routeProgressIndex=-1, orderSequence=null, energyLevelGood=90, energyLevelCritical=30, energyLevelFullyRecharged=95, energyLevelSufficientlyRecharged=45, maxVelocity=100000, maxReverseVelocity=100000, rechargeOperation=CHARGE, processableCategories=[*]}]
+>>>  【AssignFreeOrdersPhase.run.IsAvailableForAnyOrder.CompositeVehicleSelectionFilter(组合过滤器默认为空)】做完小车过滤，获取到availableVehicles:[Vehicle{name=Vehicle-01, procState=IDLE, integrationLevel=TO_BE_UTILIZED, state=IDLE, energyLevel=100, currentPosition=TCSObjectReference{referentClass=class org.opentcs.data.model.Point, id=0, name=Point-0001}, precisePosition=null, orientationAngle=NaN, nextPosition=null, loadHandlingDevices=[], length=1000, adapterState=UNKNOWN, transportOrder=null, routeProgressIndex=-1, orderSequence=null, energyLevelGood=90, energyLevelCritical=30, energyLevelFullyRecharged=95, energyLevelSufficientlyRecharged=45, maxVelocity=100000, maxReverseVelocity=100000, rechargeOperation=CHARGE, processableCategories=[*]}]
+>>>  【AssignFreeOrdersPhase.run.IsFreelyDispatchableToAnyVehicle.CompositeTransportOrderSelectionFilter(组合过滤器默认为空)】做完订单过滤，过滤结果:Map<Boolean, List<OrderFilterResult>> = {false=[], true=[org.opentcs.strategies.basic.dispatching.phase.OrderFilterResult@68e7ec3e]}
+>>>  【AssignFreeOrdersPhase.run】做完订单过滤，获取到availableOrders:[org.opentcs.strategies.basic.dispatching.phase.OrderFilterResult@68e7ec3e]
+>>>  【AssignFreeOrdersPhase.run】开始执行分配tryAssignments
+>>>  Available for dispatching: 1 transport orders and 1 vehicles.
+>>>  【AssignFreeOrderPhase.run.tryAssignments】[可用的小车数量]>[可分配自由订单数量]的情况下:所有[可分配自由订单]->小车排序->tryAssignVehicle
+>>>  Trying to find vehicle for transport order 'TOrder-01DVPX3Y8PNKTM0RM9JZ4ZFTS3'...
+>>>  【AssignFreeOrderPhase.run.tryAssignments.tryAssignVehicle】开始遍历小车，给订单'TOrder-01DVPX3Y8PNKTM0RM9JZ4ZFTS3'分配小车(未分配订单，能承运本(订单预用小车或预用本小车)订单)...
+>>>  开始试算Point-0001点位上的Vehicle-01小车执行TOrder-01DVPX3Y8PNKTM0RM9JZ4ZFTS3订单所需要的运输成本
+>>>  Looking up route from Point-0001 to Point-0026 took 1 milliseconds.
+>>>  Looking up route from Point-0026 to Point-0021 took 0 milliseconds.
+>>>  新增候选项，该候选项getRoute获取最短路径调用返回结果Optional<List<DriveOrder>>为:::【Optional[[Route{steps=[Point-0003, Point-0004, Point-0008, Point-0009, Point-0011, Point-0013, Point-0018, Point-0019, Point-0022, Point-0056, Point-0023, Point-0024, Point-0025, Point-0026], costs=91862} -> Goods in north 01:Load cargo, Route{steps=[Point-0027, Point-0032, Point-0028, Point-0029, Point-0035, Point-0036, Point-0034, Point-0014, Point-0008, Point-0009, Point-0011, Point-0013, Point-0018, Point-0019, Point-0017, Point-0020, Point-0021], costs=118852} -> Goods out 02:Unload cargo]]】
+>>>  Vehicle-01: Checking processability of [Load cargo, Unload cargo]...
+>>>  【AssignFreeOrdersPhase.*.tryAssignVehicle.CompositeAssignmentCandidateSelectionFilter(组合过滤器默认为IsProcessable,用于检查小车的Operation是否包含所有驾驶单中的Operation)】做完候选项过滤，过滤结果:Map<Boolean, List<CandidateFilterResult>> = {false=[], true=[org.opentcs.strategies.basic.dispatching.phase.CandidateFilterResult@2803aaba]}
+>>>  【AssignFreeOrdersPhase.*.tryAssignVehicle.CompositeVehicleCandidateComparator(候选小车比较器).findFirst.assignOrder】
+>>>  【AssignFreeOrdersPhase.*.tryAssignVehicle.CompositeVehicleCandidateComparator(候选小车比较器).findFirst.assignOrder】开始执行终选项分配:::If the vehicle currently has a (dispensable) order, we may not assign the new one here directly, but must abort the old one (DefaultDispatcher.abortOrder()) and wait for the vehicle's ProcState to become IDLE.
+>>>   If the vehicle currently has a (dispensable) order, we may not assign the new one here directly, but must abort the old one (DefaultDispatcher.abortOrder()) and wait for the vehicle's ProcState to become IDLE.
+>>>  Assigning transport order 'TOrder-01DVPX3Y8PNKTM0RM9JZ4ZFTS3' to vehicle 'Vehicle-01'...
+>>>  ==================完成最优方案选定， 开始进行运单与小车绑定及运单拆解==================
+>>>  Assigning vehicle Vehicle-01 to order TOrder-01DVPX3Y8PNKTM0RM9JZ4ZFTS3.
+>>>  Updating procState of vehicle Vehicle-01 to PROCESSING_ORDER...
+>>>  Updating state of transport order TOrder-01DVPX3Y8PNKTM0RM9JZ4ZFTS3 to BEING_PROCESSED...
+>>>  【DefaultVehicleController.setDriveOrder】开始为小车Vehicle-01添加驾驶单Route{steps=[Point-0003, Point-0004, Point-0008, Point-0009, Point-0011, Point-0013, Point-0018, Point-0019, Point-0022, Point-0056, Point-0023, Point-0024, Point-0025, Point-0026], costs=91862} -> Goods in north 01:Load cargo
+>>>  【DefaultVehicleController.setDriveOrder.scheduler.claim】开始为小车Vehicle-01认领路线资源
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SingleVehicleBlockModule@58594a11: Claiming resources [[Path{id=56, name=Point-0001 --- Point-0003}, Point{id=2, name=Point-0003}], [Path{id=58, name=Point-0003 --- Point-0004}, Point{id=3, name=Point-0004}], [Path{id=60, name=Point-0004 --- Point-0008}, Point{id=7, name=Point-0008}], [Point{id=8, name=Point-0009}, Path{id=66, name=Point-0008 --- Point-0009}], [Path{id=67, name=Point-0009 --- Point-0011}, Point{id=10, name=Point-0011}], [Point{id=12, name=Point-0013}, Path{id=69, name=Point-0011 --- Point-0013}], [Path{id=72, name=Point-0013 --- Point-0018}, Point{id=17, name=Point-0018}], [Path{id=80, name=Point-0018 --- Point-0019}, Point{id=18, name=Point-0019}], [Point{id=21, name=Point-0022}, Path{id=82, name=Point-0019 --- Point-0022}], [Point{id=54, name=Point-0056}, Path{id=85, name=Point-0022 --- Point-0056}], [Point{id=22, name=Point-0023}, Path{id=122, name=Point-0056 --- Point-0023}], [Point{id=23, name=Point-0024}, Path{id=86, name=Point-0023 --- Point-0024}], [Path{id=87, name=Point-0024 --- Point-0025}, Point{id=24, name=Point-0025}], [Path{id=88, name=Point-0025 --- Point-0026}, Point{id=25, name=Point-0026}]] for clientDefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SameDirectionBlockModule@2a3888c1: Claiming resources [[Path{id=56, name=Point-0001 --- Point-0003}, Point{id=2, name=Point-0003}], [Path{id=58, name=Point-0003 --- Point-0004}, Point{id=3, name=Point-0004}], [Path{id=60, name=Point-0004 --- Point-0008}, Point{id=7, name=Point-0008}], [Point{id=8, name=Point-0009}, Path{id=66, name=Point-0008 --- Point-0009}], [Path{id=67, name=Point-0009 --- Point-0011}, Point{id=10, name=Point-0011}], [Point{id=12, name=Point-0013}, Path{id=69, name=Point-0011 --- Point-0013}], [Path{id=72, name=Point-0013 --- Point-0018}, Point{id=17, name=Point-0018}], [Path{id=80, name=Point-0018 --- Point-0019}, Point{id=18, name=Point-0019}], [Point{id=21, name=Point-0022}, Path{id=82, name=Point-0019 --- Point-0022}], [Point{id=54, name=Point-0056}, Path{id=85, name=Point-0022 --- Point-0056}], [Point{id=22, name=Point-0023}, Path{id=122, name=Point-0056 --- Point-0023}], [Point{id=23, name=Point-0024}, Path{id=86, name=Point-0023 --- Point-0024}], [Path{id=87, name=Point-0024 --- Point-0025}, Point{id=24, name=Point-0025}], [Path{id=88, name=Point-0025 --- Point-0026}, Point{id=25, name=Point-0026}]] for clientDefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  DefaultVehicleController将驾驶单Route{steps=[Point-0003, Point-0004, Point-0008, Point-0009, Point-0011, Point-0013, Point-0018, Point-0019, Point-0022, Point-0056, Point-0023, Point-0024, Point-0025, Point-0026], costs=91862} -> Goods in north 01:Load cargo转换为移动指令{}并添加到小车的futureCommands
+>>>  DefaultVehicleController完成 驾驶单->移动指令->小车futureCommands 流程
+>>>  【DefaultVehicleController.setDriveOrder】将为小车下发驾驶单中的首个MovementCommand【DefaultVehicleController.setDriveOrder -> canSendNextCommand -> allocateForNextCommand】
+>>>  DefaultVehicleController.canSendNextCommand执行判断，当前小车的commandQueueCapacity为2个，已有0个commandsSent，14futureCommands。
+>>>  DefaultVehicleController.canSendNextCommand得知，当前小车有2sendableCommands
+>>>  DefaultVehicleController.canSendNextCommand发现可以为当前小车Vehicle-01下发移动指令
+>>>  【DefaultVehicleController.allocateForNextCommand】即将为Vehicle-01的下一个移动指令分配资源
+>>>  Vehicle-01: Allocating resources: [Path{id=56, name=Point-0001 --- Point-0003}, Point{id=2, name=Point-0003}]
+>>>  【DefaultVehicleController.allocateForNextCommand】小车Vehicle-01: 所需资源有: [Path{id=56, name=Point-0001 --- Point-0003}, Point{id=2, name=Point-0003}]
+>>>  【DefaultScheduler.allocate】Scheduler提交资源分配任务，kernelExecutor将在异步线程中为客户分配资源【Vehicle-01】-->【[Path{id=56, name=Point-0001 --- Point-0003}, Point{id=2, name=Point-0003}]】...
+>>>  【AllocatorTask】有新的资源分配计划将被创建，创建命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$Allocate@599e5ae6
+>>>  ==================完成最优方案选定， 完成进行运单与小车绑定及运单拆解==================
+>>>  6、Recharging of vehicles.Default: Sends idle vehicles with a degraded energy level to recharge locations.
+>>>  6.1、新建充电订单给Creates recharging orders for any vehicles with a degraded energy level.
+>>>  7、Parking of vehicles.Default: Sends idle vehicles to parking positions.
+>>>  7.1、Creates parking orders for idle vehicles already at a parking position to send them to higher prioritized parking positions.
+>>>  7.2、Creates parking orders for idle vehicles not already at a parking position considering only prioritized parking positions.
+>>>  7.3、Creates parking orders for idle vehicles not already at a parking position considering all parking positions.
+>>>  Finished full dispatch run.
+>>>  ==============结束 FullDispatchTask.run ==============
+>>>  【AllocatorTask】有新的资源分配计划将被执行，执行的命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$Allocate@599e5ae6
+>>>  Vehicle-01: Checking resource if all resources are available:
+>>>  Vehicle-01: Checking if resources may be allocated...
+>>>  Vehicle-01: Some resources need to be prepared for allocation.
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SingleVehicleBlockModule@58594a11: Preparing allocation for resources [Path{id=56, name=Point-0001 --- Point-0003}, Point{id=2, name=Point-0003}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SameDirectionBlockModule@2a3888c1: Preparing allocation for resources [Path{id=56, name=Point-0001 --- Point-0003}, Point{id=2, name=Point-0003}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  Vehicle-01: All resources available, allocating...
+>>>  Allocating resource Path{id=56, name=Point-0001 --- Point-0003} for client Vehicle-01
+>>>  Allocating resource Point{id=2, name=Point-0003} for client Vehicle-01
+>>>  Preparation of resources '[Path{id=56, name=Point-0001 --- Point-0003}, Point{id=2, name=Point-0003}]' successful, calling back client 'Vehicle-01'...
+>>>  【DefaultVehicleController.allocationSuccessful】前一次请求的资源分配成功，进入回调告知客户端(小车),并执行回调后处理！Vehicle-01 <-- [Path{id=56, name=Point-0001 --- Point-0003}, Point{id=2, name=Point-0003}]
+>>>  【DefaultVehicleController.allocationSuccessful】核实所分配的与当前缓存的pendingResources，pendingCommand对应
+>>>  【DefaultVehicleController.allocationSuccessful】核实成功。下面开始给CommAdapter下发移动指令(指令[所需资源]已经由[scheduler]预留[归本小车占用]的资源)。
+>>>  给CommAdapter下发移动指令:commAdapter.enqueueCommand(command)，另外Controller本身记录自己的commandsSent.add(command);
+>>>  【BasicVehicleCommAdapter.enqueueCommand】新的移动指令[MovementCommand{step=Point-0003, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=25, name=Point-0026}, finalDestinationLocation=Location{id=127, name=Goods in north 01}, finalOperation=Load cargo, properties={}}]被加到指令队列中....
+>>>  Vehicle-01: Adding command: MovementCommand{step=Point-0003, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=25, name=Point-0026}, finalDestinationLocation=Location{id=127, name=Goods in north 01}, finalOperation=Load cargo, properties={}}
+>>>  【DefaultVehicleController.allocationSuccessful】CommAdapter移动指令下发完成。下面执行waitingForAllocation=false(因为上一次资源分配已完成)，及下一次移动指令所需资源请求分配canSendNextCommand -> allocateForNextCommand
+>>>  DefaultVehicleController.canSendNextCommand执行判断，当前小车的commandQueueCapacity为2个，已有1个commandsSent，13futureCommands。
+>>>  DefaultVehicleController.canSendNextCommand得知，当前小车有1sendableCommands
+>>>  DefaultVehicleController.canSendNextCommand发现可以为当前小车Vehicle-01下发移动指令
+>>>  【DefaultVehicleController.allocateForNextCommand】即将为Vehicle-01的下一个移动指令分配资源
+>>>  Vehicle-01: Allocating resources: [Path{id=58, name=Point-0003 --- Point-0004}, Point{id=3, name=Point-0004}]
+>>>  【DefaultVehicleController.allocateForNextCommand】小车Vehicle-01: 所需资源有: [Path{id=58, name=Point-0003 --- Point-0004}, Point{id=3, name=Point-0004}]
+>>>  【DefaultScheduler.allocate】Scheduler提交资源分配任务，kernelExecutor将在异步线程中为客户分配资源【Vehicle-01】-->【[Path{id=58, name=Point-0003 --- Point-0004}, Point{id=3, name=Point-0004}]】...
+>>>  【AllocatorTask】有新的资源分配计划将被创建，创建命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$Allocate@2d50e00c
+>>>  【AllocatorTask】有新的资源分配计划将被执行，执行的命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$Allocate@2d50e00c
+>>>  Vehicle-01: Checking resource if all resources are available:
+>>>  Vehicle-01: Checking if resources may be allocated...
+>>>  Vehicle-01: Some resources need to be prepared for allocation.
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SingleVehicleBlockModule@58594a11: Preparing allocation for resources [Path{id=58, name=Point-0003 --- Point-0004}, Point{id=3, name=Point-0004}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SameDirectionBlockModule@2a3888c1: Preparing allocation for resources [Path{id=58, name=Point-0003 --- Point-0004}, Point{id=3, name=Point-0004}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  Vehicle-01: All resources available, allocating...
+>>>  Allocating resource Path{id=58, name=Point-0003 --- Point-0004} for client Vehicle-01
+>>>  Allocating resource Point{id=3, name=Point-0004} for client Vehicle-01
+>>>  Preparation of resources '[Path{id=58, name=Point-0003 --- Point-0004}, Point{id=3, name=Point-0004}]' successful, calling back client 'Vehicle-01'...
+>>>  【DefaultVehicleController.allocationSuccessful】前一次请求的资源分配成功，进入回调告知客户端(小车),并执行回调后处理！Vehicle-01 <-- [Path{id=58, name=Point-0003 --- Point-0004}, Point{id=3, name=Point-0004}]
+>>>  【DefaultVehicleController.allocationSuccessful】核实所分配的与当前缓存的pendingResources，pendingCommand对应
+>>>  【DefaultVehicleController.allocationSuccessful】核实成功。下面开始给CommAdapter下发移动指令(指令[所需资源]已经由[scheduler]预留[归本小车占用]的资源)。
+>>>  给CommAdapter下发移动指令:commAdapter.enqueueCommand(command)，另外Controller本身记录自己的commandsSent.add(command);
+>>>  【BasicVehicleCommAdapter.enqueueCommand】新的移动指令[MovementCommand{step=Point-0004, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=25, name=Point-0026}, finalDestinationLocation=Location{id=127, name=Goods in north 01}, finalOperation=Load cargo, properties={}}]被加到指令队列中....
+>>>  Vehicle-01: Adding command: MovementCommand{step=Point-0004, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=25, name=Point-0026}, finalDestinationLocation=Location{id=127, name=Goods in north 01}, finalOperation=Load cargo, properties={}}
+>>>  【DefaultVehicleController.allocationSuccessful】CommAdapter移动指令下发完成。下面执行waitingForAllocation=false(因为上一次资源分配已完成)，及下一次移动指令所需资源请求分配canSendNextCommand -> allocateForNextCommand
+>>>  DefaultVehicleController.canSendNextCommand执行判断，当前小车的commandQueueCapacity为2个，已有2个commandsSent，12futureCommands。
+>>>  DefaultVehicleController.canSendNextCommand得知，当前小车有0sendableCommands
+>>>  Vehicle-01: Cannot send, number of sendable commands: 0
+
+============================新增运单完成============================
+
+
+============================小车执行NextStep-1============================
+>>>  【BasicVehicleCommAdapter】即将被下发移动指令[curCmd=MovementCommand{step=Point-0003, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=25, name=Point-0026}, finalDestinationLocation=Location{id=127, name=Goods in north 01}, finalOperation=Load cargo, properties={}}]：sendCommand(curCmd)->getSentQueue().add(curCmd)->getProcessModel().commandSent(curCmd)
+>>>  当前所有sentQueue[MovementCommand{step=Point-0003, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=25, name=Point-0026}, finalDestinationLocation=Location{id=127, name=Goods in north 01}, finalOperation=Load cargo, properties={}}]
+>>>  peek获取【已发送未执行队列sentQueue】中的的当前运行指令MovementCommand:MovementCommand{step=Point-0003, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=25, name=Point-0026}, finalDestinationLocation=Location{id=127, name=Goods in north 01}, finalOperation=Load cargo, properties={}}
+>>>  Processing MovementCommand...
+>>>  =========适配器开始执行移动指令MovementCommand========
+>>>  t = 0.02; s = 10.0; v_current = 0.0; v_target = 1000.0
+>>>  result = 50000
+>>>  t = 0.013333333333333334; s = 10.0; v_current = 500.0; v_target = 1000.0
+>>>  result = 37500
+>>>  Vehicle TCSObjectReference{referentClass=class org.opentcs.data.model.Vehicle, id=123, name=Vehicle-01} has reached point TCSObjectReference{referentClass=class org.opentcs.data.model.Point, id=2, name=Point-0003}.
+>>>  小车 Vehicle-01 位置发生变化，已经到达 Point-0003.
+>>>  适配器已驱动小车执行移动指令MovementCommand.StepPoint-0003
+>>>  适配器检查false需要执行MovementCommand.OperationNOP
+>>>  Processed MovementCommand.
+>>>  =========适配器执行完成移动指令MovementCommand========
+>>>  =========适配器开始更新小车状态：========
+>>>  如果【待执行SentQueue】 <= 1 && 【待发送CommandQueue】为空，置Vehicle.State.IDLE
+>>>  getSentQueue().poll()移除已经被执行掉的sentCmd
+>>>  告知小车模型指令MovementCommand{step=Point-0003, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=25, name=Point-0026}, finalDestinationLocation=Location{id=127, name=Goods in north 01}, finalOperation=Load cargo, properties={}}已被执行
+>>>  Vehicle-01: Freeing resources: [Point{id=0, name=Point-0001}]
+>>>  Vehicle-01: Releasing resources: [Point{id=0, name=Point-0001}]
+>>>  Vehicle-01: Releasing resources: [Point{id=0, name=Point-0001}]
+>>>  【AllocatorTask】有新的资源分配计划将被创建，创建命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$AllocationsReleased@428a4284
+>>>  【AllocatorTask】有新的资源分配计划将被创建，创建命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$RetryAllocates@46eb8f9
+>>>  DefaultVehicleController.canSendNextCommand执行判断，当前小车的commandQueueCapacity为2个，已有1个commandsSent，12futureCommands。
+>>>  【AllocatorTask】有新的资源分配计划将被执行，执行的命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$AllocationsReleased@428a4284
+>>>  DefaultVehicleController.canSendNextCommand得知，当前小车有1sendableCommands
+>>>  DefaultVehicleController.canSendNextCommand发现可以为当前小车Vehicle-01下发移动指令
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SingleVehicleBlockModule@58594a11: Allocation released for resources [Point{id=0, name=Point-0001}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  【DefaultVehicleController.allocateForNextCommand】即将为Vehicle-01的下一个移动指令分配资源
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SameDirectionBlockModule@2a3888c1: Allocation released for resources [Point{id=0, name=Point-0001}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  Vehicle-01: Allocating resources: [Path{id=60, name=Point-0004 --- Point-0008}, Point{id=7, name=Point-0008}]
+>>>  【DefaultVehicleController.allocateForNextCommand】小车Vehicle-01: 所需资源有: [Path{id=60, name=Point-0004 --- Point-0008}, Point{id=7, name=Point-0008}]
+>>>  【AllocatorTask】有新的资源分配计划将被执行，执行的命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$RetryAllocates@46eb8f9
+>>>  【DefaultScheduler.allocate】Scheduler提交资源分配任务，kernelExecutor将在异步线程中为客户分配资源【Vehicle-01】-->【[Path{id=60, name=Point-0004 --- Point-0008}, Point{id=7, name=Point-0008}]】...
+>>>  【AllocatorTask】有新的资源分配计划将被创建，创建命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$Allocate@3cf8672c
+>>>  =========适配器完成更新小车状态========
+>>>  【AllocatorTask】有新的资源分配计划将被执行，执行的命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$Allocate@3cf8672c
+>>>  Vehicle-01: Checking resource if all resources are available:
+>>>  Vehicle-01: Checking if resources may be allocated...
+>>>  Vehicle-01: Some resources need to be prepared for allocation.
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SingleVehicleBlockModule@58594a11: Preparing allocation for resources [Path{id=60, name=Point-0004 --- Point-0008}, Point{id=7, name=Point-0008}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SameDirectionBlockModule@2a3888c1: Preparing allocation for resources [Path{id=60, name=Point-0004 --- Point-0008}, Point{id=7, name=Point-0008}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  Vehicle-01: All resources available, allocating...
+>>>  Allocating resource Path{id=60, name=Point-0004 --- Point-0008} for client Vehicle-01
+>>>  Allocating resource Point{id=7, name=Point-0008} for client Vehicle-01
+>>>  Preparation of resources '[Path{id=60, name=Point-0004 --- Point-0008}, Point{id=7, name=Point-0008}]' successful, calling back client 'Vehicle-01'...
+>>>  【DefaultVehicleController.allocationSuccessful】前一次请求的资源分配成功，进入回调告知客户端(小车),并执行回调后处理！Vehicle-01 <-- [Path{id=60, name=Point-0004 --- Point-0008}, Point{id=7, name=Point-0008}]
+>>>  【DefaultVehicleController.allocationSuccessful】核实所分配的与当前缓存的pendingResources，pendingCommand对应
+>>>  【DefaultVehicleController.allocationSuccessful】核实成功。下面开始给CommAdapter下发移动指令(指令[所需资源]已经由[scheduler]预留[归本小车占用]的资源)。
+>>>  给CommAdapter下发移动指令:commAdapter.enqueueCommand(command)，另外Controller本身记录自己的commandsSent.add(command);
+>>>  【BasicVehicleCommAdapter.enqueueCommand】新的移动指令[MovementCommand{step=Point-0008, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=25, name=Point-0026}, finalDestinationLocation=Location{id=127, name=Goods in north 01}, finalOperation=Load cargo, properties={}}]被加到指令队列中....
+>>>  Vehicle-01: Adding command: MovementCommand{step=Point-0008, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=25, name=Point-0026}, finalDestinationLocation=Location{id=127, name=Goods in north 01}, finalOperation=Load cargo, properties={}}
+>>>  【DefaultVehicleController.allocationSuccessful】CommAdapter移动指令下发完成。下面执行waitingForAllocation=false(因为上一次资源分配已完成)，及下一次移动指令所需资源请求分配canSendNextCommand -> allocateForNextCommand
+>>>  DefaultVehicleController.canSendNextCommand执行判断，当前小车的commandQueueCapacity为2个，已有2个commandsSent，11futureCommands。
+>>>  DefaultVehicleController.canSendNextCommand得知，当前小车有0sendableCommands
+>>>  Vehicle-01: Cannot send, number of sendable commands: 0
+
+
+============================完成小车执行NextStep-1============================
+
+
+============================开始小车执行NextStep-2============================
+
+>>>  【BasicVehicleCommAdapter】即将被下发移动指令[curCmd=MovementCommand{step=Point-0004, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=25, name=Point-0026}, finalDestinationLocation=Location{id=127, name=Goods in north 01}, finalOperation=Load cargo, properties={}}]：sendCommand(curCmd)->getSentQueue().add(curCmd)->getProcessModel().commandSent(curCmd)
+>>>  当前所有sentQueue[MovementCommand{step=Point-0004, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=25, name=Point-0026}, finalDestinationLocation=Location{id=127, name=Goods in north 01}, finalOperation=Load cargo, properties={}}]
+>>>  peek获取【已发送未执行队列sentQueue】中的的当前运行指令MovementCommand:MovementCommand{step=Point-0004, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=25, name=Point-0026}, finalDestinationLocation=Location{id=127, name=Goods in north 01}, finalOperation=Load cargo, properties={}}
+>>>  Processing MovementCommand...
+>>>  =========适配器开始执行移动指令MovementCommand========
+>>>  t = 0.02; s = 10.0; v_current = 0.0; v_target = 1000.0
+>>>  result = 50000
+>>>  t = 0.013333333333333334; s = 10.0; v_current = 500.0; v_target = 1000.0
+>>>  result = 37500
+>>>  Vehicle TCSObjectReference{referentClass=class org.opentcs.data.model.Vehicle, id=123, name=Vehicle-01} has reached point TCSObjectReference{referentClass=class org.opentcs.data.model.Point, id=3, name=Point-0004}.
+>>>  小车 Vehicle-01 位置发生变化，已经到达 Point-0004.
+>>>  适配器已驱动小车执行移动指令MovementCommand.StepPoint-0004
+>>>  适配器检查false需要执行MovementCommand.OperationNOP
+>>>  Processed MovementCommand.
+>>>  =========适配器执行完成移动指令MovementCommand========
+>>>  =========适配器开始更新小车状态：========
+>>>  如果【待执行SentQueue】 <= 1 && 【待发送CommandQueue】为空，置Vehicle.State.IDLE
+>>>  getSentQueue().poll()移除已经被执行掉的sentCmd
+>>>  告知小车模型指令MovementCommand{step=Point-0004, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=25, name=Point-0026}, finalDestinationLocation=Location{id=127, name=Goods in north 01}, finalOperation=Load cargo, properties={}}已被执行
+>>>  Vehicle-01: Freeing resources: [Path{id=56, name=Point-0001 --- Point-0003}, Point{id=2, name=Point-0003}]
+>>>  Vehicle-01: Releasing resources: [Path{id=56, name=Point-0001 --- Point-0003}, Point{id=2, name=Point-0003}]
+>>>  Vehicle-01: Releasing resources: [Path{id=56, name=Point-0001 --- Point-0003}, Point{id=2, name=Point-0003}]
+>>>  【AllocatorTask】有新的资源分配计划将被创建，创建命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$AllocationsReleased@39cae3fa
+>>>  【AllocatorTask】有新的资源分配计划将被创建，创建命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$RetryAllocates@48122d4a
+>>>  【AllocatorTask】有新的资源分配计划将被执行，执行的命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$AllocationsReleased@39cae3fa
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SingleVehicleBlockModule@58594a11: Allocation released for resources [Path{id=56, name=Point-0001 --- Point-0003}, Point{id=2, name=Point-0003}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SameDirectionBlockModule@2a3888c1: Allocation released for resources [Path{id=56, name=Point-0001 --- Point-0003}, Point{id=2, name=Point-0003}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  DefaultVehicleController.canSendNextCommand执行判断，当前小车的commandQueueCapacity为2个，已有1个commandsSent，11futureCommands。
+>>>  【AllocatorTask】有新的资源分配计划将被执行，执行的命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$RetryAllocates@48122d4a
+>>>  DefaultVehicleController.canSendNextCommand得知，当前小车有1sendableCommands
+>>>  DefaultVehicleController.canSendNextCommand发现可以为当前小车Vehicle-01下发移动指令
+>>>  【DefaultVehicleController.allocateForNextCommand】即将为Vehicle-01的下一个移动指令分配资源
+>>>  Vehicle-01: Allocating resources: [Point{id=8, name=Point-0009}, Path{id=66, name=Point-0008 --- Point-0009}]
+>>>  【DefaultVehicleController.allocateForNextCommand】小车Vehicle-01: 所需资源有: [Point{id=8, name=Point-0009}, Path{id=66, name=Point-0008 --- Point-0009}]
+>>>  【DefaultScheduler.allocate】Scheduler提交资源分配任务，kernelExecutor将在异步线程中为客户分配资源【Vehicle-01】-->【[Point{id=8, name=Point-0009}, Path{id=66, name=Point-0008 --- Point-0009}]】...
+>>>  【AllocatorTask】有新的资源分配计划将被创建，创建命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$Allocate@37acf263
+>>>  =========适配器完成更新小车状态========
+>>>  【AllocatorTask】有新的资源分配计划将被执行，执行的命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$Allocate@37acf263
+>>>  Vehicle-01: Checking resource if all resources are available:
+>>>  Vehicle-01: Checking if resources may be allocated...
+>>>  Vehicle-01: Some resources need to be prepared for allocation.
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SingleVehicleBlockModule@58594a11: Preparing allocation for resources [Point{id=8, name=Point-0009}, Path{id=66, name=Point-0008 --- Point-0009}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SameDirectionBlockModule@2a3888c1: Preparing allocation for resources [Point{id=8, name=Point-0009}, Path{id=66, name=Point-0008 --- Point-0009}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  Vehicle-01: All resources available, allocating...
+>>>  Allocating resource Point{id=8, name=Point-0009} for client Vehicle-01
+>>>  Allocating resource Path{id=66, name=Point-0008 --- Point-0009} for client Vehicle-01
+>>>  Preparation of resources '[Point{id=8, name=Point-0009}, Path{id=66, name=Point-0008 --- Point-0009}]' successful, calling back client 'Vehicle-01'...
+>>>  【DefaultVehicleController.allocationSuccessful】前一次请求的资源分配成功，进入回调告知客户端(小车),并执行回调后处理！Vehicle-01 <-- [Point{id=8, name=Point-0009}, Path{id=66, name=Point-0008 --- Point-0009}]
+>>>  【DefaultVehicleController.allocationSuccessful】核实所分配的与当前缓存的pendingResources，pendingCommand对应
+>>>  【DefaultVehicleController.allocationSuccessful】核实成功。下面开始给CommAdapter下发移动指令(指令[所需资源]已经由[scheduler]预留[归本小车占用]的资源)。
+>>>  给CommAdapter下发移动指令:commAdapter.enqueueCommand(command)，另外Controller本身记录自己的commandsSent.add(command);
+>>>  【BasicVehicleCommAdapter.enqueueCommand】新的移动指令[MovementCommand{step=Point-0009, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=25, name=Point-0026}, finalDestinationLocation=Location{id=127, name=Goods in north 01}, finalOperation=Load cargo, properties={}}]被加到指令队列中....
+>>>  Vehicle-01: Adding command: MovementCommand{step=Point-0009, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=25, name=Point-0026}, finalDestinationLocation=Location{id=127, name=Goods in north 01}, finalOperation=Load cargo, properties={}}
+>>>  【DefaultVehicleController.allocationSuccessful】CommAdapter移动指令下发完成。下面执行waitingForAllocation=false(因为上一次资源分配已完成)，及下一次移动指令所需资源请求分配canSendNextCommand -> allocateForNextCommand
+>>>  DefaultVehicleController.canSendNextCommand执行判断，当前小车的commandQueueCapacity为2个，已有2个commandsSent，10futureCommands。
+>>>  DefaultVehicleController.canSendNextCommand得知，当前小车有0sendableCommands
+>>>  Vehicle-01: Cannot send, number of sendable commands: 0
+
+
+
+============================完成小车执行NextStep-2============================
+
+
+============================开始小车执行NextStep-3============================
+>>>  【BasicVehicleCommAdapter】即将被下发移动指令[curCmd=MovementCommand{step=Point-0008, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=25, name=Point-0026}, finalDestinationLocation=Location{id=127, name=Goods in north 01}, finalOperation=Load cargo, properties={}}]：sendCommand(curCmd)->getSentQueue().add(curCmd)->getProcessModel().commandSent(curCmd)
+>>>  当前所有sentQueue[MovementCommand{step=Point-0008, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=25, name=Point-0026}, finalDestinationLocation=Location{id=127, name=Goods in north 01}, finalOperation=Load cargo, properties={}}]
+>>>  peek获取【已发送未执行队列sentQueue】中的的当前运行指令MovementCommand:MovementCommand{step=Point-0008, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=25, name=Point-0026}, finalDestinationLocation=Location{id=127, name=Goods in north 01}, finalOperation=Load cargo, properties={}}
+>>>  Processing MovementCommand...
+>>>  =========适配器开始执行移动指令MovementCommand========
+>>>  t = 0.02; s = 10.0; v_current = 0.0; v_target = 1000.0
+>>>  result = 50000
+>>>  t = 0.013333333333333334; s = 10.0; v_current = 500.0; v_target = 1000.0
+>>>  result = 37500
+>>>  Vehicle TCSObjectReference{referentClass=class org.opentcs.data.model.Vehicle, id=123, name=Vehicle-01} has reached point TCSObjectReference{referentClass=class org.opentcs.data.model.Point, id=7, name=Point-0008}.
+>>>  小车 Vehicle-01 位置发生变化，已经到达 Point-0008.
+>>>  适配器已驱动小车执行移动指令MovementCommand.StepPoint-0008
+>>>  适配器检查false需要执行MovementCommand.OperationNOP
+>>>  Processed MovementCommand.
+>>>  =========适配器执行完成移动指令MovementCommand========
+>>>  =========适配器开始更新小车状态：========
+>>>  如果【待执行SentQueue】 <= 1 && 【待发送CommandQueue】为空，置Vehicle.State.IDLE
+>>>  getSentQueue().poll()移除已经被执行掉的sentCmd
+>>>  告知小车模型指令MovementCommand{step=Point-0008, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=25, name=Point-0026}, finalDestinationLocation=Location{id=127, name=Goods in north 01}, finalOperation=Load cargo, properties={}}已被执行
+>>>  Vehicle-01: Freeing resources: [Path{id=58, name=Point-0003 --- Point-0004}, Point{id=3, name=Point-0004}]
+>>>  Vehicle-01: Releasing resources: [Path{id=58, name=Point-0003 --- Point-0004}, Point{id=3, name=Point-0004}]
+>>>  Vehicle-01: Releasing resources: [Path{id=58, name=Point-0003 --- Point-0004}, Point{id=3, name=Point-0004}]
+>>>  【AllocatorTask】有新的资源分配计划将被创建，创建命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$AllocationsReleased@508b3a97
+>>>  【AllocatorTask】有新的资源分配计划将被创建，创建命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$RetryAllocates@9aa35b1
+>>>  【AllocatorTask】有新的资源分配计划将被执行，执行的命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$AllocationsReleased@508b3a97
+>>>  DefaultVehicleController.canSendNextCommand执行判断，当前小车的commandQueueCapacity为2个，已有1个commandsSent，10futureCommands。
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SingleVehicleBlockModule@58594a11: Allocation released for resources [Path{id=58, name=Point-0003 --- Point-0004}, Point{id=3, name=Point-0004}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  DefaultVehicleController.canSendNextCommand得知，当前小车有1sendableCommands
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SameDirectionBlockModule@2a3888c1: Allocation released for resources [Path{id=58, name=Point-0003 --- Point-0004}, Point{id=3, name=Point-0004}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  DefaultVehicleController.canSendNextCommand发现可以为当前小车Vehicle-01下发移动指令
+>>>  【AllocatorTask】有新的资源分配计划将被执行，执行的命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$RetryAllocates@9aa35b1
+>>>  【DefaultVehicleController.allocateForNextCommand】即将为Vehicle-01的下一个移动指令分配资源
+>>>  Vehicle-01: Allocating resources: [Path{id=67, name=Point-0009 --- Point-0011}, Point{id=10, name=Point-0011}]
+>>>  【DefaultVehicleController.allocateForNextCommand】小车Vehicle-01: 所需资源有: [Path{id=67, name=Point-0009 --- Point-0011}, Point{id=10, name=Point-0011}]
+>>>  【DefaultScheduler.allocate】Scheduler提交资源分配任务，kernelExecutor将在异步线程中为客户分配资源【Vehicle-01】-->【[Path{id=67, name=Point-0009 --- Point-0011}, Point{id=10, name=Point-0011}]】...
+>>>  【AllocatorTask】有新的资源分配计划将被创建，创建命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$Allocate@5945e10d
+>>>  =========适配器完成更新小车状态========
+>>>  【AllocatorTask】有新的资源分配计划将被执行，执行的命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$Allocate@5945e10d
+>>>  Vehicle-01: Checking resource if all resources are available:
+>>>  Vehicle-01: Checking if resources may be allocated...
+>>>  Vehicle-01: Some resources need to be prepared for allocation.
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SingleVehicleBlockModule@58594a11: Preparing allocation for resources [Path{id=67, name=Point-0009 --- Point-0011}, Point{id=10, name=Point-0011}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SameDirectionBlockModule@2a3888c1: Preparing allocation for resources [Path{id=67, name=Point-0009 --- Point-0011}, Point{id=10, name=Point-0011}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  Vehicle-01: All resources available, allocating...
+>>>  Allocating resource Path{id=67, name=Point-0009 --- Point-0011} for client Vehicle-01
+>>>  Allocating resource Point{id=10, name=Point-0011} for client Vehicle-01
+>>>  Preparation of resources '[Path{id=67, name=Point-0009 --- Point-0011}, Point{id=10, name=Point-0011}]' successful, calling back client 'Vehicle-01'...
+>>>  【DefaultVehicleController.allocationSuccessful】前一次请求的资源分配成功，进入回调告知客户端(小车),并执行回调后处理！Vehicle-01 <-- [Path{id=67, name=Point-0009 --- Point-0011}, Point{id=10, name=Point-0011}]
+>>>  【DefaultVehicleController.allocationSuccessful】核实所分配的与当前缓存的pendingResources，pendingCommand对应
+>>>  【DefaultVehicleController.allocationSuccessful】核实成功。下面开始给CommAdapter下发移动指令(指令[所需资源]已经由[scheduler]预留[归本小车占用]的资源)。
+>>>  给CommAdapter下发移动指令:commAdapter.enqueueCommand(command)，另外Controller本身记录自己的commandsSent.add(command);
+>>>  【BasicVehicleCommAdapter.enqueueCommand】新的移动指令[MovementCommand{step=Point-0011, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=25, name=Point-0026}, finalDestinationLocation=Location{id=127, name=Goods in north 01}, finalOperation=Load cargo, properties={}}]被加到指令队列中....
+>>>  Vehicle-01: Adding command: MovementCommand{step=Point-0011, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=25, name=Point-0026}, finalDestinationLocation=Location{id=127, name=Goods in north 01}, finalOperation=Load cargo, properties={}}
+>>>  【DefaultVehicleController.allocationSuccessful】CommAdapter移动指令下发完成。下面执行waitingForAllocation=false(因为上一次资源分配已完成)，及下一次移动指令所需资源请求分配canSendNextCommand -> allocateForNextCommand
+>>>  DefaultVehicleController.canSendNextCommand执行判断，当前小车的commandQueueCapacity为2个，已有2个commandsSent，9futureCommands。
+>>>  DefaultVehicleController.canSendNextCommand得知，当前小车有0sendableCommands
+>>>  Vehicle-01: Cannot send, number of sendable commands: 0
+
+============================完成小车执行NextStep-3============================
+
+============================开始小车执行NextStep-驾驶单1前2步============================
+
+>>>  【BasicVehicleCommAdapter】即将被下发移动指令[curCmd=MovementCommand{step=Point-0025, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=25, name=Point-0026}, finalDestinationLocation=Location{id=127, name=Goods in north 01}, finalOperation=Load cargo, properties={}}]：sendCommand(curCmd)->getSentQueue().add(curCmd)->getProcessModel().commandSent(curCmd)
+>>>  当前所有sentQueue[MovementCommand{step=Point-0025, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=25, name=Point-0026}, finalDestinationLocation=Location{id=127, name=Goods in north 01}, finalOperation=Load cargo, properties={}}]
+>>>  peek获取【已发送未执行队列sentQueue】中的的当前运行指令MovementCommand:MovementCommand{step=Point-0025, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=25, name=Point-0026}, finalDestinationLocation=Location{id=127, name=Goods in north 01}, finalOperation=Load cargo, properties={}}
+>>>  Processing MovementCommand...
+>>>  =========适配器开始执行移动指令MovementCommand========
+>>>  t = 0.02; s = 10.0; v_current = 0.0; v_target = 1000.0
+>>>  result = 50000
+>>>  t = 0.013333333333333334; s = 10.0; v_current = 500.0; v_target = 1000.0
+>>>  result = 37500
+>>>  Vehicle TCSObjectReference{referentClass=class org.opentcs.data.model.Vehicle, id=123, name=Vehicle-01} has reached point TCSObjectReference{referentClass=class org.opentcs.data.model.Point, id=24, name=Point-0025}.
+>>>  小车 Vehicle-01 位置发生变化，已经到达 Point-0025.
+>>>  适配器已驱动小车执行移动指令MovementCommand.StepPoint-0025
+>>>  适配器检查false需要执行MovementCommand.OperationNOP
+>>>  Processed MovementCommand.
+>>>  =========适配器执行完成移动指令MovementCommand========
+>>>  =========适配器开始更新小车状态：========
+>>>  如果【待执行SentQueue】 <= 1 && 【待发送CommandQueue】为空，置Vehicle.State.IDLE
+>>>  getSentQueue().poll()移除已经被执行掉的sentCmd
+>>>  告知小车模型指令MovementCommand{step=Point-0025, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=25, name=Point-0026}, finalDestinationLocation=Location{id=127, name=Goods in north 01}, finalOperation=Load cargo, properties={}}已被执行
+>>>  Vehicle-01: Freeing resources: [Point{id=23, name=Point-0024}, Path{id=86, name=Point-0023 --- Point-0024}]
+>>>  Vehicle-01: Releasing resources: [Point{id=23, name=Point-0024}, Path{id=86, name=Point-0023 --- Point-0024}]
+>>>  Vehicle-01: Releasing resources: [Point{id=23, name=Point-0024}, Path{id=86, name=Point-0023 --- Point-0024}]
+>>>  【AllocatorTask】有新的资源分配计划将被创建，创建命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$AllocationsReleased@134d1d6e
+>>>  【AllocatorTask】有新的资源分配计划将被创建，创建命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$RetryAllocates@36b51351
+>>>  Vehicle-01: No more commands in current drive order
+>>>  【AllocatorTask】有新的资源分配计划将被执行，执行的命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$AllocationsReleased@134d1d6e
+>>>  =========适配器完成更新小车状态========
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SingleVehicleBlockModule@58594a11: Allocation released for resources [Point{id=23, name=Point-0024}, Path{id=86, name=Point-0023 --- Point-0024}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SameDirectionBlockModule@2a3888c1: Allocation released for resources [Point{id=23, name=Point-0024}, Path{id=86, name=Point-0023 --- Point-0024}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  【AllocatorTask】有新的资源分配计划将被执行，执行的命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$RetryAllocates@36b51351
+
+
+============================完成小车执行NextStep-驾驶单1前2步============================
+
+============================开始小车执行NextStep-驾驶单1前1步============================
+
+>>>  【BasicVehicleCommAdapter】即将被下发移动指令[curCmd=MovementCommand{step=Point-0026, operation=Load cargo, opLocation=Location{id=127, name=Goods in north 01}, finalMovement=true, finalDestination=Point{id=25, name=Point-0026}, finalDestinationLocation=Location{id=127, name=Goods in north 01}, finalOperation=Load cargo, properties={}}]：sendCommand(curCmd)->getSentQueue().add(curCmd)->getProcessModel().commandSent(curCmd)
+>>>  当前所有sentQueue[MovementCommand{step=Point-0026, operation=Load cargo, opLocation=Location{id=127, name=Goods in north 01}, finalMovement=true, finalDestination=Point{id=25, name=Point-0026}, finalDestinationLocation=Location{id=127, name=Goods in north 01}, finalOperation=Load cargo, properties={}}]
+>>>  peek获取【已发送未执行队列sentQueue】中的的当前运行指令MovementCommand:MovementCommand{step=Point-0026, operation=Load cargo, opLocation=Location{id=127, name=Goods in north 01}, finalMovement=true, finalDestination=Point{id=25, name=Point-0026}, finalDestinationLocation=Location{id=127, name=Goods in north 01}, finalOperation=Load cargo, properties={}}
+>>>  Processing MovementCommand...
+>>>  =========适配器开始执行移动指令MovementCommand========
+>>>  t = 0.02; s = 10.0; v_current = 0.0; v_target = 1000.0
+>>>  result = 50000
+>>>  t = 0.013333333333333334; s = 10.0; v_current = 500.0; v_target = 1000.0
+>>>  result = 37500
+>>>  Vehicle TCSObjectReference{referentClass=class org.opentcs.data.model.Vehicle, id=123, name=Vehicle-01} has reached point TCSObjectReference{referentClass=class org.opentcs.data.model.Point, id=25, name=Point-0026}.
+>>>  小车 Vehicle-01 位置发生变化，已经到达 Point-0026.
+>>>  适配器已驱动小车执行移动指令MovementCommand.StepPoint-0026
+>>>  适配器检查true需要执行MovementCommand.OperationLoad cargo
+>>>  Operating...
+>>>  Processed MovementCommand.
+>>>  =========适配器执行完成移动指令MovementCommand========
+>>>  =========适配器开始更新小车状态：========
+>>>  如果【待执行SentQueue】 <= 1 && 【待发送CommandQueue】为空，置Vehicle.State.IDLE
+>>>  getSentQueue().poll()移除已经被执行掉的sentCmd
+>>>  告知小车模型指令MovementCommand{step=Point-0026, operation=Load cargo, opLocation=Location{id=127, name=Goods in north 01}, finalMovement=true, finalDestination=Point{id=25, name=Point-0026}, finalDestinationLocation=Location{id=127, name=Goods in north 01}, finalOperation=Load cargo, properties={}}已被执行
+>>>  Vehicle-01: Freeing resources: [Path{id=87, name=Point-0024 --- Point-0025}, Point{id=24, name=Point-0025}]
+>>>  Vehicle-01: Releasing resources: [Path{id=87, name=Point-0024 --- Point-0025}, Point{id=24, name=Point-0025}]
+>>>  Vehicle-01: Releasing resources: [Path{id=87, name=Point-0024 --- Point-0025}, Point{id=24, name=Point-0025}]
+>>>  【AllocatorTask】有新的资源分配计划将被创建，创建命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$AllocationsReleased@70d3132d
+>>>  【AllocatorTask】有新的资源分配计划将被创建，创建命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$RetryAllocates@3cf76427
+>>>  【AllocatorTask】有新的资源分配计划将被执行，执行的命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$AllocationsReleased@70d3132d
+>>>  Vehicle-01: No more commands in current drive order
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SingleVehicleBlockModule@58594a11: Allocation released for resources [Path{id=87, name=Point-0024 --- Point-0025}, Point{id=24, name=Point-0025}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  Vehicle-01: Current drive order processed
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SameDirectionBlockModule@2a3888c1: Allocation released for resources [Path{id=87, name=Point-0024 --- Point-0025}, Point{id=24, name=Point-0025}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  Updating procState of vehicle Vehicle-01 to AWAITING_ORDER...
+>>>  【ImplicitDispatchTrigger】::: 监听到小车信息变更事件，并且小车满足可调度条件
+>>>  【ImplicitDispatchTrigger】::: 触发dispatcher.dispatch()方法，执行全局调度操作
+>>>  Dispatching for Vehicle{name=Vehicle-01, procState=AWAITING_ORDER, integrationLevel=TO_BE_UTILIZED, state=IDLE, energyLevel=100, currentPosition=TCSObjectReference{referentClass=class org.opentcs.data.model.Point, id=25, name=Point-0026}, precisePosition=null, orientationAngle=NaN, nextPosition=null, loadHandlingDevices=[LoadHandlingDevice{label=default, full=true}], length=1000, adapterState=CONNECTED, transportOrder=TCSObjectReference{referentClass=class org.opentcs.data.order.TransportOrder, id=146, name=TOrder-01DVPX3Y8PNKTM0RM9JZ4ZFTS3}, routeProgressIndex=-1, orderSequence=null, energyLevelGood=90, energyLevelCritical=30, energyLevelFullyRecharged=95, energyLevelSufficientlyRecharged=45, maxVelocity=100000, maxReverseVelocity=100000, rechargeOperation=CHARGE, processableCategories=[*]}...
+>>>  【DefaultDispatcher】:::全局调度器DefaultDispatcher.dispatch调用开始
+>>>  Scheduling dispatch task...
+>>>  【DefaultDispatcher】:::全局调度器DefaultDispatcher.dispatch调用结束
+>>>  =========适配器完成更新小车状态========
+>>>  【AllocatorTask】有新的资源分配计划将被执行，执行的命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$RetryAllocates@3cf76427
+>>>  ==============开始 FullDispatchTask.run ==============
+>>>  触发调度器的FullDispatchTask，执行任务分配：：：
+>>>  Starting full dispatch run...
+>>>  1、检查RAW状态的订单，调整为: UNROUTABLE(router判定无法路由), ACTIVE（可路由）, DISPATCHABLE(没有其他未完成的依赖任务)
+>>>  2、处理AWAITING_ORDER的小车。如果小车身上存在WITHDRAWN的运单，则将小车(是否需要disable,需要则UNAVAILABLE否则IDLE)及运单状态(fail)做相应调整
+>>>  3、分配下一个DriveOrder给AWAITING_ORDER的小车。checkForNextDriveOrder根据小车身上的TransportOrder.getCurrentDriveOrder()判断小车当前运单完成情况及是否需要分配下一个DriveOrder
+>>>  Vehicle 'Vehicle-01' finished a drive order.
+>>>  Assigning next drive order to vehicle 'Vehicle-01'...
+>>>  【DefaultVehicleController.setDriveOrder】开始为小车Vehicle-01添加驾驶单Route{steps=[Point-0027, Point-0032, Point-0028, Point-0029, Point-0035, Point-0036, Point-0034, Point-0014, Point-0008, Point-0009, Point-0011, Point-0013, Point-0018, Point-0019, Point-0017, Point-0020, Point-0021], costs=118852} -> Goods out 02:Unload cargo
+>>>  【DefaultVehicleController.setDriveOrder.scheduler.claim】开始为小车Vehicle-01认领路线资源
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SingleVehicleBlockModule@58594a11: Claiming resources [[Point{id=26, name=Point-0027}, Path{id=91, name=Point-0026 --- Point-0027}], [Point{id=30, name=Point-0032}, Path{id=92, name=Point-0027 --- Point-0032}], [Path{id=96, name=Point-0032 --- Point-0028}, Point{id=27, name=Point-0028}], [Path{id=93, name=Point-0028 --- Point-0029}, Point{id=28, name=Point-0029}], [Point{id=33, name=Point-0035}, Path{id=94, name=Point-0029 --- Point-0035}], [Path{id=100, name=Point-0035 --- Point-0036}, Point{id=34, name=Point-0036}], [Point{id=32, name=Point-0034}, Path{id=101, name=Point-0036 --- Point-0034}], [Path{id=98, name=Point-0034 --- Point-0014}, Point{id=13, name=Point-0014}], [Path{id=73, name=Point-0014 --- Point-0008}, Point{id=7, name=Point-0008}], [Point{id=8, name=Point-0009}, Path{id=66, name=Point-0008 --- Point-0009}], [Path{id=67, name=Point-0009 --- Point-0011}, Point{id=10, name=Point-0011}], [Point{id=12, name=Point-0013}, Path{id=69, name=Point-0011 --- Point-0013}], [Path{id=72, name=Point-0013 --- Point-0018}, Point{id=17, name=Point-0018}], [Path{id=80, name=Point-0018 --- Point-0019}, Point{id=18, name=Point-0019}], [Path{id=81, name=Point-0019 --- Point-0017}, Point{id=16, name=Point-0017}], [Point{id=19, name=Point-0020}, Path{id=79, name=Point-0017 --- Point-0020}], [Point{id=20, name=Point-0021}, Path{id=83, name=Point-0020 --- Point-0021}]] for clientDefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SameDirectionBlockModule@2a3888c1: Claiming resources [[Point{id=26, name=Point-0027}, Path{id=91, name=Point-0026 --- Point-0027}], [Point{id=30, name=Point-0032}, Path{id=92, name=Point-0027 --- Point-0032}], [Path{id=96, name=Point-0032 --- Point-0028}, Point{id=27, name=Point-0028}], [Path{id=93, name=Point-0028 --- Point-0029}, Point{id=28, name=Point-0029}], [Point{id=33, name=Point-0035}, Path{id=94, name=Point-0029 --- Point-0035}], [Path{id=100, name=Point-0035 --- Point-0036}, Point{id=34, name=Point-0036}], [Point{id=32, name=Point-0034}, Path{id=101, name=Point-0036 --- Point-0034}], [Path{id=98, name=Point-0034 --- Point-0014}, Point{id=13, name=Point-0014}], [Path{id=73, name=Point-0014 --- Point-0008}, Point{id=7, name=Point-0008}], [Point{id=8, name=Point-0009}, Path{id=66, name=Point-0008 --- Point-0009}], [Path{id=67, name=Point-0009 --- Point-0011}, Point{id=10, name=Point-0011}], [Point{id=12, name=Point-0013}, Path{id=69, name=Point-0011 --- Point-0013}], [Path{id=72, name=Point-0013 --- Point-0018}, Point{id=17, name=Point-0018}], [Path{id=80, name=Point-0018 --- Point-0019}, Point{id=18, name=Point-0019}], [Path{id=81, name=Point-0019 --- Point-0017}, Point{id=16, name=Point-0017}], [Point{id=19, name=Point-0020}, Path{id=79, name=Point-0017 --- Point-0020}], [Point{id=20, name=Point-0021}, Path{id=83, name=Point-0020 --- Point-0021}]] for clientDefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  DefaultVehicleController将驾驶单Route{steps=[Point-0027, Point-0032, Point-0028, Point-0029, Point-0035, Point-0036, Point-0034, Point-0014, Point-0008, Point-0009, Point-0011, Point-0013, Point-0018, Point-0019, Point-0017, Point-0020, Point-0021], costs=118852} -> Goods out 02:Unload cargo转换为移动指令{}并添加到小车的futureCommands
+>>>  DefaultVehicleController完成 驾驶单->移动指令->小车futureCommands 流程
+>>>  【DefaultVehicleController.setDriveOrder】将为小车下发驾驶单中的首个MovementCommand【DefaultVehicleController.setDriveOrder -> canSendNextCommand -> allocateForNextCommand】
+>>>  DefaultVehicleController.canSendNextCommand执行判断，当前小车的commandQueueCapacity为2个，已有0个commandsSent，17futureCommands。
+>>>  DefaultVehicleController.canSendNextCommand得知，当前小车有2sendableCommands
+>>>  DefaultVehicleController.canSendNextCommand发现可以为当前小车Vehicle-01下发移动指令
+>>>  【DefaultVehicleController.allocateForNextCommand】即将为Vehicle-01的下一个移动指令分配资源
+>>>  Vehicle-01: Allocating resources: [Point{id=26, name=Point-0027}, Path{id=91, name=Point-0026 --- Point-0027}]
+>>>  【DefaultVehicleController.allocateForNextCommand】小车Vehicle-01: 所需资源有: [Point{id=26, name=Point-0027}, Path{id=91, name=Point-0026 --- Point-0027}]
+>>>  【DefaultScheduler.allocate】Scheduler提交资源分配任务，kernelExecutor将在异步线程中为客户分配资源【Vehicle-01】-->【[Point{id=26, name=Point-0027}, Path{id=91, name=Point-0026 --- Point-0027}]】...
+>>>  【AllocatorTask】有新的资源分配计划将被创建，创建命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$Allocate@72cd0de7
+>>>  Updating procState of vehicle Vehicle-01 to PROCESSING_ORDER...
+>>>  4、根据order sequences分配下一个运单给小车。Assigns vehicles to the next transport orders in their respective order sequences, if any.
+>>>  5、分配订单给小车，首先分配已预订的订单，然后分配自由订单。Assignment of orders to vehicles.Default: Assigns reserved and then free orders to vehicles.
+>>>  5.1、分配已被预定的订单给小车。Assigns reserved transport orders (if any) to vehicles that have just finished their withdrawn ones.
+>>>  5.2、分配订单给当前没有renew任务的小车。Assigns transport orders to vehicles that are currently not processing any and are not bound to any order sequences.
+>>>  检查Vehicle-01小车是否可用(TO_BE_UTILIZED && 当前点位不为空&&没有OrderSequence&&电量部位紧急状态&&不需要继续充电(对于正在充电的小车)&&【不在处理订单||正在处理的订单可有可无DispensableOrder】)&&未被其他订单预定
+>>>  【AssignFreeOrdersPhase.run.IsAvailableForAnyOrder.CompositeVehicleSelectionFilter(组合过滤器默认为空)】做完小车过滤，过滤结果:Map<Boolean, List<VehicleFilterResult>> = {false=[], true=[]}
+>>>  【AssignFreeOrdersPhase.run.vehiclesSplitByFilter.collect】收集过滤结果，获取到availableVehicles:[]
+>>>  No vehicles available, skipping potentially expensive fetching of orders.
+>>>  6、Recharging of vehicles.Default: Sends idle vehicles with a degraded energy level to recharge locations.
+>>>  6.1、新建充电订单给Creates recharging orders for any vehicles with a degraded energy level.
+>>>  7、Parking of vehicles.Default: Sends idle vehicles to parking positions.
+>>>  7.1、Creates parking orders for idle vehicles already at a parking position to send them to higher prioritized parking positions.
+>>>  7.2、Creates parking orders for idle vehicles not already at a parking position considering only prioritized parking positions.
+>>>  7.3、Creates parking orders for idle vehicles not already at a parking position considering all parking positions.
+>>>  Finished full dispatch run.
+>>>  ==============结束 FullDispatchTask.run ==============
+>>>  【AllocatorTask】有新的资源分配计划将被执行，执行的命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$Allocate@72cd0de7
+>>>  Vehicle-01: Checking resource if all resources are available:
+>>>  Vehicle-01: Checking if resources may be allocated...
+>>>  Vehicle-01: Some resources need to be prepared for allocation.
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SingleVehicleBlockModule@58594a11: Preparing allocation for resources [Point{id=26, name=Point-0027}, Path{id=91, name=Point-0026 --- Point-0027}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SameDirectionBlockModule@2a3888c1: Preparing allocation for resources [Point{id=26, name=Point-0027}, Path{id=91, name=Point-0026 --- Point-0027}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  Vehicle-01: All resources available, allocating...
+>>>  Allocating resource Point{id=26, name=Point-0027} for client Vehicle-01
+>>>  Allocating resource Path{id=91, name=Point-0026 --- Point-0027} for client Vehicle-01
+>>>  Preparation of resources '[Point{id=26, name=Point-0027}, Path{id=91, name=Point-0026 --- Point-0027}]' successful, calling back client 'Vehicle-01'...
+>>>  【DefaultVehicleController.allocationSuccessful】前一次请求的资源分配成功，进入回调告知客户端(小车),并执行回调后处理！Vehicle-01 <-- [Point{id=26, name=Point-0027}, Path{id=91, name=Point-0026 --- Point-0027}]
+>>>  【DefaultVehicleController.allocationSuccessful】核实所分配的与当前缓存的pendingResources，pendingCommand对应
+>>>  【DefaultVehicleController.allocationSuccessful】核实成功。下面开始给CommAdapter下发移动指令(指令[所需资源]已经由[scheduler]预留[归本小车占用]的资源)。
+>>>  给CommAdapter下发移动指令:commAdapter.enqueueCommand(command)，另外Controller本身记录自己的commandsSent.add(command);
+>>>  【BasicVehicleCommAdapter.enqueueCommand】新的移动指令[MovementCommand{step=Point-0027, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=20, name=Point-0021}, finalDestinationLocation=Location{id=131, name=Goods out 02}, finalOperation=Unload cargo, properties={}}]被加到指令队列中....
+>>>  Vehicle-01: Adding command: MovementCommand{step=Point-0027, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=20, name=Point-0021}, finalDestinationLocation=Location{id=131, name=Goods out 02}, finalOperation=Unload cargo, properties={}}
+>>>  【DefaultVehicleController.allocationSuccessful】CommAdapter移动指令下发完成。下面执行waitingForAllocation=false(因为上一次资源分配已完成)，及下一次移动指令所需资源请求分配canSendNextCommand -> allocateForNextCommand
+>>>  DefaultVehicleController.canSendNextCommand执行判断，当前小车的commandQueueCapacity为2个，已有1个commandsSent，16futureCommands。
+>>>  DefaultVehicleController.canSendNextCommand得知，当前小车有1sendableCommands
+>>>  DefaultVehicleController.canSendNextCommand发现可以为当前小车Vehicle-01下发移动指令
+>>>  【DefaultVehicleController.allocateForNextCommand】即将为Vehicle-01的下一个移动指令分配资源
+>>>  Vehicle-01: Allocating resources: [Point{id=30, name=Point-0032}, Path{id=92, name=Point-0027 --- Point-0032}]
+>>>  【DefaultVehicleController.allocateForNextCommand】小车Vehicle-01: 所需资源有: [Point{id=30, name=Point-0032}, Path{id=92, name=Point-0027 --- Point-0032}]
+>>>  【DefaultScheduler.allocate】Scheduler提交资源分配任务，kernelExecutor将在异步线程中为客户分配资源【Vehicle-01】-->【[Point{id=30, name=Point-0032}, Path{id=92, name=Point-0027 --- Point-0032}]】...
+>>>  【AllocatorTask】有新的资源分配计划将被创建，创建命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$Allocate@6ace99c1
+>>>  【AllocatorTask】有新的资源分配计划将被执行，执行的命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$Allocate@6ace99c1
+>>>  Vehicle-01: Checking resource if all resources are available:
+>>>  Vehicle-01: Checking if resources may be allocated...
+>>>  Vehicle-01: Some resources need to be prepared for allocation.
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SingleVehicleBlockModule@58594a11: Preparing allocation for resources [Point{id=30, name=Point-0032}, Path{id=92, name=Point-0027 --- Point-0032}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SameDirectionBlockModule@2a3888c1: Preparing allocation for resources [Point{id=30, name=Point-0032}, Path{id=92, name=Point-0027 --- Point-0032}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  Vehicle-01: All resources available, allocating...
+>>>  Allocating resource Point{id=30, name=Point-0032} for client Vehicle-01
+>>>  Allocating resource Path{id=92, name=Point-0027 --- Point-0032} for client Vehicle-01
+>>>  Preparation of resources '[Point{id=30, name=Point-0032}, Path{id=92, name=Point-0027 --- Point-0032}]' successful, calling back client 'Vehicle-01'...
+>>>  【DefaultVehicleController.allocationSuccessful】前一次请求的资源分配成功，进入回调告知客户端(小车),并执行回调后处理！Vehicle-01 <-- [Point{id=30, name=Point-0032}, Path{id=92, name=Point-0027 --- Point-0032}]
+>>>  【DefaultVehicleController.allocationSuccessful】核实所分配的与当前缓存的pendingResources，pendingCommand对应
+>>>  【DefaultVehicleController.allocationSuccessful】核实成功。下面开始给CommAdapter下发移动指令(指令[所需资源]已经由[scheduler]预留[归本小车占用]的资源)。
+>>>  给CommAdapter下发移动指令:commAdapter.enqueueCommand(command)，另外Controller本身记录自己的commandsSent.add(command);
+>>>  【BasicVehicleCommAdapter.enqueueCommand】新的移动指令[MovementCommand{step=Point-0032, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=20, name=Point-0021}, finalDestinationLocation=Location{id=131, name=Goods out 02}, finalOperation=Unload cargo, properties={}}]被加到指令队列中....
+>>>  Vehicle-01: Adding command: MovementCommand{step=Point-0032, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=20, name=Point-0021}, finalDestinationLocation=Location{id=131, name=Goods out 02}, finalOperation=Unload cargo, properties={}}
+>>>  【DefaultVehicleController.allocationSuccessful】CommAdapter移动指令下发完成。下面执行waitingForAllocation=false(因为上一次资源分配已完成)，及下一次移动指令所需资源请求分配canSendNextCommand -> allocateForNextCommand
+>>>  DefaultVehicleController.canSendNextCommand执行判断，当前小车的commandQueueCapacity为2个，已有2个commandsSent，15futureCommands。
+>>>  DefaultVehicleController.canSendNextCommand得知，当前小车有0sendableCommands
+>>>  Vehicle-01: Cannot send, number of sendable commands: 0
+
+
+============================完成小车执行NextStep-驾驶单1前1步============================
+
+============================开始小车执行NextStep-驾驶单2-Step-1============================
+
+>>>  【BasicVehicleCommAdapter】即将被下发移动指令[curCmd=MovementCommand{step=Point-0027, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=20, name=Point-0021}, finalDestinationLocation=Location{id=131, name=Goods out 02}, finalOperation=Unload cargo, properties={}}]：sendCommand(curCmd)->getSentQueue().add(curCmd)->getProcessModel().commandSent(curCmd)
+>>>  当前所有sentQueue[MovementCommand{step=Point-0027, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=20, name=Point-0021}, finalDestinationLocation=Location{id=131, name=Goods out 02}, finalOperation=Unload cargo, properties={}}]
+>>>  peek获取【已发送未执行队列sentQueue】中的的当前运行指令MovementCommand:MovementCommand{step=Point-0027, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=20, name=Point-0021}, finalDestinationLocation=Location{id=131, name=Goods out 02}, finalOperation=Unload cargo, properties={}}
+>>>  Processing MovementCommand...
+>>>  =========适配器开始执行移动指令MovementCommand========
+>>>  t = 0.02; s = 10.0; v_current = 0.0; v_target = 1000.0
+>>>  result = 50000
+>>>  t = 0.013333333333333334; s = 10.0; v_current = 500.0; v_target = 1000.0
+>>>  result = 37500
+>>>  Vehicle TCSObjectReference{referentClass=class org.opentcs.data.model.Vehicle, id=123, name=Vehicle-01} has reached point TCSObjectReference{referentClass=class org.opentcs.data.model.Point, id=26, name=Point-0027}.
+>>>  小车 Vehicle-01 位置发生变化，已经到达 Point-0027.
+>>>  适配器已驱动小车执行移动指令MovementCommand.StepPoint-0027
+>>>  适配器检查false需要执行MovementCommand.OperationNOP
+>>>  Processed MovementCommand.
+>>>  =========适配器执行完成移动指令MovementCommand========
+>>>  =========适配器开始更新小车状态：========
+>>>  如果【待执行SentQueue】 <= 1 && 【待发送CommandQueue】为空，置Vehicle.State.IDLE
+>>>  getSentQueue().poll()移除已经被执行掉的sentCmd
+>>>  告知小车模型指令MovementCommand{step=Point-0027, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=20, name=Point-0021}, finalDestinationLocation=Location{id=131, name=Goods out 02}, finalOperation=Unload cargo, properties={}}已被执行
+>>>  Vehicle-01: Freeing resources: [Path{id=88, name=Point-0025 --- Point-0026}, Point{id=25, name=Point-0026}]
+>>>  Vehicle-01: Releasing resources: [Path{id=88, name=Point-0025 --- Point-0026}, Point{id=25, name=Point-0026}]
+>>>  Vehicle-01: Releasing resources: [Path{id=88, name=Point-0025 --- Point-0026}, Point{id=25, name=Point-0026}]
+>>>  【AllocatorTask】有新的资源分配计划将被创建，创建命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$AllocationsReleased@68c2a67f
+>>>  【AllocatorTask】有新的资源分配计划将被创建，创建命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$RetryAllocates@608a31
+>>>  【AllocatorTask】有新的资源分配计划将被执行，执行的命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$AllocationsReleased@68c2a67f
+>>>  DefaultVehicleController.canSendNextCommand执行判断，当前小车的commandQueueCapacity为2个，已有1个commandsSent，15futureCommands。
+>>>  DefaultVehicleController.canSendNextCommand得知，当前小车有1sendableCommands
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SingleVehicleBlockModule@58594a11: Allocation released for resources [Path{id=88, name=Point-0025 --- Point-0026}, Point{id=25, name=Point-0026}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  DefaultVehicleController.canSendNextCommand发现可以为当前小车Vehicle-01下发移动指令
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SameDirectionBlockModule@2a3888c1: Allocation released for resources [Path{id=88, name=Point-0025 --- Point-0026}, Point{id=25, name=Point-0026}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  【DefaultVehicleController.allocateForNextCommand】即将为Vehicle-01的下一个移动指令分配资源
+>>>  【AllocatorTask】有新的资源分配计划将被执行，执行的命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$RetryAllocates@608a31
+>>>  Vehicle-01: Allocating resources: [Path{id=96, name=Point-0032 --- Point-0028}, Point{id=27, name=Point-0028}]
+>>>  【DefaultVehicleController.allocateForNextCommand】小车Vehicle-01: 所需资源有: [Path{id=96, name=Point-0032 --- Point-0028}, Point{id=27, name=Point-0028}]
+>>>  【DefaultScheduler.allocate】Scheduler提交资源分配任务，kernelExecutor将在异步线程中为客户分配资源【Vehicle-01】-->【[Path{id=96, name=Point-0032 --- Point-0028}, Point{id=27, name=Point-0028}]】...
+>>>  【AllocatorTask】有新的资源分配计划将被创建，创建命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$Allocate@7b10046
+>>>  =========适配器完成更新小车状态========
+>>>  【AllocatorTask】有新的资源分配计划将被执行，执行的命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$Allocate@7b10046
+>>>  Vehicle-01: Checking resource if all resources are available:
+>>>  Vehicle-01: Checking if resources may be allocated...
+>>>  Vehicle-01: Some resources need to be prepared for allocation.
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SingleVehicleBlockModule@58594a11: Preparing allocation for resources [Path{id=96, name=Point-0032 --- Point-0028}, Point{id=27, name=Point-0028}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SameDirectionBlockModule@2a3888c1: Preparing allocation for resources [Path{id=96, name=Point-0032 --- Point-0028}, Point{id=27, name=Point-0028}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  Vehicle-01: All resources available, allocating...
+>>>  Allocating resource Path{id=96, name=Point-0032 --- Point-0028} for client Vehicle-01
+>>>  Allocating resource Point{id=27, name=Point-0028} for client Vehicle-01
+>>>  Preparation of resources '[Path{id=96, name=Point-0032 --- Point-0028}, Point{id=27, name=Point-0028}]' successful, calling back client 'Vehicle-01'...
+>>>  【DefaultVehicleController.allocationSuccessful】前一次请求的资源分配成功，进入回调告知客户端(小车),并执行回调后处理！Vehicle-01 <-- [Path{id=96, name=Point-0032 --- Point-0028}, Point{id=27, name=Point-0028}]
+>>>  【DefaultVehicleController.allocationSuccessful】核实所分配的与当前缓存的pendingResources，pendingCommand对应
+>>>  【DefaultVehicleController.allocationSuccessful】核实成功。下面开始给CommAdapter下发移动指令(指令[所需资源]已经由[scheduler]预留[归本小车占用]的资源)。
+>>>  给CommAdapter下发移动指令:commAdapter.enqueueCommand(command)，另外Controller本身记录自己的commandsSent.add(command);
+>>>  【BasicVehicleCommAdapter.enqueueCommand】新的移动指令[MovementCommand{step=Point-0028, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=20, name=Point-0021}, finalDestinationLocation=Location{id=131, name=Goods out 02}, finalOperation=Unload cargo, properties={}}]被加到指令队列中....
+>>>  Vehicle-01: Adding command: MovementCommand{step=Point-0028, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=20, name=Point-0021}, finalDestinationLocation=Location{id=131, name=Goods out 02}, finalOperation=Unload cargo, properties={}}
+>>>  【DefaultVehicleController.allocationSuccessful】CommAdapter移动指令下发完成。下面执行waitingForAllocation=false(因为上一次资源分配已完成)，及下一次移动指令所需资源请求分配canSendNextCommand -> allocateForNextCommand
+>>>  DefaultVehicleController.canSendNextCommand执行判断，当前小车的commandQueueCapacity为2个，已有2个commandsSent，14futureCommands。
+>>>  DefaultVehicleController.canSendNextCommand得知，当前小车有0sendableCommands
+>>>  Vehicle-01: Cannot send, number of sendable commands: 0
+
+
+============================完成小车执行NextStep-驾驶单2-Step-1============================
+
+
+
+============================开始小车执行NextStep-驾驶单2-Step-2============================
+
+>>>  【BasicVehicleCommAdapter】即将被下发移动指令[curCmd=MovementCommand{step=Point-0032, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=20, name=Point-0021}, finalDestinationLocation=Location{id=131, name=Goods out 02}, finalOperation=Unload cargo, properties={}}]：sendCommand(curCmd)->getSentQueue().add(curCmd)->getProcessModel().commandSent(curCmd)
+>>>  当前所有sentQueue[MovementCommand{step=Point-0032, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=20, name=Point-0021}, finalDestinationLocation=Location{id=131, name=Goods out 02}, finalOperation=Unload cargo, properties={}}]
+>>>  peek获取【已发送未执行队列sentQueue】中的的当前运行指令MovementCommand:MovementCommand{step=Point-0032, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=20, name=Point-0021}, finalDestinationLocation=Location{id=131, name=Goods out 02}, finalOperation=Unload cargo, properties={}}
+>>>  Processing MovementCommand...
+>>>  =========适配器开始执行移动指令MovementCommand========
+>>>  t = 0.02; s = 10.0; v_current = 0.0; v_target = 1000.0
+>>>  result = 50000
+>>>  t = 0.013333333333333334; s = 10.0; v_current = 500.0; v_target = 1000.0
+>>>  result = 37500
+>>>  Vehicle TCSObjectReference{referentClass=class org.opentcs.data.model.Vehicle, id=123, name=Vehicle-01} has reached point TCSObjectReference{referentClass=class org.opentcs.data.model.Point, id=30, name=Point-0032}.
+>>>  小车 Vehicle-01 位置发生变化，已经到达 Point-0032.
+>>>  适配器已驱动小车执行移动指令MovementCommand.StepPoint-0032
+>>>  适配器检查false需要执行MovementCommand.OperationNOP
+>>>  Processed MovementCommand.
+>>>  =========适配器执行完成移动指令MovementCommand========
+>>>  =========适配器开始更新小车状态：========
+>>>  如果【待执行SentQueue】 <= 1 && 【待发送CommandQueue】为空，置Vehicle.State.IDLE
+>>>  getSentQueue().poll()移除已经被执行掉的sentCmd
+>>>  告知小车模型指令MovementCommand{step=Point-0032, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=20, name=Point-0021}, finalDestinationLocation=Location{id=131, name=Goods out 02}, finalOperation=Unload cargo, properties={}}已被执行
+>>>  Vehicle-01: Freeing resources: [Point{id=26, name=Point-0027}, Path{id=91, name=Point-0026 --- Point-0027}]
+>>>  Vehicle-01: Releasing resources: [Point{id=26, name=Point-0027}, Path{id=91, name=Point-0026 --- Point-0027}]
+>>>  Vehicle-01: Releasing resources: [Point{id=26, name=Point-0027}, Path{id=91, name=Point-0026 --- Point-0027}]
+>>>  【AllocatorTask】有新的资源分配计划将被创建，创建命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$AllocationsReleased@607d3a5d
+>>>  【AllocatorTask】有新的资源分配计划将被创建，创建命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$RetryAllocates@64480561
+>>>  【AllocatorTask】有新的资源分配计划将被执行，执行的命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$AllocationsReleased@607d3a5d
+>>>  DefaultVehicleController.canSendNextCommand执行判断，当前小车的commandQueueCapacity为2个，已有1个commandsSent，14futureCommands。
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SingleVehicleBlockModule@58594a11: Allocation released for resources [Point{id=26, name=Point-0027}, Path{id=91, name=Point-0026 --- Point-0027}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SameDirectionBlockModule@2a3888c1: Allocation released for resources [Point{id=26, name=Point-0027}, Path{id=91, name=Point-0026 --- Point-0027}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  DefaultVehicleController.canSendNextCommand得知，当前小车有1sendableCommands
+>>>  DefaultVehicleController.canSendNextCommand发现可以为当前小车Vehicle-01下发移动指令
+>>>  【AllocatorTask】有新的资源分配计划将被执行，执行的命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$RetryAllocates@64480561
+>>>  【DefaultVehicleController.allocateForNextCommand】即将为Vehicle-01的下一个移动指令分配资源
+>>>  Vehicle-01: Allocating resources: [Path{id=93, name=Point-0028 --- Point-0029}, Point{id=28, name=Point-0029}]
+>>>  【DefaultVehicleController.allocateForNextCommand】小车Vehicle-01: 所需资源有: [Path{id=93, name=Point-0028 --- Point-0029}, Point{id=28, name=Point-0029}]
+>>>  【DefaultScheduler.allocate】Scheduler提交资源分配任务，kernelExecutor将在异步线程中为客户分配资源【Vehicle-01】-->【[Path{id=93, name=Point-0028 --- Point-0029}, Point{id=28, name=Point-0029}]】...
+>>>  【AllocatorTask】有新的资源分配计划将被创建，创建命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$Allocate@6b748a9e
+>>>  =========适配器完成更新小车状态========
+>>>  【AllocatorTask】有新的资源分配计划将被执行，执行的命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$Allocate@6b748a9e
+>>>  Vehicle-01: Checking resource if all resources are available:
+>>>  Vehicle-01: Checking if resources may be allocated...
+>>>  Vehicle-01: Some resources need to be prepared for allocation.
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SingleVehicleBlockModule@58594a11: Preparing allocation for resources [Path{id=93, name=Point-0028 --- Point-0029}, Point{id=28, name=Point-0029}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SameDirectionBlockModule@2a3888c1: Preparing allocation for resources [Path{id=93, name=Point-0028 --- Point-0029}, Point{id=28, name=Point-0029}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  Vehicle-01: All resources available, allocating...
+>>>  Allocating resource Path{id=93, name=Point-0028 --- Point-0029} for client Vehicle-01
+>>>  Allocating resource Point{id=28, name=Point-0029} for client Vehicle-01
+>>>  Preparation of resources '[Path{id=93, name=Point-0028 --- Point-0029}, Point{id=28, name=Point-0029}]' successful, calling back client 'Vehicle-01'...
+>>>  【DefaultVehicleController.allocationSuccessful】前一次请求的资源分配成功，进入回调告知客户端(小车),并执行回调后处理！Vehicle-01 <-- [Path{id=93, name=Point-0028 --- Point-0029}, Point{id=28, name=Point-0029}]
+>>>  【DefaultVehicleController.allocationSuccessful】核实所分配的与当前缓存的pendingResources，pendingCommand对应
+>>>  【DefaultVehicleController.allocationSuccessful】核实成功。下面开始给CommAdapter下发移动指令(指令[所需资源]已经由[scheduler]预留[归本小车占用]的资源)。
+>>>  给CommAdapter下发移动指令:commAdapter.enqueueCommand(command)，另外Controller本身记录自己的commandsSent.add(command);
+>>>  【BasicVehicleCommAdapter.enqueueCommand】新的移动指令[MovementCommand{step=Point-0029, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=20, name=Point-0021}, finalDestinationLocation=Location{id=131, name=Goods out 02}, finalOperation=Unload cargo, properties={}}]被加到指令队列中....
+>>>  Vehicle-01: Adding command: MovementCommand{step=Point-0029, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=20, name=Point-0021}, finalDestinationLocation=Location{id=131, name=Goods out 02}, finalOperation=Unload cargo, properties={}}
+>>>  【DefaultVehicleController.allocationSuccessful】CommAdapter移动指令下发完成。下面执行waitingForAllocation=false(因为上一次资源分配已完成)，及下一次移动指令所需资源请求分配canSendNextCommand -> allocateForNextCommand
+>>>  DefaultVehicleController.canSendNextCommand执行判断，当前小车的commandQueueCapacity为2个，已有2个commandsSent，13futureCommands。
+>>>  DefaultVehicleController.canSendNextCommand得知，当前小车有0sendableCommands
+>>>  Vehicle-01: Cannot send, number of sendable commands: 0
+
+
+
+============================完成小车执行NextStep-驾驶单2-Step-2============================
+
+
+============================完成小车执行NextStep-驾驶单2-Step-3-task-block============================
+
+>>>  【BasicVehicleCommAdapter】即将被下发移动指令[curCmd=MovementCommand{step=Point-0028, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=20, name=Point-0021}, finalDestinationLocation=Location{id=131, name=Goods out 02}, finalOperation=Unload cargo, properties={}}]：sendCommand(curCmd)->getSentQueue().add(curCmd)->getProcessModel().commandSent(curCmd)
+>>>  当前所有sentQueue[MovementCommand{step=Point-0028, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=20, name=Point-0021}, finalDestinationLocation=Location{id=131, name=Goods out 02}, finalOperation=Unload cargo, properties={}}]
+>>>  peek获取【已发送未执行队列sentQueue】中的的当前运行指令MovementCommand:MovementCommand{step=Point-0028, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=20, name=Point-0021}, finalDestinationLocation=Location{id=131, name=Goods out 02}, finalOperation=Unload cargo, properties={}}
+>>>  Processing MovementCommand...
+>>>  =========适配器开始执行移动指令MovementCommand========
+>>>  t = 0.02; s = 10.0; v_current = 0.0; v_target = 1000.0
+>>>  result = 50000
+>>>  t = 0.013333333333333334; s = 10.0; v_current = 500.0; v_target = 1000.0
+>>>  result = 37500
+>>>  Vehicle TCSObjectReference{referentClass=class org.opentcs.data.model.Vehicle, id=123, name=Vehicle-01} has reached point TCSObjectReference{referentClass=class org.opentcs.data.model.Point, id=27, name=Point-0028}.
+>>>  小车 Vehicle-01 位置发生变化，已经到达 Point-0028.
+>>>  适配器已驱动小车执行移动指令MovementCommand.StepPoint-0028
+>>>  适配器检查false需要执行MovementCommand.OperationNOP
+>>>  Processed MovementCommand.
+>>>  =========适配器执行完成移动指令MovementCommand========
+>>>  =========适配器开始更新小车状态：========
+>>>  如果【待执行SentQueue】 <= 1 && 【待发送CommandQueue】为空，置Vehicle.State.IDLE
+>>>  getSentQueue().poll()移除已经被执行掉的sentCmd
+>>>  告知小车模型指令MovementCommand{step=Point-0028, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=20, name=Point-0021}, finalDestinationLocation=Location{id=131, name=Goods out 02}, finalOperation=Unload cargo, properties={}}已被执行
+>>>  Vehicle-01: Freeing resources: [Point{id=30, name=Point-0032}, Path{id=92, name=Point-0027 --- Point-0032}]
+>>>  Vehicle-01: Releasing resources: [Point{id=30, name=Point-0032}, Path{id=92, name=Point-0027 --- Point-0032}]
+>>>  Vehicle-01: Releasing resources: [Point{id=30, name=Point-0032}, Path{id=92, name=Point-0027 --- Point-0032}]
+>>>  【AllocatorTask】有新的资源分配计划将被创建，创建命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$AllocationsReleased@7304a4ff
+>>>  【AllocatorTask】有新的资源分配计划将被创建，创建命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$RetryAllocates@5743c4f3
+>>>  DefaultVehicleController.canSendNextCommand执行判断，当前小车的commandQueueCapacity为2个，已有1个commandsSent，13futureCommands。
+>>>  DefaultVehicleController.canSendNextCommand得知，当前小车有1sendableCommands
+>>>  DefaultVehicleController.canSendNextCommand发现可以为当前小车Vehicle-01下发移动指令
+>>>  【DefaultVehicleController.allocateForNextCommand】即将为Vehicle-01的下一个移动指令分配资源
+>>>  Vehicle-01: Allocating resources: [Point{id=33, name=Point-0035}, Path{id=94, name=Point-0029 --- Point-0035}]
+>>>  【DefaultVehicleController.allocateForNextCommand】小车Vehicle-01: 所需资源有: [Point{id=33, name=Point-0035}, Path{id=94, name=Point-0029 --- Point-0035}]
+>>>  【DefaultScheduler.allocate】Scheduler提交资源分配任务，kernelExecutor将在异步线程中为客户分配资源【Vehicle-01】-->【[Point{id=33, name=Point-0035}, Path{id=94, name=Point-0029 --- Point-0035}]】...
+>>>  【AllocatorTask】有新的资源分配计划将被创建，创建命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$Allocate@182c94ff
+>>>  =========适配器完成更新小车状态========
+>>>  【AllocatorTask】有新的资源分配计划将被执行，执行的命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$AllocationsReleased@7304a4ff
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SingleVehicleBlockModule@58594a11: Allocation released for resources [Point{id=30, name=Point-0032}, Path{id=92, name=Point-0027 --- Point-0032}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SameDirectionBlockModule@2a3888c1: Allocation released for resources [Point{id=30, name=Point-0032}, Path{id=92, name=Point-0027 --- Point-0032}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  【AllocatorTask】有新的资源分配计划将被执行，执行的命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$RetryAllocates@5743c4f3
+>>>  【AllocatorTask】有新的资源分配计划将被执行，执行的命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$Allocate@182c94ff
+>>>  Vehicle-01: Checking resource if all resources are available:
+>>>  Vehicle-01: Checking if resources may be allocated...
+>>>  Vehicle-01: Some resources need to be prepared for allocation.
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SingleVehicleBlockModule@58594a11: Preparing allocation for resources [Point{id=33, name=Point-0035}, Path{id=94, name=Point-0029 --- Point-0035}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SameDirectionBlockModule@2a3888c1: Preparing allocation for resources [Point{id=33, name=Point-0035}, Path{id=94, name=Point-0029 --- Point-0035}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  Vehicle-01: All resources available, allocating...
+>>>  Allocating resource Point{id=33, name=Point-0035} for client Vehicle-01
+>>>  Allocating resource Path{id=94, name=Point-0029 --- Point-0035} for client Vehicle-01
+>>>  Preparation of resources '[Point{id=33, name=Point-0035}, Path{id=94, name=Point-0029 --- Point-0035}]' successful, calling back client 'Vehicle-01'...
+>>>  【DefaultVehicleController.allocationSuccessful】前一次请求的资源分配成功，进入回调告知客户端(小车),并执行回调后处理！Vehicle-01 <-- [Point{id=33, name=Point-0035}, Path{id=94, name=Point-0029 --- Point-0035}]
+>>>  【DefaultVehicleController.allocationSuccessful】核实所分配的与当前缓存的pendingResources，pendingCommand对应
+>>>  【DefaultVehicleController.allocationSuccessful】核实成功。下面开始给CommAdapter下发移动指令(指令[所需资源]已经由[scheduler]预留[归本小车占用]的资源)。
+>>>  给CommAdapter下发移动指令:commAdapter.enqueueCommand(command)，另外Controller本身记录自己的commandsSent.add(command);
+>>>  【BasicVehicleCommAdapter.enqueueCommand】新的移动指令[MovementCommand{step=Point-0035, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=20, name=Point-0021}, finalDestinationLocation=Location{id=131, name=Goods out 02}, finalOperation=Unload cargo, properties={}}]被加到指令队列中....
+>>>  Vehicle-01: Adding command: MovementCommand{step=Point-0035, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=20, name=Point-0021}, finalDestinationLocation=Location{id=131, name=Goods out 02}, finalOperation=Unload cargo, properties={}}
+>>>  【DefaultVehicleController.allocationSuccessful】CommAdapter移动指令下发完成。下面执行waitingForAllocation=false(因为上一次资源分配已完成)，及下一次移动指令所需资源请求分配canSendNextCommand -> allocateForNextCommand
+>>>  DefaultVehicleController.canSendNextCommand执行判断，当前小车的commandQueueCapacity为2个，已有2个commandsSent，12futureCommands。
+>>>  DefaultVehicleController.canSendNextCommand得知，当前小车有0sendableCommands
+>>>  Vehicle-01: Cannot send, number of sendable commands: 0
+
+
+
+============================完成小车执行NextStep-驾驶单2-Step-3-task-block============================
+
+
+============================完成小车执行NextStep-驾驶单2-Step-4-release-block============================
+
+>>>  【BasicVehicleCommAdapter】即将被下发移动指令[curCmd=MovementCommand{step=Point-0029, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=20, name=Point-0021}, finalDestinationLocation=Location{id=131, name=Goods out 02}, finalOperation=Unload cargo, properties={}}]：sendCommand(curCmd)->getSentQueue().add(curCmd)->getProcessModel().commandSent(curCmd)
+>>>  当前所有sentQueue[MovementCommand{step=Point-0029, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=20, name=Point-0021}, finalDestinationLocation=Location{id=131, name=Goods out 02}, finalOperation=Unload cargo, properties={}}]
+>>>  peek获取【已发送未执行队列sentQueue】中的的当前运行指令MovementCommand:MovementCommand{step=Point-0029, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=20, name=Point-0021}, finalDestinationLocation=Location{id=131, name=Goods out 02}, finalOperation=Unload cargo, properties={}}
+>>>  Processing MovementCommand...
+>>>  =========适配器开始执行移动指令MovementCommand========
+>>>  t = 0.02; s = 10.0; v_current = 0.0; v_target = 1000.0
+>>>  result = 50000
+>>>  t = 0.013333333333333334; s = 10.0; v_current = 500.0; v_target = 1000.0
+>>>  result = 37500
+>>>  Vehicle TCSObjectReference{referentClass=class org.opentcs.data.model.Vehicle, id=123, name=Vehicle-01} has reached point TCSObjectReference{referentClass=class org.opentcs.data.model.Point, id=28, name=Point-0029}.
+>>>  小车 Vehicle-01 位置发生变化，已经到达 Point-0029.
+>>>  适配器已驱动小车执行移动指令MovementCommand.StepPoint-0029
+>>>  适配器检查false需要执行MovementCommand.OperationNOP
+>>>  Processed MovementCommand.
+>>>  =========适配器执行完成移动指令MovementCommand========
+>>>  =========适配器开始更新小车状态：========
+>>>  如果【待执行SentQueue】 <= 1 && 【待发送CommandQueue】为空，置Vehicle.State.IDLE
+>>>  getSentQueue().poll()移除已经被执行掉的sentCmd
+>>>  告知小车模型指令MovementCommand{step=Point-0029, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=20, name=Point-0021}, finalDestinationLocation=Location{id=131, name=Goods out 02}, finalOperation=Unload cargo, properties={}}已被执行
+>>>  Vehicle-01: Freeing resources: [Path{id=96, name=Point-0032 --- Point-0028}, Point{id=27, name=Point-0028}]
+>>>  Vehicle-01: Releasing resources: [Path{id=96, name=Point-0032 --- Point-0028}, Point{id=27, name=Point-0028}]
+>>>  Vehicle-01: Releasing resources: [Path{id=96, name=Point-0032 --- Point-0028}, Point{id=27, name=Point-0028}]
+>>>  【AllocatorTask】有新的资源分配计划将被创建，创建命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$AllocationsReleased@22a68391
+>>>  【AllocatorTask】有新的资源分配计划将被创建，创建命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$RetryAllocates@6b8baf6a
+>>>  【AllocatorTask】有新的资源分配计划将被执行，执行的命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$AllocationsReleased@22a68391
+>>>  DefaultVehicleController.canSendNextCommand执行判断，当前小车的commandQueueCapacity为2个，已有1个commandsSent，12futureCommands。
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SingleVehicleBlockModule@58594a11: Allocation released for resources [Path{id=96, name=Point-0032 --- Point-0028}, Point{id=27, name=Point-0028}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  DefaultVehicleController.canSendNextCommand得知，当前小车有1sendableCommands
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SameDirectionBlockModule@2a3888c1: Allocation released for resources [Path{id=96, name=Point-0032 --- Point-0028}, Point{id=27, name=Point-0028}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  DefaultVehicleController.canSendNextCommand发现可以为当前小车Vehicle-01下发移动指令
+>>>  【DefaultVehicleController.allocateForNextCommand】即将为Vehicle-01的下一个移动指令分配资源
+>>>  【AllocatorTask】有新的资源分配计划将被执行，执行的命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$RetryAllocates@6b8baf6a
+>>>  Vehicle-01: Allocating resources: [Path{id=100, name=Point-0035 --- Point-0036}, Point{id=34, name=Point-0036}]
+>>>  【DefaultVehicleController.allocateForNextCommand】小车Vehicle-01: 所需资源有: [Path{id=100, name=Point-0035 --- Point-0036}, Point{id=34, name=Point-0036}]
+>>>  【DefaultScheduler.allocate】Scheduler提交资源分配任务，kernelExecutor将在异步线程中为客户分配资源【Vehicle-01】-->【[Path{id=100, name=Point-0035 --- Point-0036}, Point{id=34, name=Point-0036}]】...
+>>>  【AllocatorTask】有新的资源分配计划将被创建，创建命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$Allocate@177c5588
+>>>  =========适配器完成更新小车状态========
+>>>  【AllocatorTask】有新的资源分配计划将被执行，执行的命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$Allocate@177c5588
+>>>  Vehicle-01: Checking resource if all resources are available:
+>>>  Vehicle-01: Checking if resources may be allocated...
+>>>  Vehicle-01: Some resources need to be prepared for allocation.
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SingleVehicleBlockModule@58594a11: Preparing allocation for resources [Path{id=100, name=Point-0035 --- Point-0036}, Point{id=34, name=Point-0036}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SameDirectionBlockModule@2a3888c1: Preparing allocation for resources [Path{id=100, name=Point-0035 --- Point-0036}, Point{id=34, name=Point-0036}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  Vehicle-01: All resources available, allocating...
+>>>  Allocating resource Path{id=100, name=Point-0035 --- Point-0036} for client Vehicle-01
+>>>  Allocating resource Point{id=34, name=Point-0036} for client Vehicle-01
+>>>  Preparation of resources '[Path{id=100, name=Point-0035 --- Point-0036}, Point{id=34, name=Point-0036}]' successful, calling back client 'Vehicle-01'...
+>>>  【DefaultVehicleController.allocationSuccessful】前一次请求的资源分配成功，进入回调告知客户端(小车),并执行回调后处理！Vehicle-01 <-- [Path{id=100, name=Point-0035 --- Point-0036}, Point{id=34, name=Point-0036}]
+>>>  【DefaultVehicleController.allocationSuccessful】核实所分配的与当前缓存的pendingResources，pendingCommand对应
+>>>  【DefaultVehicleController.allocationSuccessful】核实成功。下面开始给CommAdapter下发移动指令(指令[所需资源]已经由[scheduler]预留[归本小车占用]的资源)。
+>>>  给CommAdapter下发移动指令:commAdapter.enqueueCommand(command)，另外Controller本身记录自己的commandsSent.add(command);
+>>>  【BasicVehicleCommAdapter.enqueueCommand】新的移动指令[MovementCommand{step=Point-0036, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=20, name=Point-0021}, finalDestinationLocation=Location{id=131, name=Goods out 02}, finalOperation=Unload cargo, properties={}}]被加到指令队列中....
+>>>  Vehicle-01: Adding command: MovementCommand{step=Point-0036, operation=NOP, opLocation=null, finalMovement=false, finalDestination=Point{id=20, name=Point-0021}, finalDestinationLocation=Location{id=131, name=Goods out 02}, finalOperation=Unload cargo, properties={}}
+>>>  【DefaultVehicleController.allocationSuccessful】CommAdapter移动指令下发完成。下面执行waitingForAllocation=false(因为上一次资源分配已完成)，及下一次移动指令所需资源请求分配canSendNextCommand -> allocateForNextCommand
+>>>  DefaultVehicleController.canSendNextCommand执行判断，当前小车的commandQueueCapacity为2个，已有2个commandsSent，11futureCommands。
+>>>  DefaultVehicleController.canSendNextCommand得知，当前小车有0sendableCommands
+>>>  Vehicle-01: Cannot send, number of sendable commands: 0
+
+
+
+============================完成小车执行NextStep-驾驶单2-Step-4-release-block============================
+
+
+============================开始小车执行NextStep-驾驶单2-前1步============================
+
+>>>  【BasicVehicleCommAdapter】即将被下发移动指令[curCmd=MovementCommand{step=Point-0021, operation=Unload cargo, opLocation=Location{id=131, name=Goods out 02}, finalMovement=true, finalDestination=Point{id=20, name=Point-0021}, finalDestinationLocation=Location{id=131, name=Goods out 02}, finalOperation=Unload cargo, properties={}}]：sendCommand(curCmd)->getSentQueue().add(curCmd)->getProcessModel().commandSent(curCmd)
+>>>  当前所有sentQueue[MovementCommand{step=Point-0021, operation=Unload cargo, opLocation=Location{id=131, name=Goods out 02}, finalMovement=true, finalDestination=Point{id=20, name=Point-0021}, finalDestinationLocation=Location{id=131, name=Goods out 02}, finalOperation=Unload cargo, properties={}}]
+>>>  peek获取【已发送未执行队列sentQueue】中的的当前运行指令MovementCommand:MovementCommand{step=Point-0021, operation=Unload cargo, opLocation=Location{id=131, name=Goods out 02}, finalMovement=true, finalDestination=Point{id=20, name=Point-0021}, finalDestinationLocation=Location{id=131, name=Goods out 02}, finalOperation=Unload cargo, properties={}}
+>>>  Processing MovementCommand...
+>>>  =========适配器开始执行移动指令MovementCommand========
+>>>  t = 0.02; s = 10.0; v_current = 0.0; v_target = 1000.0
+>>>  result = 50000
+>>>  t = 0.013333333333333334; s = 10.0; v_current = 500.0; v_target = 1000.0
+>>>  result = 37500
+>>>  Vehicle TCSObjectReference{referentClass=class org.opentcs.data.model.Vehicle, id=123, name=Vehicle-01} has reached point TCSObjectReference{referentClass=class org.opentcs.data.model.Point, id=20, name=Point-0021}.
+>>>  小车 Vehicle-01 位置发生变化，已经到达 Point-0021.
+>>>  适配器已驱动小车执行移动指令MovementCommand.StepPoint-0021
+>>>  适配器检查true需要执行MovementCommand.OperationUnload cargo
+>>>  Operating...
+>>>  Processed MovementCommand.
+>>>  =========适配器执行完成移动指令MovementCommand========
+>>>  =========适配器开始更新小车状态：========
+>>>  如果【待执行SentQueue】 <= 1 && 【待发送CommandQueue】为空，置Vehicle.State.IDLE
+>>>  getSentQueue().poll()移除已经被执行掉的sentCmd
+>>>  告知小车模型指令MovementCommand{step=Point-0021, operation=Unload cargo, opLocation=Location{id=131, name=Goods out 02}, finalMovement=true, finalDestination=Point{id=20, name=Point-0021}, finalDestinationLocation=Location{id=131, name=Goods out 02}, finalOperation=Unload cargo, properties={}}已被执行
+>>>  Vehicle-01: Freeing resources: [Point{id=19, name=Point-0020}, Path{id=79, name=Point-0017 --- Point-0020}]
+>>>  Vehicle-01: Releasing resources: [Point{id=19, name=Point-0020}, Path{id=79, name=Point-0017 --- Point-0020}]
+>>>  Vehicle-01: Releasing resources: [Point{id=19, name=Point-0020}, Path{id=79, name=Point-0017 --- Point-0020}]
+>>>  【AllocatorTask】有新的资源分配计划将被创建，创建命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$AllocationsReleased@3a4f39fd
+>>>  【AllocatorTask】有新的资源分配计划将被创建，创建命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$RetryAllocates@6c0d8229
+>>>  【AllocatorTask】有新的资源分配计划将被执行，执行的命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$AllocationsReleased@3a4f39fd
+>>>  Vehicle-01: No more commands in current drive order
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SingleVehicleBlockModule@58594a11: Allocation released for resources [Point{id=19, name=Point-0020}, Path{id=79, name=Point-0017 --- Point-0020}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  Vehicle-01: Current drive order processed
+>>>  Module org.opentcs.strategies.basic.scheduling.modules.SameDirectionBlockModule@2a3888c1: Allocation released for resources [Point{id=19, name=Point-0020}, Path{id=79, name=Point-0017 --- Point-0020}] for client DefaultVehicleController{vehicleName=Vehicle-01}.
+>>>  Updating procState of vehicle Vehicle-01 to AWAITING_ORDER...
+>>>  【AllocatorTask】有新的资源分配计划将被执行，执行的命令AllocatorCommand为org.opentcs.strategies.basic.scheduling.AllocatorCommand$RetryAllocates@6c0d8229
+>>>  【ImplicitDispatchTrigger】::: 监听到小车信息变更事件，并且小车满足可调度条件
+>>>  【ImplicitDispatchTrigger】::: 触发dispatcher.dispatch()方法，执行全局调度操作
+>>>  Dispatching for Vehicle{name=Vehicle-01, procState=AWAITING_ORDER, integrationLevel=TO_BE_UTILIZED, state=IDLE, energyLevel=100, currentPosition=TCSObjectReference{referentClass=class org.opentcs.data.model.Point, id=20, name=Point-0021}, precisePosition=null, orientationAngle=NaN, nextPosition=null, loadHandlingDevices=[LoadHandlingDevice{label=default, full=false}], length=1000, adapterState=CONNECTED, transportOrder=TCSObjectReference{referentClass=class org.opentcs.data.order.TransportOrder, id=146, name=TOrder-01DVPX3Y8PNKTM0RM9JZ4ZFTS3}, routeProgressIndex=-1, orderSequence=null, energyLevelGood=90, energyLevelCritical=30, energyLevelFullyRecharged=95, energyLevelSufficientlyRecharged=45, maxVelocity=100000, maxReverseVelocity=100000, rechargeOperation=CHARGE, processableCategories=[*]}...
+>>>  【DefaultDispatcher】:::全局调度器DefaultDispatcher.dispatch调用开始
+>>>  Scheduling dispatch task...
+>>>  【DefaultDispatcher】:::全局调度器DefaultDispatcher.dispatch调用结束
+>>>  ==============开始 FullDispatchTask.run ==============
+>>>  触发调度器的FullDispatchTask，执行任务分配：：：
+>>>  Starting full dispatch run...
+>>>  =========适配器完成更新小车状态========
+>>>  1、检查RAW状态的订单，调整为: UNROUTABLE(router判定无法路由), ACTIVE（可路由）, DISPATCHABLE(没有其他未完成的依赖任务)
+>>>  2、处理AWAITING_ORDER的小车。如果小车身上存在WITHDRAWN的运单，则将小车(是否需要disable,需要则UNAVAILABLE否则IDLE)及运单状态(fail)做相应调整
+>>>  3、分配下一个DriveOrder给AWAITING_ORDER的小车。checkForNextDriveOrder根据小车身上的TransportOrder.getCurrentDriveOrder()判断小车当前运单完成情况及是否需要分配下一个DriveOrder
+>>>  Vehicle 'Vehicle-01' finished a drive order.
+>>>  Vehicle 'Vehicle-01' finished transport order 'TOrder-01DVPX3Y8PNKTM0RM9JZ4ZFTS3'
+>>>  Updating state of transport order TOrder-01DVPX3Y8PNKTM0RM9JZ4ZFTS3 to FINISHED...
+>>>  Updating procState of vehicle Vehicle-01 to IDLE...
+>>>  【ImplicitDispatchTrigger】::: 监听到小车信息变更事件，并且小车满足可调度条件
+>>>  【ImplicitDispatchTrigger】::: 触发dispatcher.dispatch()方法，执行全局调度操作
+>>>  Dispatching for Vehicle{name=Vehicle-01, procState=IDLE, integrationLevel=TO_BE_UTILIZED, state=IDLE, energyLevel=100, currentPosition=TCSObjectReference{referentClass=class org.opentcs.data.model.Point, id=20, name=Point-0021}, precisePosition=null, orientationAngle=NaN, nextPosition=null, loadHandlingDevices=[LoadHandlingDevice{label=default, full=false}], length=1000, adapterState=CONNECTED, transportOrder=TCSObjectReference{referentClass=class org.opentcs.data.order.TransportOrder, id=146, name=TOrder-01DVPX3Y8PNKTM0RM9JZ4ZFTS3}, routeProgressIndex=-1, orderSequence=null, energyLevelGood=90, energyLevelCritical=30, energyLevelFullyRecharged=95, energyLevelSufficientlyRecharged=45, maxVelocity=100000, maxReverseVelocity=100000, rechargeOperation=CHARGE, processableCategories=[*]}...
+>>>  【DefaultDispatcher】:::全局调度器DefaultDispatcher.dispatch调用开始
+>>>  Scheduling dispatch task...
+>>>  【DefaultDispatcher】:::全局调度器DefaultDispatcher.dispatch调用结束
+>>>  4、根据order sequences分配下一个运单给小车。Assigns vehicles to the next transport orders in their respective order sequences, if any.
+>>>  5、分配订单给小车，首先分配已预订的订单，然后分配自由订单。Assignment of orders to vehicles.Default: Assigns reserved and then free orders to vehicles.
+>>>  5.1、分配已被预定的订单给小车。Assigns reserved transport orders (if any) to vehicles that have just finished their withdrawn ones.
+>>>  5.2、分配订单给当前没有renew任务的小车。Assigns transport orders to vehicles that are currently not processing any and are not bound to any order sequences.
+>>>  检查Vehicle-01小车是否可用(TO_BE_UTILIZED && 当前点位不为空&&没有OrderSequence&&电量部位紧急状态&&不需要继续充电(对于正在充电的小车)&&【不在处理订单||正在处理的订单可有可无DispensableOrder】)&&未被其他订单预定
+>>>  【CompositeVehicleSelectionFilter组合过滤器】对Vehicle-01执行过滤条件[]
+>>>  【AssignFreeOrdersPhase.run.IsAvailableForAnyOrder.CompositeVehicleSelectionFilter(组合过滤器默认为空)】做完小车过滤，过滤结果:Map<Boolean, List<VehicleFilterResult>> = {false=[], true=[org.opentcs.strategies.basic.dispatching.phase.VehicleFilterResult@1e9a439c]}
+>>>  【AssignFreeOrdersPhase.run.vehiclesSplitByFilter.collect】收集过滤结果，获取到availableVehicles:[Vehicle{name=Vehicle-01, procState=IDLE, integrationLevel=TO_BE_UTILIZED, state=IDLE, energyLevel=100, currentPosition=TCSObjectReference{referentClass=class org.opentcs.data.model.Point, id=20, name=Point-0021}, precisePosition=null, orientationAngle=NaN, nextPosition=null, loadHandlingDevices=[LoadHandlingDevice{label=default, full=false}], length=1000, adapterState=CONNECTED, transportOrder=null, routeProgressIndex=-1, orderSequence=null, energyLevelGood=90, energyLevelCritical=30, energyLevelFullyRecharged=95, energyLevelSufficientlyRecharged=45, maxVelocity=100000, maxReverseVelocity=100000, rechargeOperation=CHARGE, processableCategories=[*]}]
+>>>  【AssignFreeOrdersPhase.run.IsAvailableForAnyOrder.CompositeVehicleSelectionFilter(组合过滤器默认为空)】做完小车过滤，获取到availableVehicles:[Vehicle{name=Vehicle-01, procState=IDLE, integrationLevel=TO_BE_UTILIZED, state=IDLE, energyLevel=100, currentPosition=TCSObjectReference{referentClass=class org.opentcs.data.model.Point, id=20, name=Point-0021}, precisePosition=null, orientationAngle=NaN, nextPosition=null, loadHandlingDevices=[LoadHandlingDevice{label=default, full=false}], length=1000, adapterState=CONNECTED, transportOrder=null, routeProgressIndex=-1, orderSequence=null, energyLevelGood=90, energyLevelCritical=30, energyLevelFullyRecharged=95, energyLevelSufficientlyRecharged=45, maxVelocity=100000, maxReverseVelocity=100000, rechargeOperation=CHARGE, processableCategories=[*]}]
+>>>  【AssignFreeOrdersPhase.run.IsFreelyDispatchableToAnyVehicle.CompositeTransportOrderSelectionFilter(组合过滤器默认为空)】做完订单过滤，过滤结果:Map<Boolean, List<OrderFilterResult>> = {false=[], true=[]}
+>>>  【AssignFreeOrdersPhase.run】做完订单过滤，获取到availableOrders:[]
+>>>  【AssignFreeOrdersPhase.run】开始执行分配tryAssignments
+>>>  Available for dispatching: 0 transport orders and 1 vehicles.
+>>>  【AssignFreeOrderPhase.run.tryAssignments】[可用的小车数量]>[可分配自由订单数量]的情况下:所有[可分配自由订单]->小车排序->tryAssignVehicle
+>>>  6、Recharging of vehicles.Default: Sends idle vehicles with a degraded energy level to recharge locations.
+>>>  6.1、新建充电订单给Creates recharging orders for any vehicles with a degraded energy level.
+>>>  7、Parking of vehicles.Default: Sends idle vehicles to parking positions.
+>>>  7.1、Creates parking orders for idle vehicles already at a parking position to send them to higher prioritized parking positions.
+>>>  7.2、Creates parking orders for idle vehicles not already at a parking position considering only prioritized parking positions.
+>>>  7.3、Creates parking orders for idle vehicles not already at a parking position considering all parking positions.
+>>>  Finished full dispatch run.
+>>>  ==============结束 FullDispatchTask.run ==============
+>>>  ==============开始 FullDispatchTask.run ==============
+>>>  触发调度器的FullDispatchTask，执行任务分配：：：
+>>>  Starting full dispatch run...
+>>>  1、检查RAW状态的订单，调整为: UNROUTABLE(router判定无法路由), ACTIVE（可路由）, DISPATCHABLE(没有其他未完成的依赖任务)
+>>>  2、处理AWAITING_ORDER的小车。如果小车身上存在WITHDRAWN的运单，则将小车(是否需要disable,需要则UNAVAILABLE否则IDLE)及运单状态(fail)做相应调整
+>>>  3、分配下一个DriveOrder给AWAITING_ORDER的小车。checkForNextDriveOrder根据小车身上的TransportOrder.getCurrentDriveOrder()判断小车当前运单完成情况及是否需要分配下一个DriveOrder
+>>>  4、根据order sequences分配下一个运单给小车。Assigns vehicles to the next transport orders in their respective order sequences, if any.
+>>>  5、分配订单给小车，首先分配已预订的订单，然后分配自由订单。Assignment of orders to vehicles.Default: Assigns reserved and then free orders to vehicles.
+>>>  5.1、分配已被预定的订单给小车。Assigns reserved transport orders (if any) to vehicles that have just finished their withdrawn ones.
+>>>  5.2、分配订单给当前没有renew任务的小车。Assigns transport orders to vehicles that are currently not processing any and are not bound to any order sequences.
+>>>  检查Vehicle-01小车是否可用(TO_BE_UTILIZED && 当前点位不为空&&没有OrderSequence&&电量部位紧急状态&&不需要继续充电(对于正在充电的小车)&&【不在处理订单||正在处理的订单可有可无DispensableOrder】)&&未被其他订单预定
+>>>  【CompositeVehicleSelectionFilter组合过滤器】对Vehicle-01执行过滤条件[]
+>>>  【AssignFreeOrdersPhase.run.IsAvailableForAnyOrder.CompositeVehicleSelectionFilter(组合过滤器默认为空)】做完小车过滤，过滤结果:Map<Boolean, List<VehicleFilterResult>> = {false=[], true=[org.opentcs.strategies.basic.dispatching.phase.VehicleFilterResult@11d3eda5]}
+>>>  【AssignFreeOrdersPhase.run.vehiclesSplitByFilter.collect】收集过滤结果，获取到availableVehicles:[Vehicle{name=Vehicle-01, procState=IDLE, integrationLevel=TO_BE_UTILIZED, state=IDLE, energyLevel=100, currentPosition=TCSObjectReference{referentClass=class org.opentcs.data.model.Point, id=20, name=Point-0021}, precisePosition=null, orientationAngle=NaN, nextPosition=null, loadHandlingDevices=[LoadHandlingDevice{label=default, full=false}], length=1000, adapterState=CONNECTED, transportOrder=null, routeProgressIndex=-1, orderSequence=null, energyLevelGood=90, energyLevelCritical=30, energyLevelFullyRecharged=95, energyLevelSufficientlyRecharged=45, maxVelocity=100000, maxReverseVelocity=100000, rechargeOperation=CHARGE, processableCategories=[*]}]
+>>>  【AssignFreeOrdersPhase.run.IsAvailableForAnyOrder.CompositeVehicleSelectionFilter(组合过滤器默认为空)】做完小车过滤，获取到availableVehicles:[Vehicle{name=Vehicle-01, procState=IDLE, integrationLevel=TO_BE_UTILIZED, state=IDLE, energyLevel=100, currentPosition=TCSObjectReference{referentClass=class org.opentcs.data.model.Point, id=20, name=Point-0021}, precisePosition=null, orientationAngle=NaN, nextPosition=null, loadHandlingDevices=[LoadHandlingDevice{label=default, full=false}], length=1000, adapterState=CONNECTED, transportOrder=null, routeProgressIndex=-1, orderSequence=null, energyLevelGood=90, energyLevelCritical=30, energyLevelFullyRecharged=95, energyLevelSufficientlyRecharged=45, maxVelocity=100000, maxReverseVelocity=100000, rechargeOperation=CHARGE, processableCategories=[*]}]
+>>>  【AssignFreeOrdersPhase.run.IsFreelyDispatchableToAnyVehicle.CompositeTransportOrderSelectionFilter(组合过滤器默认为空)】做完订单过滤，过滤结果:Map<Boolean, List<OrderFilterResult>> = {false=[], true=[]}
+>>>  【AssignFreeOrdersPhase.run】做完订单过滤，获取到availableOrders:[]
+>>>  【AssignFreeOrdersPhase.run】开始执行分配tryAssignments
+>>>  Available for dispatching: 0 transport orders and 1 vehicles.
+>>>  【AssignFreeOrderPhase.run.tryAssignments】[可用的小车数量]>[可分配自由订单数量]的情况下:所有[可分配自由订单]->小车排序->tryAssignVehicle
+>>>  6、Recharging of vehicles.Default: Sends idle vehicles with a degraded energy level to recharge locations.
+>>>  6.1、新建充电订单给Creates recharging orders for any vehicles with a degraded energy level.
+>>>  7、Parking of vehicles.Default: Sends idle vehicles to parking positions.
+>>>  7.1、Creates parking orders for idle vehicles already at a parking position to send them to higher prioritized parking positions.
+>>>  7.2、Creates parking orders for idle vehicles not already at a parking position considering only prioritized parking positions.
+>>>  7.3、Creates parking orders for idle vehicles not already at a parking position considering all parking positions.
+>>>  Finished full dispatch run.
+>>>  ==============结束 FullDispatchTask.run ==============
+
+============================完成小车执行NextStep-驾驶单2-前1步============================
+
+
+
