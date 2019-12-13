@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.opentcs:opentcs-kernel-extension-http-services:4.16.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.opentcs/opentcs-kernel-extension-http-services/4.16.1/92b77386dafd174bc2ebf97c24e0c024f1880b63/opentcs-kernel-extension-http-services-4.16.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.opentcs/opentcs-kernel-extension-http-services/4.16.1/6c43fc968dc70ba123d475be8408b2fb0fb7b6a9/opentcs-kernel-extension-http-services-4.16.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

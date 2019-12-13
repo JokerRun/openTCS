@@ -1,0 +1,100 @@
+buildscript {
+  repositories {
+    jcenter()
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+  }
+  dependencies {
+    // License plugin
+    classpath 'gradle.plugin.nl.javadude.gradle.plugins:license-gradle-plugin:0.12.1'
+    // Versions plugin
+    classpath 'com.github.ben-manes:gradle-versions-plugin:0.12.0'
+    // Stats plugin
+    classpath 'org.kordamp.gradle:stats-gradle-plugin:0.2.0'
+  }
+}
+
+apply plugin: 'base'
+apply plugin: 'distribution'
+
+
+apply from: "${rootDir}/gradle/versioning.gradle"
+
+group = 'de.fraunhofer.iml.opentcs.example'
+
+repositories {
+  jcenter()
+}
+
+subprojects {
+  apply from: rootProject.file('gradle/common.gradle')
+}
+evaluationDependsOnChildren()
+
+distributions {
+  main {
+    contents.from {
+      project(':openTCS-LaurusTcs-Kernel').ext.collectableDistDir
+    }
+    contents.from {
+      project(':openTCS-LaurusTcs-KernelControlCenter').ext.collectableDistDir
+    }
+    contents.from {
+      project(':openTCS-LaurusTcs-PlantOverview').ext.collectableDistDir
+    }
+    contents.from {
+      project(':openTCS-LaurusTcs-Documentation').ext.collectableDistDir
+    }
+  }
+}
+
+task subDists {
+  dependsOn(':openTCS-LaurusTcs-Kernel:installDist')
+  dependsOn(':openTCS-LaurusTcs-KernelControlCenter:installDist')
+  dependsOn(':openTCS-LaurusTcs-PlantOverview:installDist')
+  dependsOn(':openTCS-LaurusTcs-Documentation:installDist')
+}
+
+installDist.dependsOn subDists
+
+distZip {
+  classifier = 'bin'
+  dependsOn subDists
+}
+
+distTar {
+  classifier = 'bin'
+  dependsOn subDists
+  compression = Compression.GZIP
+}
+
+task distSrcZip(type: Zip) {
+  classifier = 'src'
+  from "${rootDir}"
+
+  includes << 'config/**'
+  includes << 'gradle/**'
+  includes << 'lib/**'
+  includes << 'openTCS-*/**'
+  includes << 'src/**'
+  includes << '.nb-gradle-properties'
+  includes << '*.gradle'
+  includes << 'gradlew'
+  includes << 'gradlew.bat'
+  includes << 'README.md'
+
+  excludes << '.gradle'
+  excludes << '**/build'
+}
+
+artifacts {
+  archives distZip
+  archives distTar
+  archives distSrcZip
+}
+
+build {
+  dependsOn subprojects*.build
+  dependsOn installDist
+}

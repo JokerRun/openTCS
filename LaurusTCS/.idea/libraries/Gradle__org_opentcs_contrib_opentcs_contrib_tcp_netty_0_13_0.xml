@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.opentcs.contrib:opentcs-contrib-tcp-netty:0.13.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.opentcs.contrib/opentcs-contrib-tcp-netty/0.13.0/55165855f50f9311965c485c070ff1a5dd4d0ba7/opentcs-contrib-tcp-netty-0.13.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.opentcs.contrib/opentcs-contrib-tcp-netty/0.13.0/84c31d95f10fec64163ddc6c8da815a022156318/opentcs-contrib-tcp-netty-0.13.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

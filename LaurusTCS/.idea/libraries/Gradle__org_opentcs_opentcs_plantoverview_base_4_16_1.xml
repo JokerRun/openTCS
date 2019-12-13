@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.opentcs:opentcs-plantoverview-base:4.16.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.opentcs/opentcs-plantoverview-base/4.16.1/9b33f0c77aae265aeda3526650997cbf23cc8693/opentcs-plantoverview-base-4.16.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.opentcs/opentcs-plantoverview-base/4.16.1/e66c06434a430a52f8a8f55e7feb98e0c63f97ba/opentcs-plantoverview-base-4.16.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

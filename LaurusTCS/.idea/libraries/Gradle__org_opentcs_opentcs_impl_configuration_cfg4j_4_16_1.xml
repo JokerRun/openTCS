@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.opentcs:opentcs-impl-configuration-cfg4j:4.16.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.opentcs/opentcs-impl-configuration-cfg4j/4.16.1/80d01044ab3d35afbb008d7329969287e992eeef/opentcs-impl-configuration-cfg4j-4.16.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.opentcs/opentcs-impl-configuration-cfg4j/4.16.1/352adfa73a41a33f6974c814a664e94289cbbbf7/opentcs-impl-configuration-cfg4j-4.16.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

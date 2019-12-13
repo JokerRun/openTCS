@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="openTCS-Example.main" target="1.8" />
+      <module name="openTCS-Example.openTCS-Example-CommAdapter-Vehicle.guiceConfig" target="1.8" />
+      <module name="openTCS-Example.openTCS-Example-CommAdapter-Vehicle.main" target="1.8" />
+      <module name="openTCS-Example.openTCS-Example-CommAdapter-Vehicle.test" target="1.8" />
+      <module name="openTCS-Example.openTCS-Example-Common.main" target="1.8" />
+      <module name="openTCS-Example.openTCS-Example-Common.test" target="1.8" />
+      <module name="openTCS-Example.openTCS-Example-Documentation.main" target="1.8" />
+      <module name="openTCS-Example.openTCS-Example-Documentation.test" target="1.8" />
+      <module name="openTCS-Example.openTCS-Example-Kernel.guiceConfig" target="1.8" />
+      <module name="openTCS-Example.openTCS-Example-Kernel.main" target="1.8" />
+      <module name="openTCS-Example.openTCS-Example-Kernel.test" target="1.8" />
+      <module name="openTCS-Example.openTCS-Example-KernelControlCenter.guiceConfig" target="1.8" />
+      <module name="openTCS-Example.openTCS-Example-KernelControlCenter.main" target="1.8" />
+      <module name="openTCS-Example.openTCS-Example-KernelControlCenter.test" target="1.8" />
+      <module name="openTCS-Example.openTCS-Example-PlantOverview.guiceConfig" target="1.8" />
+      <module name="openTCS-Example.openTCS-Example-PlantOverview.main" target="1.8" />
+      <module name="openTCS-Example.openTCS-Example-PlantOverview.test" target="1.8" />
+      <module name="openTCS-Example.test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
